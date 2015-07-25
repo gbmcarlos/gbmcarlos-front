@@ -2,29 +2,40 @@
     "layouts": [
         {
             "enabled": true,
-            "name": "layout1",
             "expand": true,
+            "name": "layout1",
+            "class": "layout",
             "structure": {
                 "rows": [
                     {
                         "name": "row1",
+                        "class": "row1",
                         "columns": [
                             {
-                                "name": "column1",
+                                "name": "region1",
+                                "class": "column1",
                                 "width": {
                                     "type": "percentatge",
                                     "value": "50"
                                 }
                             },
                             {
-                                "name": "column2",
+                                "name": "region2",
+                                "class": "column1",
                                 "width": {
                                     "type": "cell",
                                     "value": "5"
                                 }
-                            },
+                            }
+                        ]
+                    },
+                    {
+                        "name": "row2",
+                        "class": "row1",
+                        "columns": [
                             {
-                                "name": "column3",
+                                "name": "region3",
+                                "class": "column1",
                                 "width": {
                                     "type": "cell",
                                     "value": "3"
@@ -32,7 +43,8 @@
                                 "align": "center"
                             },
                             {
-                                "name": "column4",
+                                "name": "region4",
+                                "class": "column1",
                                 "width": {
                                     "type": "cell",
                                     "value": "3"

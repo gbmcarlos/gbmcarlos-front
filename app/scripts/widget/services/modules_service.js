@@ -6,35 +6,46 @@ var p = {
 
     generateConfig: function () {
 
-        this.layout = this.getLayout();
+        this.layout = this.generateLayout();
 
         console.log(this.layout);
 
     },
 
-    getLayout: function () {
+    getLayout: function() {
 
-        var layout = _.findWhere(this.config.layouts, {enabled: true});
+        if (this.layout) {
+            return this.layout;
+        }
 
-        var layout = this.generateLayout(layout);
+    },
+
+    generateLayout: function () {
+
+        var layoutDefinition = _.findWhere(this.config.layouts, {enabled: true});
+
+        var layout = this.parseLayout(layoutDefinition);
 
         return layout;
 
     },
 
-    generateLayout: function (layoutDefinition) {
+    parseLayout: function (layoutDefinition) {
 
         var layout = {
-            name: layoutDefinition.name
+            name: layoutDefinition.name,
+            layoutClass: layoutDefinition.class,
+            rows: [],
+            regions: {}
         };
 
-        layout.class = (!!layoutDefinition.expand) ? 'container-fluid' : 'container';
+        layout.containerClass = (!!layoutDefinition.expand) ? 'container-fluid' : 'container';
 
-        layout.rows = [];
+        layout.class = this.concatClasses(layout.layoutClass, layout.containerClass);
 
         _.each(layoutDefinition.structure.rows, function (rowDefinition) {
 
-            var row = this.generateRow(rowDefinition);
+            var row = this.generateRow(rowDefinition, layout);
 
             layout.rows.push(row);
 
@@ -44,21 +55,23 @@ var p = {
 
     },
 
-    generateRow: function (rowDefinition) {
+    generateRow: function (rowDefinition, layout) {
 
         var row = {
             name: rowDefinition.name,
+            rowClass: rowDefinition.class,
             cellsUsed: 0,
+            columns: [],
             subRows: [[]]
         };
 
-        row.columns = [];
+        row.class = row.rowClass;
 
         _.each(rowDefinition.columns, function (columnDefinition) {
 
             var column = this.generateColumn(columnDefinition, row);
 
-            this.addRowColumn(row, column);
+            this.addRowColumn(layout, row, column);
 
         }, this);
 
@@ -66,11 +79,11 @@ var p = {
 
     },
 
-    addRowColumn: function(row, column) {
+    addRowColumn: function (layout, row, column) {
 
         var currentSubRow = row.subRows ? row.subRows.length - 1 : 0;
 
-        if ((row.cellsUsed + column.offset + column.width) <= 12 ) {
+        if ((row.cellsUsed + column.offset + column.width) <= 12) {
             row.subRows[currentSubRow].push(column);
         } else {
             row.subRows.push([column]);
@@ -81,15 +94,7 @@ var p = {
 
         row.cellsUsed += column.offset + column.width;
 
-    },
-
-    updateRowCellsUsed: function(row, column) {
-
-        var newCellsUsed = column.offset + column.width;
-
-        row.cellsUsed += newCellsUsed;
-
-        return row;
+        layout.regions[column.name] = '#' + column.name;
 
     },
 
@@ -97,15 +102,18 @@ var p = {
 
         var column = {
             name: columnDefinition.name,
+            columnClass: columnDefinition.class,
             offset: 0
         };
 
+
         column.width = this.getColumnWidth(columnDefinition.width, row);
-        column.widthCclass = this.getColumnWidthClass(column.width);
+        column.widthClass = this.getColumnWidthClass(column.width);
 
         column.offset = this.getColumnOffset(column, columnDefinition, row);
         column.offsetClass = this.getColumnOffsetClass(column.offset);
 
+        column.class = this.concatClasses(column.columnClass, column.widthClass, column.offsetClass);
         return column;
 
 
@@ -171,23 +179,28 @@ var p = {
 
     },
 
-    getColumnOffset: function(column, columnDefinition, row) {
+    getColumnOffset: function (column, columnDefinition, row) {
 
         var columnOffset = 0;
 
-        if (!!columnDefinition.align && columnDefinition.align == 'right') {
-            columnOffset = this.getColumnOffsetAlignRight(column.width, row);
-        }
 
-        if (!!columnDefinition.align && columnDefinition.align == 'center') {
-            columnOffset = this.getColumnOffsetAlignCenter(column.width, row);
-        }
+        if (columnDefinition.width.type != 'offset') {
 
+
+            if (!!columnDefinition.align && columnDefinition.align == 'right') {
+                columnOffset = this.getColumnOffsetAlignRight(column.width, row);
+            }
+
+            if (!!columnDefinition.align && columnDefinition.align == 'center') {
+                columnOffset = this.getColumnOffsetAlignCenter(column.width, row);
+            }
+
+        }
         return columnOffset;
 
     },
 
-    getColumnOffsetAlignRight: function(columnWidth, row) {
+    getColumnOffsetAlignRight: function (columnWidth, row) {
 
         var offsetAlignRight = 12 - (row.cellsUsed + columnWidth);
 
@@ -195,7 +208,7 @@ var p = {
 
     },
 
-    getColumnOffsetAlignCenter: function(columnWidth, row) {
+    getColumnOffsetAlignCenter: function (columnWidth, row) {
 
         var offsetAlignCenter = 0;
 
@@ -208,10 +221,17 @@ var p = {
     },
 
 
-    getColumnOffsetClass: function(offset) {
+    getColumnOffsetClass: function (offset) {
 
         return offset ? 'col-md-offset-' + offset : '';
 
+    },
+
+    concatClasses: function() {
+
+        var args = Array.prototype.slice.call(arguments);
+
+        return args.join(' ');
     }
 
 };
@@ -223,6 +243,10 @@ ModulesService.prototype = {
 
     generateConfig: function () {
         return p.generateConfig();
+    },
+
+    getLayout: function() {
+        return p.getLayout();
     }
 
 };

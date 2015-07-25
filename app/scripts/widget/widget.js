@@ -32,9 +32,9 @@ global.Bootstrapping = function (params) {
 
         initApplication: function() {
             App.container.get('AppService').setRegions(App);
-            App.container.get('AppService').includeModules(App);
-            App.container.get('AppService').includeEntities(App);
-            App.container.get('AppService').initModules(App);
+            //App.container.get('AppService').includeModules(App);
+            //App.container.get('AppService').includeEntities(App);
+            //App.container.get('AppService').initModules(App);
         },
 
         start: function() {
@@ -49,7 +49,7 @@ global.Bootstrapping = function (params) {
 
     App.bootstrapping.initServices();
 
-    //App.bootstrapping.initApplication();
+    App.bootstrapping.initApplication();
     //
     //App.bootstrapping.start();
 
