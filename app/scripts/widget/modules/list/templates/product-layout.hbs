@@ -1,0 +1,57 @@
+<div class="container-fluid js-result-container" id="product-{{productId}}">
+
+    <div class="result-item clearfix">
+
+        <div class="featured-region">
+
+        </div>
+
+        <div class="clearfix">
+
+            <div class="company-region">
+
+            </div>
+
+            <div class="col-md-6 col-sm-7 col-xs-11 mobile-padding main-result-container">
+
+                <div class="columns-region">
+
+                </div>
+
+                <div class="actions-region">
+
+                </div>
+
+            </div>
+
+            <div class="company-region">
+
+            </div>
+
+            <div class="col-md-2 hidden-sm hidden-xs">
+
+                <div class="apply-region">
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Mobile show more and apply -->
+        <div class="result-mobile clearfix visible-sm visible-xs">
+            <button class="more-result__summary--showfees more_info_sh" data-id="{{productId}}">
+                <span class="list__action-text-mobile">{{lang "mobile_show"}}</span>
+                <i class="m-icon m-icon--arrow-down"></i>
+            </button>
+            <a href="#" rel="nofollow" class="goto_site btn btn-cta {{checkHasApplyBtn}} apply-now" data-company="{{company.name}}" data-id="{{id}}" data-name="{{name}}" data-productmobilelink="{{product_mobile_link}}" data-link="{{applyLink}}">
+                {{lang "Apply"}}
+            </a>
+        </div>
+
+    </div>
+
+    <div class="more-info-region">
+
+    </div>
+
+</div>

@@ -1,0 +1,23 @@
+/*  ***************************/
+/*  pt-PT
+*******************************/
+.cgg-comparison-widget.locale-pt-PT {
+    .total-results {
+        max-width: 650px;
+    }
+}
+
+/*  ***************************/
+/*  en-HK
+*******************************/
+.cgg-comparison-widget.locale-en-HK {
+    .total-results {
+        max-width: 600px;
+    }
+}
+
+@media (min-width: 768px) {
+    .cgg-comparison-widget.lang-pt .tab-menu__url {
+        font-size: .9em;
+    }
+}

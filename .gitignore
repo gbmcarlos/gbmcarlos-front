@@ -1,0 +1,11 @@
+node_modules
+dist
+build
+.tmp
+.sass-cache
+app/components
+test/components
+app/scripts/bundle
+app/scripts/widget/resources/templates/compiled
+.idea
+*.iml

@@ -1,0 +1,54 @@
+{{#each block}}
+    <div class="modal-compare__inner-row clearfix">
+        <div class="modal-compare__label">
+            <div class="row-fluid">
+                <div class="col-sm-12 modal-compare__cols">
+                    <h4 class="modal-compare__type">
+                        <i class="icon-mix icon-mix--32px icon-mix--promo"></i>
+                        {{lang blockTitle}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-compare__compare-value">
+            <div class="row-fluid"><div class="col-sm-4 modal-compare__cols"></div>
+                <div class="col-sm-4 modal-compare__cols"></div>
+                <div class="col-sm-4 modal-compare__cols"></div>
+            </div>
+        </div>
+    </div>
+
+    {{#each row}}
+
+        <div class="modal-compare__inner-row clearfix">
+            <div class="modal-compare__label">
+                <div class="row-fluid">
+                    <div class="col-sm-12 modal-compare__cols">
+                        <p>{{lang rowTitle}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-compare__compare-value">
+                <div class="row-fluid">
+                    {{#each cell}}
+                        <div class="col-sm-4 modal-compare__cols">
+                            {{#if value}}
+                                <span class="chk_row_icon">
+                                    {{value}}
+                                </span>
+                                {{#if tootlip}}
+                                    <img class="modal-compare__tooltip" src="http://widgets.compareglobal.net/creditcard/images/Imark.png" data-toggle="tooltip" data-placement="bottom" title="{{tootltip}}">
+                                {{/if}}
+                            {{else}}
+                                <img class="modal-compare__cross" src="http://widgets.compareglobal.net/creditcard/images/greycross.png" alt =""/>
+                            {{/if}}
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+
+    {{/each}}
+
+{{/each}}

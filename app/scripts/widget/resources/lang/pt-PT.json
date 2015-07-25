@@ -1,0 +1,2194 @@
+[
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es de Cr\u00e9dito",
+        "reference": "",
+        "term": "websiteName",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "ADIRA J\u00c1",
+        "reference": "",
+        "term": "Apply",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Veja mais sobre esta oferta",
+        "reference": "",
+        "term": "more_show",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Mais informa\u00e7\u00f5es",
+        "reference": "",
+        "term": "mobile_show",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ir para",
+        "reference": "",
+        "term": "visit",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Comparar",
+        "reference": "",
+        "term": "compare",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "ou",
+        "reference": "",
+        "term": "or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Mudar",
+        "reference": "",
+        "term": "change_product",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Geral",
+        "reference": "",
+        "term": "moreinfo_general",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Espec\u00edfico",
+        "reference": "",
+        "term": "moreinfo_specific",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promo\u00e7\u00e3o/Ofertas de boas-vindas",
+        "reference": "",
+        "term": "moreinfo_promotiontab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Programa de Pontos",
+        "reference": "",
+        "term": "moreinfo_cashbacktab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas/ Benef\u00edcios de Viagem/ Descontos Online",
+        "reference": "",
+        "term": "moreinfo_airmilestab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG e Taxas",
+        "reference": "",
+        "term": "moreinfo_aprtab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Elegibilidade",
+        "reference": "",
+        "term": "moreinfo_eligibilitytab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promo\u00e7\u00e3o",
+        "reference": "",
+        "term": "moreinfo_promotiontab_shortened",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas/Outros Benef\u00edcios",
+        "reference": "",
+        "term": "moreinfo_airmilestab_shortened",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Detalhes",
+        "reference": "",
+        "term": "moreinfo_details",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_conditions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta Especial para Candidatura Online",
+        "reference": "",
+        "term": "moreinfo_onlineapplicationspecialoffer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "moreinfo_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de Boas-vindas - Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_welcomegiftairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de Boas-vindas - Pontos",
+        "reference": "",
+        "term": "moreinfo_welcomegiftpoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ofertas de Boas-vindas",
+        "reference": "",
+        "term": "moreinfo_otherwelcomegifts",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Per\u00edodo de Promo\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_promotionsperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos",
+        "reference": "",
+        "term": "moreinfo_rewardpoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Receber Cashback - Detalhes e Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_cashbackearningdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Utilizar Cashback - Detalhes e Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_cashbackusingdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Detalhes do Limite de Cashback",
+        "reference": "",
+        "term": "moreinfo_cashbacklimitdetail",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Locais para obter o Cashback - Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_placestogetcashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Descontos - Lista de Parceiros",
+        "reference": "",
+        "term": "moreinfo_cashbacklistofmerchants",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Lista de Parceiros",
+        "reference": "",
+        "term": "moreinfo_listofmerchants",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ir para a P\u00e1gina do Banco",
+        "reference": "",
+        "term": "moreinfo_linktobankpage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Descontos - Ir para a P\u00e1gina do Banco",
+        "reference": "",
+        "term": "moreinfo_cashbacklinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Descontos - Shopping",
+        "reference": "",
+        "term": "moreinfo_cashbackshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Descontos - Entretenimento",
+        "reference": "",
+        "term": "moreinfo_cashbackentertainment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Descontos - Jantar fora",
+        "reference": "",
+        "term": "moreinfo_cashbackdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Detalhes do Programa de Pontos",
+        "reference": "",
+        "term": "moreinfo_rewardpointsdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos - Ir para a P\u00e1gina do Banco",
+        "reference": "",
+        "term": "moreinfo_rewardpointslinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos - Detalhes e Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_rewardpointscondition",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos - Shopping",
+        "reference": "",
+        "term": "moreinfo_rewardpointsshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos - Entretenimento",
+        "reference": "",
+        "term": "moreinfo_rewardpointsentertainment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Programa de Pontos - Jantar fora",
+        "reference": "",
+        "term": "moreinfo_rewardpointsdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_airmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_cashbackairmiletab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG/Taxas",
+        "reference": "",
+        "term": "moreinfo_aprfeestab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas - Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_airmilescondition",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas - Detalhes e Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_airmilesdetailsandconditions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa de Transa\u00e7\u00e3o para Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_milestxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Isen\u00e7\u00e3o de Taxa de Transa\u00e7\u00e3o para Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_milestxnfeewaived",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Benef\u00edcios de Viagem",
+        "reference": "",
+        "term": "moreinfo_travelbenefits",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Desconto de Viagem",
+        "reference": "",
+        "term": "moreinfo_traveldiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Benef\u00edcios de Viagem - Ir para a P\u00e1gina do Banco",
+        "reference": "",
+        "term": "moreinfo_travelbenefitslinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Assist\u00eancia Global em Viagem",
+        "reference": "",
+        "term": "moreinfo_globaltravelassistance",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Acesso a Lounges",
+        "reference": "",
+        "term": "moreinfo_loungeaccess",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Seguro de Viagem",
+        "reference": "",
+        "term": "moreinfo_travelinsurance",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shopping Online",
+        "reference": "",
+        "term": "moreinfo_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Desconto em Shopping Online - Ir para a P\u00e1gina do Banco",
+        "reference": "",
+        "term": "moreinfo_onlineshoppingdiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Max \u20ac",
+        "reference": "",
+        "term": "moreinfo_maxhkd",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Lista completa de descontos para shopping online",
+        "reference": "",
+        "term": "moreinfo_fullshoppinglisdiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Data de Fim da Promo\u00e7\u00e3o",
+        "reference": "",
+        "term": "moreinfo_promoexpiry",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG",
+        "reference": "",
+        "term": "moreinfo_apr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG para Compras de Retalho",
+        "reference": "",
+        "term": "moreinfo_retailpurchaseapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG para Compras de Retalho Vencidas",
+        "reference": "",
+        "term": "moreinfo_delinquencyretail",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG para Adiantamentos de Dinheiro",
+        "reference": "",
+        "term": "moreinfo_caapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG para Adiantamentos de Dinheiro Vencidos",
+        "reference": "",
+        "term": "moreinfo_delinquencycaapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Per\u00edodo de Isen\u00e7\u00e3o de Juros",
+        "reference": "",
+        "term": "moreinfo_interestfreeperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxas Anuais",
+        "reference": "",
+        "term": "moreinfo_annualfees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa Anual",
+        "reference": "",
+        "term": "moreinfo_annualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Isen\u00e7\u00e3o de Taxas Anuais",
+        "reference": "",
+        "term": "moreinfo_annualfeeswaiver1",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N\u00e3o dispensa taxa anual",
+        "reference": "",
+        "term": "moreinfo_annualfeenotwaived",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Perpetuamente",
+        "reference": "",
+        "term": "moreinfo_annualfeewaiverperpetual",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Isen\u00e7\u00e3o de Taxas Anuais - Condi\u00e7\u00f5es",
+        "reference": "",
+        "term": "moreinfo_annualfeeswaiver",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa Anual para Cart\u00e3o Adicional",
+        "reference": "",
+        "term": "moreinfo_addtlcardannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reembolso M\u00ednimo",
+        "reference": "",
+        "term": "moreinfo_minrepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa para Pagamentos Vencidos",
+        "reference": "",
+        "term": "moreinfo_latepaymentchange",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Outras Taxas",
+        "reference": "",
+        "term": "moreinfo_otherfees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa para Transa\u00e7\u00e3o Cambial",
+        "reference": "",
+        "term": "moreinfo_foreigncurtxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Tarifa para Transa\u00e7\u00e3o Internacional",
+        "reference": "",
+        "term": "moreinfo_xbordertxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa para Limite Ultrapassado",
+        "reference": "",
+        "term": "moreinfo_otlfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Elegibilidade",
+        "reference": "",
+        "term": "moreinfo_eligibility",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rendimento M\u00ednimo",
+        "reference": "",
+        "term": "moreinfo_minincome",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Idade M\u00ednima",
+        "reference": "",
+        "term": "moreinfo_minage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Idade M\u00ednima para Cart\u00e3o Suplementar",
+        "reference": "",
+        "term": "moreinfo_supcardminage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Aberto a residentes n\u00e3o habituais?",
+        "reference": "",
+        "term": "moreinfo_openToNonResident",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "% do total da transac\u00e7\u00e3o",
+        "reference": "",
+        "term": "moreinfo_percentoftotaltxn",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "%",
+        "reference": "",
+        "term": "moreinfo_percent",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxas e encargos totais com",
+        "reference": "",
+        "term": "moreinfo_totalfeescharges",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "% do saldo total em d\u00edvida",
+        "reference": "",
+        "term": "moreinfo_totaloutstandingbal",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "(o que for maior)",
+        "reference": "",
+        "term": "moreinfo_whichever",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "anos de idade",
+        "reference": "",
+        "term": "moreinfo_yearsold",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "dias",
+        "reference": "",
+        "term": "moreinfo_days",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "e o Pagamento M\u00e1ximo \u00e9 \u20ac",
+        "reference": "",
+        "term": "moreinfo_maxlatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pagamento M\u00ednimo \u00e9 \u20ac",
+        "reference": "",
+        "term": "moreinfo_minlatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "A informa\u00e7\u00e3o acima \u00e9 fornecida pelo ComparaJ\u00e1.pt apenas para fins informativos. Em caso de qualquer discrep\u00e2ncia entre as informa\u00e7\u00f5es fornecidas pelo ComparaJ\u00e1.pt e as informa\u00e7\u00f5es fornecidas pelos bancos, emissores de cart\u00f5es ou institui\u00e7\u00f5es de cr\u00e9dito (*institui\u00e7\u00f5es parceiras), prevalecer\u00e1 as informa\u00e7\u00f5es fornecidas pelas institui\u00e7\u00f5es parceiras. Para mais informa\u00e7\u00f5es, por favor consulte os nossos Termos & Condi\u00e7\u00f5es e a p\u00e1gina de Pol\u00edtica de Privacidade.",
+        "reference": "",
+        "term": "moreinfo_disclaimer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N\u00e3o dispon\u00edvel",
+        "reference": "",
+        "term": "moreinfo_na",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "ou",
+        "reference": "",
+        "term": "moreinfo_or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Promo\u00e7\u00f5es/Oferta de Boas-vindas",
+        "reference": "",
+        "term": "moreinfo_nopromotions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Programa de Pontos",
+        "reference": "",
+        "term": "moreinfo_norewards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Cashback",
+        "reference": "",
+        "term": "moreinfo_nocashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_noairmile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "= 1 milha",
+        "reference": "",
+        "term": "moreinfo_1mile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Shopping Online",
+        "reference": "",
+        "term": "moreinfo_noonlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Benef\u00edcios de Viagem",
+        "reference": "",
+        "term": "moreinfo_notravelbenefit",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cobertura at\u00e9 \u20ac",
+        "reference": "",
+        "term": "moreinfo_coverageupto",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Gastos Locais",
+        "reference": "",
+        "term": "moreinfo_localspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Gastos no Exterior",
+        "reference": "",
+        "term": "moreinfo_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem detalhes",
+        "reference": "",
+        "term": "moreinfo_nodetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Auto-pagamento",
+        "reference": "",
+        "term": "moreinfo_autopayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pagamento Online",
+        "reference": "",
+        "term": "moreinfo_onlinepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "moreinfo_octopus",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Caducidade dos Pontos",
+        "reference": "",
+        "term": "moreinfo_rewardexpiry",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxas",
+        "reference": "",
+        "term": "moreinfo_fees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa Anual para Cart\u00e3o Adicional",
+        "reference": "",
+        "term": "moreinfo_additionalcardannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa para Transa\u00e7\u00e3o Cambial",
+        "reference": "",
+        "term": "moreinfo_foreigncurrencytransactionfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa de Convers\u00e3o para Milhas A\u00e9reas",
+        "reference": "",
+        "term": "moreinfo_feesairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG/Taxa de Reembolso",
+        "reference": "",
+        "term": "moreinfo_aprrepaymentfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Compras de Retalho/TAEG Atraso",
+        "reference": "",
+        "term": "moreinfo_feesretailpurchase",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Adiantamento de Dinheiro/TAEG Atraso",
+        "reference": "",
+        "term": "moreinfo_feescashadvancedelinquencyapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Per\u00edodo de Car\u00eancia",
+        "reference": "",
+        "term": "moreinfo_feesinterestfreeperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reembolso M\u00ednimo",
+        "reference": "",
+        "term": "moreinfo_feesminimumrepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Encargo para Pagamento em Atraso",
+        "reference": "",
+        "term": "moreinfo_feeslatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Benef\u00edcios:",
+        "reference": "",
+        "term": "moreinfo_features_pros",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "O que precisa de saber?",
+        "reference": "",
+        "term": "moreinfo_features_cons",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "moreinfo_features_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Produto em destaque",
+        "reference": "",
+        "term": "featured_product_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta Exclusiva",
+        "reference": "",
+        "term": "exclusive_product_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "col_hdr_maximumcashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas",
+        "reference": "",
+        "term": "col_hdr_maximummiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Max. Pontos",
+        "reference": "",
+        "term": "col_hdr_maximumrewardspoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Requisito de Sal\u00e1rio Anual",
+        "reference": "",
+        "term": "col_hdr_salary_requirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Quanto quer gastar com o cart\u00e3o por m\u00eas?",
+        "reference": "",
+        "term": "filter_how_much_do_you_want_to_spend",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Taxa Anual Perp\u00e9tua",
+        "reference": "",
+        "term": "annualFee_text_1",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Dispensada no primeiro ano de %s",
+        "reference": "",
+        "term": "annualFee_text_2",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "0",
+        "reference": "",
+        "term": "no_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Cashback",
+        "reference": "",
+        "term": "no_cashback_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de Boas-vindas",
+        "reference": "",
+        "term": "welcome_offer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N\u00e3o Dispon\u00edvel",
+        "reference": "",
+        "term": "not_available",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "milhas",
+        "reference": "",
+        "term": "miles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "0 milhas",
+        "reference": "",
+        "term": "no_miles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "0",
+        "reference": "",
+        "term": "no_rewards_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Pontos de Recompensa",
+        "reference": "",
+        "term": "no_rewards_points_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Selecione Montante",
+        "reference": "",
+        "term": "select_amount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "em Portugal",
+        "reference": "",
+        "term": "in_hongkong",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Estrangeiro",
+        "reference": "",
+        "term": "on_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "e/ou",
+        "reference": "",
+        "term": "and_or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Quais Bancos/Emissores de Cart\u00f5es?",
+        "reference": "",
+        "term": "which_banks",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Que Emissores de Cart\u00f5es?",
+        "reference": "",
+        "term": "card_provider",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Estou interessado no cart\u00e3o de cr\u00e9dito de:",
+        "reference": "",
+        "term": "i_am_interested_in",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "\u20ac",
+        "reference": "",
+        "term": "hkd",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "tooltip_octopus",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Os pagamentos tamb\u00e9m podem ser feitos atrav\u00e9s da tecnologia contactless",
+        "reference": "",
+        "term": "tooltip_paypass",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pode utilizar este cart\u00e3o no Taobao",
+        "reference": "",
+        "term": "tooltip_taobao",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "clique para ordenar",
+        "reference": "",
+        "term": "click_to_rank",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que fornecem diretamente bonifica\u00e7\u00e3o em dinheiro, sem uso de cup\u00f5es",
+        "reference": "",
+        "term": "tooltip_tab_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam programa de pontos",
+        "reference": "",
+        "term": "tooltip_tab_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam programa de milhas-a\u00e9reas",
+        "reference": "",
+        "term": "tooltip_tab_travel",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es isentos de taxas anuais durante 1 ano no m\u00ednimo",
+        "reference": "",
+        "term": "tooltip_tab_noannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam benef\u00edcios exclusivos como o acesso aos lounges dos aeroportos",
+        "reference": "",
+        "term": "tooltip_tab_premium",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "tooltip_tab_dualcurrency",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam descontos especiais em parceiros",
+        "reference": "",
+        "term": "tooltip_tab_cobranded",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam descontos especiais em compras online",
+        "reference": "",
+        "term": "tooltip_tab_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es que t\u00eam cashback ou programa de milhas-a\u00e9reas com gastos internacional",
+        "reference": "",
+        "term": "tooltip_tab_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Em gastos locais",
+        "reference": "",
+        "term": "col_localspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Em gastos internacionais",
+        "reference": "",
+        "term": "col_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "em gastos locais e internacionais",
+        "reference": "",
+        "term": "col_localoverseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "em compras online",
+        "reference": "",
+        "term": "col_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "em gastos com jantares",
+        "reference": "",
+        "term": "col_diningspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "em pagamento contactless",
+        "reference": "",
+        "term": "col_contactlesspayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "taxa de convers\u00e3o",
+        "reference": "",
+        "term": "col_conversionfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "por cada € gasto",
+        "reference": "",
+        "term": "col_permile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de Boas-vindas:",
+        "reference": "",
+        "term": "col_welcomeoffer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Milhas A\u00e9reas",
+        "reference": "",
+        "term": "col_noairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem taxa de convers\u00e3o de Milhas A\u00e9reas",
+        "reference": "",
+        "term": "col_noairmileconversion",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Cashback",
+        "reference": "",
+        "term": "col_nocashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem requisito salarial",
+        "reference": "",
+        "term": "col_nosalaryrequirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem Programa de Pontos",
+        "reference": "",
+        "term": "col_norewardpts",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Dispensa de Taxa Anual Perp\u00e9tua",
+        "reference": "",
+        "term": "col_perpetual",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Isento no primeiro ano",
+        "reference": "",
+        "term": "col_waivedfirst",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Isento no primeiro",
+        "reference": "",
+        "term": "col_waivedinfirst",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "anos",
+        "reference": "",
+        "term": "col_year",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "anos de idade",
+        "reference": "",
+        "term": "col_year_old",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Todos",
+        "reference": "",
+        "term": "tabs_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas",
+        "reference": "",
+        "term": "tabs_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "tabs_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Contactless",
+        "reference": "",
+        "term": "tabs_CONTACTLESS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Jantar fora",
+        "reference": "",
+        "term": "tabs_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Compras Online",
+        "reference": "",
+        "term": "tabs_ONLINESHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Premium",
+        "reference": "",
+        "term": "tabs_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Melhores Ofertas",
+        "reference": "",
+        "term": "tabs_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Solicite um Cart\u00e3o de Cr\u00e9dito em Portugal",
+        "reference": "",
+        "term": "masterhead-heading_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Aproveite ofertas exclusivas das principais institui\u00e7\u00f5es financeiras em Portugal. Encontre o cart\u00e3o de cr\u00e9dito com taxas de juros acess\u00edveis,  excelentes benef\u00edcios e \u00f3timas caracter\u00edsticas utilizando a plataforma de compara\u00e7\u00e3o do ComparaJ\u00e1.",
+        "reference": "",
+        "term": "masterhead-subheading_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ganhe Mais Milhas A\u00e9reas Enquanto Gasta",
+        "reference": "",
+        "term": "masterhead-heading_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas a\u00e9reas s\u00e3o benef\u00edcios que podem ser trocados por passagens a\u00e9reas, privil\u00e9gios nos lounges dos aeroportos e muitas outras regalias. Ganhe milhas e pontos de recompensa de forma mais r\u00e1pida cada vez que gasta com o seu cart\u00e3o de cr\u00e9dito.",
+        "reference": "",
+        "term": "masterhead-subheading_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Recebe de volta \u20ac por cada \u20ac que gastar!",
+        "reference": "",
+        "term": "masterhead-heading_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Um cart\u00e3o de cr\u00e9dito com cashback permite que receba de volta uma percentagem dos seus gastos com esse cart\u00e3o. Acumule dinheiro ou cr\u00e9dito cada vez que utilizar o seu cart\u00f5es para viagens, abastecimento de gasolina, compras ou em restaurantes.",
+        "reference": "",
+        "term": "masterhead-subheading_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Toque e Pague Usando Cart\u00f5es Contactless",
+        "reference": "",
+        "term": "masterhead-heading_CONTACTLESS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Diga adeus \u00e0s longas filas de espera! Compare e encontre os melhores cart\u00f5es de cr\u00e9dito contactless e obtenha a melhor conveni\u00eancia sempre que fizer compras ou jantar fora.",
+        "reference": "",
+        "term": "masterhead-subheading_CONTACTLESS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Desfrute de Ofertas em Restaurantes com o Seu Cart\u00e3o de Cr\u00e9dito",
+        "reference": "",
+        "term": "masterhead-heading_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Alguns cart\u00f5es de cr\u00e9dito oferecem privil\u00e9gios e descontos quando utilizados para jantar em restaurantes parceiros. Ganhe recompensas de cashback e pontos e tenha acesso \u00e0s promo\u00e7\u00f5es exclusivas cada vez que comer fora.",
+        "reference": "",
+        "term": "masterhead-subheading_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ganhe \u00f3timas recompensas cada vez que fizer compras online!",
+        "reference": "",
+        "term": "masterhead-heading_ONLINESHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es de cr\u00e9dito que possibilitam fazer compras online permitem-lhe ganhar pontos e cashbacks sempre que fizer compras na sua loja online preferida. Compare programas de recompensas e encontre agora o companheiro perfeito para ir \u00e0s compras.",
+        "reference": "",
+        "term": "masterhead-subheading_ONLINESHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ganhe as recompensas que merece!",
+        "reference": "",
+        "term": "masterhead-heading_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Obtenha servi\u00e7os de concierge, acesso aos lounges de aeroportos e tratamento VIP, ofertas exclusivas de hot\u00e9is, e muito mais com um cart\u00e3o de cr\u00e9dito premium. Compare agora programas de recompensas, cashback e milhas-a\u00e9reas.",
+        "reference": "",
+        "term": "masterhead-subheading_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "As Melhores Ofertas de Cart\u00f5es de Cr\u00e9dito em Portugal",
+        "reference": "",
+        "term": "masterhead-heading_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Descubra quais s\u00e3o os cart\u00f5es de cr\u00e9dito mais populares entre os nossos usu\u00e1rios. Compare as melhores ofertas de cart\u00f5es de cr\u00e9dito em termos de taxa de juros, recompensas, e outras caracter\u00edsticas.",
+        "reference": "",
+        "term": "masterhead-subheading_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "<span>Encontr\u00e1mos</span>",
+        "reference": "",
+        "term": "tabs_first",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "cart\u00f5es de cr\u00e9dito <span>para si</span>",
+        "reference": "",
+        "term": "tabs_last",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas",
+        "reference": "",
+        "term": "sort_airmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sal\u00e1rio Anual",
+        "reference": "",
+        "term": "sort_annual_salary",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Temos mais",
+        "reference": "",
+        "term": "paging_first",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "ofertas para si",
+        "reference": "",
+        "term": "paging_last",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ver menos sobre esta oferta",
+        "reference": "",
+        "term": "more_hide",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Menos informa\u00e7\u00f5es",
+        "reference": "",
+        "term": "mobile_hide",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cart\u00f5es selecionados",
+        "reference": "",
+        "term": "cart_count_header",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Selecione at\u00e9 3 cart\u00f5es para uma compara\u00e7\u00e3o detalhada",
+        "reference": "",
+        "term": "cart_select_up_to_3_cards_for_comparison",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Apagar sele\u00e7\u00e3o",
+        "reference": "",
+        "term": "cart_clear_shortlist",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Comparar Cart\u00f5es",
+        "reference": "",
+        "term": "cart_compare_cards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Adira J\u00e1",
+        "reference": "",
+        "term": "cart_modal_button_apply",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Compara\u00e7\u00e3o de Cart\u00f5es de Cr\u00e9dito",
+        "reference": "",
+        "term": "cart_modal_title",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Selecione o Banco",
+        "reference": "",
+        "term": "cart_modal_form_select_bank",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Selecione o Cart\u00e3o",
+        "reference": "",
+        "term": "cart_modal_form_select_card",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Adicionar para Compara\u00e7\u00e3o",
+        "reference": "",
+        "term": "cart_modal_button_add_to_comparison",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promo\u00e7\u00f5es",
+        "reference": "",
+        "term": "cart_modal_heading_promos",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de boas-vindas",
+        "reference": "",
+        "term": "cart_modal_label_welcome_gift",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Oferta de inscri\u00e7\u00e3o online",
+        "reference": "",
+        "term": "cart_modal_label_online_app_offer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Benef\u00edcios",
+        "reference": "",
+        "term": "cart_modal_heading_benefits",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (gastos locais)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (gastos internacionais)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas (gastos locais)",
+        "reference": "",
+        "term": "cart_modal_label_air_miles_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "por milha",
+        "reference": "",
+        "term": "cart_modal_label_col_permile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas (gastos internacionais)",
+        "reference": "",
+        "term": "cart_modal_label_air_miles_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "M\u00e1ximo de pontos",
+        "reference": "",
+        "term": "cart_modal_label_max_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Transfer\u00eancia autom\u00e1tica de pontos",
+        "reference": "",
+        "term": "cart_modal_label_auto_transfer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pontos por pagamento online",
+        "reference": "",
+        "term": "cart_modal_label_online_pay_reward",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pontos por compras online",
+        "reference": "",
+        "term": "cart_modal_label_online_shop_reward",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "cart_modal_label_oct_auto_add",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Elegibilidade e taxas",
+        "reference": "",
+        "term": "cart_modal_heading_eligibility_and_fees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rendimento m\u00ednimo necess\u00e1rio",
+        "reference": "",
+        "term": "cart_modal_label_min_income_req",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Taxa de transa\u00e7\u00e3o cambial",
+        "reference": "",
+        "term": "cart_modal_label_foreign_cur",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "da transa\u00e7\u00e3o total",
+        "reference": "",
+        "term": "cart_modal_label_col_percentoftotaltxn",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "cart_modal_label_foreignFee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "\u20ac",
+        "reference": "",
+        "term": "currency",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "A carregar",
+        "reference": "",
+        "term": "loading",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Sem rendimento m\u00ednimo necess\u00e1rio",
+        "reference": "",
+        "term": "col_nominincome",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas (Gastos Locais)",
+        "reference": "",
+        "term": "bestdealsairmileslocal",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Milhas A\u00e9reas (Gastos Internacionais)",
+        "reference": "",
+        "term": "bestdealsairmilesoverseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "bestdealscashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Jantar fora",
+        "reference": "",
+        "term": "bestdealsdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Premium",
+        "reference": "",
+        "term": "bestdealspremium",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Solicita\u00e7\u00e3o com poucos requisitos",
+        "reference": "",
+        "term": "bestdealslowrequirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "DESCONTOS",
+        "reference": "Label for \"DISCOUNTS\" tab",
+        "term": "tabs_DISCOUNT",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "PONTOS",
+        "reference": "Label for \"POINTS\" tab",
+        "term": "tabs_POINTS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG",
+        "reference": "Label for \"APR\" sort header",
+        "term": "sort_apr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAN",
+        "reference": "Label for \"TAN\" sort header",
+        "term": "sort_tan",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Anuidade",
+        "reference": "Label for \"Annuity\" sort header",
+        "term": "sort_annuity",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Pontos",
+        "reference": "Label for \"Points\" sort header",
+        "term": "sort_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "TAEG",
+        "reference": "Label for \"APR\" column value",
+        "term": "col_apr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "sem TAEG",
+        "reference": "Label when \"APR\" column value is not there",
+        "term": "no_apr_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "anuidade",
+        "reference": "Label for \"Annuity\" column value",
+        "term": "col_annuity",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "sem anuidade",
+        "reference": "Label when \"Annuity\" column value is not there",
+        "term": "col_noannuity",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "ponto",
+        "reference": "Label for \"Points\" column value",
+        "term": "col_points",
+        "term_plural": "pontos"
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "sem pontos",
+        "reference": "Label when \"Points\" column value is not there",
+        "term": "no_points_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "descontos",
+        "reference": "Label for \"Discounts\" column value",
+        "term": "col_discount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "sem descontos",
+        "reference": "Label when \"Discount\" column value is not there",
+        "term": "no_discount_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "por milha",
+        "reference": "Label for \"Airmiles\" column value",
+        "term": "col_mileper",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Encontre as melhores op\u00E7\u00F5es de cart\u00F5es de cr\u00E9dito para usufruir de descontos em compras com o seu cart\u00E3o de cr\u00E9dito. Regalias e descontos diretos nas suas compras em lojas, combust\u00EDvel ou at\u00E9 em eventos desportivos e musicais.",
+        "reference": "",
+        "term": "masterhead-subheading_DISCOUNT",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Aproveite descontos fant\u00E1sticos com Cart\u00F5es de Cr\u00E9dito",
+        "reference": "",
+        "term": "masterhead-heading_DISCOUNT",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ganhe recompensas agrad\u00E1veis ao utilizar o seu cart\u00E3o de cr\u00E9dito. Sempre que o utiliza est\u00E1 a ganhar!",
+        "reference": "",
+        "term": "masterhead-subheading_POINTS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Ganhe mais Pontos no seu Cart\u00E3o de Cr\u00E9dito!",
+        "reference": "",
+        "term": "masterhead-heading_POINTS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Descontos",
+        "reference": "",
+        "term": "sort_discount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N\u00E3o foram encontrados resultados",
+        "reference": "",
+        "term": "no_results",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "O ComparaJ\u00E1 n\u00E3o disponibiliza quaisquer conselhos profissionais ou financeiros. Apenas providenciamos um servi\u00E7o gratuito e imparcial de compara\u00E7\u00E3o de pre\u00E7os. N\u00E3o somos pass\u00EDveis de ser responsabilizados por qualquer informa\u00E7\u00E3o inexata que possa existir no nosso website. Em caso de discrep\u00E2ncias entre informa\u00E7\u00F5es disponibilizadas pelo ComparaJ\u00E1 e outras provenientes de bancos, emissores ou fornecedores de cart\u00F5es de cr\u00E9dito (\"institui\u00E7\u00F5es parceiras\"), a informa\u00E7\u00E3o dos \u00FAltimos deve prevalecer. Por favor leia atentamente os nossos termos e condi\u00E7\u00F5es e pol\u00EDtica de privacidade para mais informa\u00E7\u00F5es.",
+        "reference": "",
+        "term": "results_disclaimer",
+        "term_plural": ""
+    }
+]

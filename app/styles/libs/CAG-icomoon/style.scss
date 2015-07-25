@@ -1,0 +1,373 @@
+@font-face {
+    font-family: 'CAG-icomoon';
+    src:url('#{$fa-font-path}/CAG-icomoon.eot?hbtk3d');
+    src:url('#{$fa-font-path}/CAG-icomoon.eot?#iefixhbtk3d') format('embedded-opentype'),
+        url('#{$fa-font-path}/CAG-icomoon.ttf?hbtk3d') format('truetype'),
+        url('#{$fa-font-path}/CAG-icomoon.woff?hbtk3d') format('woff'),
+        url('#{$fa-font-path}/CAG-icomoon.svg?hbtk3d#CAG-icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="m-icon--"], [class*=" m-icon--"] {
+    font-family: 'CAG-icomoon';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.m-icon--gratis_black:before {
+    content: "\e66e";
+}
+.m-icon--FastCashLoan1:before {
+    content: "\e66d";
+}
+.m-icon--Gasoline:before {
+    content: "\e666";
+}
+.m-icon--Movie:before {
+    content: "\e667";
+}
+.m-icon--Broadband:before {
+    content: "\e66c";
+}
+.m-icon--Timedeposit:before {
+    content: "\e674";
+}
+.m-icon--Easycard_icon:before {
+    content: "\e66b";
+}
+.m-icon--CNY:before {
+    content: "\e664";
+}
+.m-icon--Easycard:before {
+    content: "\e665";
+}
+.m-icon--other_currencies:before {
+    content: "\e668";
+}
+.m-icon--TWD:before {
+    content: "\e669";
+}
+.m-icon--USD:before {
+    content: "\e66a";
+}
+.m-icon--USP_1:before {
+    content: "\e660";
+}
+.m-icon--USP_1_EN:before {
+    content: "\e661";
+}
+.m-icon--USP_2:before {
+    content: "\e662";
+}
+.m-icon--USP_3:before {
+    content: "\e663";
+}
+.m-icon--FastApproval:before {
+    content: "\e642";
+}
+.m-icon--cc_lowapplication:before {
+    content: "\e641";
+}
+.m-icon--Carinsurance_2:before {
+    content: "\e65d";
+}
+.m-icon--cookie_icon_simple:before {
+    content: "\e65e";
+}
+.m-icon--cookie_icon:before {
+    content: "\e65f";
+}
+.m-icon--BestDealsCC:before {
+    content: "\e65a";
+}
+.m-icon--PremiumCC_blue:before {
+    content: "\e65b";
+}
+.m-icon--Specialty:before {
+    content: "\e65c";
+}
+.m-icon--car-loan:before {
+    content: "\e658";
+}
+.m-icon--fastcash-loan:before {
+    content: "\e659";
+}
+.m-icon--dk-BBplusTV:before {
+    content: "\e654";
+}
+.m-icon--dk-Carinsurance:before {
+    content: "\e655";
+}
+.m-icon--dk-Mobile:before {
+    content: "\e656";
+}
+.m-icon--dk-Unemploymentbenefits:before {
+    content: "\e657";
+}
+.m-icon--amateur-sports:before {
+    content: "\e643";
+}
+.m-icon--highrisk-sports:before {
+    content: "\e652";
+}
+.m-icon--winter-sports:before {
+    content: "\e653";
+}
+.m-icon--cc_airmilelocal:before {
+    content: "\e640";
+}
+.m-icon--mi_dental:before {
+    content: "\e64e";
+}
+.m-icon--mi_maternity:before {
+    content: "\e64f";
+}
+.m-icon--mi_outpatient:before {
+    content: "\e650";
+}
+.m-icon--mi_surgical:before {
+    content: "\e651";
+}
+.m-icon--creditcards:before {
+    content: "\e648";
+}
+.m-icon--healthIsurance:before {
+    content: "\e649";
+}
+.m-icon--homeloans:before {
+    content: "\e64a";
+}
+.m-icon--personalloans:before {
+    content: "\e64b";
+}
+.m-icon--timer:before {
+    content: "\e64c";
+}
+.m-icon--travelinsurance:before {
+    content: "\e64d";
+}
+.m-icon--chevron-down:before {
+    content: "\e645";
+}
+.m-icon--chevron-left:before {
+    content: "\e646";
+}
+.m-icon--chevron-up:before {
+    content: "\e647";
+}
+.m-icon--boxes_contacless:before {
+    content: "\e638";
+}
+.m-icon--boxes_download:before {
+    content: "\e639";
+}
+.m-icon--boxes_early-payment:before {
+    content: "\e63a";
+}
+.m-icon--boxes_fee-waiver:before {
+    content: "\e63b";
+}
+.m-icon--boxes_gift:before {
+    content: "\e63c";
+}
+.m-icon--boxes_mortgage:before {
+    content: "\e63d";
+}
+.m-icon--boxes_tick:before {
+    content: "\e63e";
+}
+.m-icon--chevron-right:before {
+    content: "\e63f";
+}
+.m-icon--nav_home:before {
+    content: "\e644";
+}
+.m-icon--EarlyPaymentFeeWaiver:before {
+    content: "\e637";
+}
+.m-icon--cag-gift:before {
+    content: "\e633";
+}
+.m-icon--fee-waiver:before {
+    content: "\e634";
+}
+.m-icon--contact-less:before {
+    content: "\e635";
+}
+.m-icon--bar-travel:before {
+    content: "\e614";
+}
+.m-icon--bar-bestdeal:before {
+    content: "\e615";
+}
+.m-icon--bar-cashback:before {
+    content: "\e616";
+}
+.m-icon--bar-contactlesspayment:before {
+    content: "\e617";
+}
+.m-icon--bar-Creditline:before {
+    content: "\e618";
+}
+.m-icon--bar-Debt:before {
+    content: "\e619";
+}
+.m-icon--bar-General:before {
+    content: "\e61a";
+}
+.m-icon--bar-Deposit:before {
+    content: "\e61b";
+}
+.m-icon--bar-dining:before {
+    content: "\e61c";
+}
+.m-icon--bar-onlineshopping:before {
+    content: "\e61d";
+}
+.m-icon--bar-Instalment:before {
+    content: "\e61e";
+}
+.m-icon--bar-premium:before {
+    content: "\e624";
+}
+.m-icon--bar-Tax:before {
+    content: "\e61f";
+}
+.m-icon--bar-1stcard:before {
+    content: "\e671";
+}
+.m-icon--bar-LowApplication:before {
+    content: "\e66f";
+}
+.m-icon--bar-Premium:before {
+    content: "\e670";
+}
+.m-icon--calempty:before {
+    content: "\e620";
+}
+.m-icon--calfull:before {
+    content: "\e621";
+}
+.m-icon--couple:before {
+    content: "\e622";
+}
+.m-icon--dental:before {
+    content: "\e623";
+}
+.m-icon--doctor:before {
+    content: "\e632";
+}
+.m-icon--existinghistory:before {
+    content: "\e625";
+}
+.m-icon--eye:before {
+    content: "\e626";
+}
+.m-icon--flight:before {
+    content: "\e627";
+}
+.m-icon--group:before {
+    content: "\e628";
+}
+.m-icon--inpatient:before {
+    content: "\e629";
+}
+.m-icon--justme:before {
+    content: "\e62a";
+}
+.m-icon--maternity:before {
+    content: "\e62b";
+}
+.m-icon--meandkids:before {
+    content: "\e62c";
+}
+.m-icon--multipleflight:before {
+    content: "\e62d";
+}
+.m-icon--myfamily:before {
+    content: "\e62e";
+}
+.m-icon--outpatient:before {
+    content: "\e62f";
+}
+.m-icon--privateroom:before {
+    content: "\e630";
+}
+.m-icon--sport:before {
+    content: "\e631";
+}
+.m-icon--mail2:before {
+    content: "\ea84";
+}
+.m-icon--plus:before {
+    content: "\e613";
+}
+.m-icon--star:before {
+    content: "\e611";
+}
+.m-icon--phone:before {
+    content: "\e60a";
+}
+.m-icon--gift:before {
+    content: "\e608";
+}
+.m-icon--home:before {
+    content: "\e605";
+}
+.m-icon--list:before {
+    content: "\e600";
+}
+.m-icon--hand:before {
+    content: "\e609";
+}
+.m-icon--check:before {
+    content: "\e612";
+}
+.m-icon--help:before {
+    content: "\e60f";
+}
+.m-icon--signal:before {
+    content: "\e607";
+}
+.m-icon--cross:before {
+    content: "\e606";
+}
+.m-icon--phone-left:before {
+    content: "\e610";
+}
+.m-icon--arrow-left:before {
+    content: "\e602";
+}
+.m-icon--arrow-down:before {
+    content: "\e603";
+}
+.m-icon--arrow-up:before {
+    content: "\e601";
+}
+.m-icon--arrow-right:before {
+    content: "\e604";
+}
+.m-icon--lock:before {
+    content: "\e636";
+}
+.m-icon--caret-right:before {
+    content: "\e60b";
+}
+.m-icon--caret-left:before {
+    content: "\e60c";
+}
+.m-icon--caret-up:before {
+    content: "\e60d";
+}
+.m-icon--caret-down:before {
+    content: "\e60e";
+}

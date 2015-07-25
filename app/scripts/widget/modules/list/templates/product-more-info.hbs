@@ -1,0 +1,111 @@
+<div id="more-info-{{productId}}" class="more-info">
+    <div class="more-info__features--wrap row">
+        <div class="col-md-6 col-xs-12">
+            {{#if keyBenefits}}
+                <p class="more-info__features">{{lang "moreinfo_features_pros"}}</p>
+                <ul class="more-result__summary--features">
+                    {{#each keyBenefits}}
+                        <li>
+                            <i class="m-icon m-icon--check text-green strongcovered"></i>
+                            {{.}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+        <div class="col-md-6 col-xs-12">
+            {{#if beAwares}}
+                <p class="more-info__features">{{lang "moreinfo_features_cons"}}</p>
+                <ul class="more-result__summary--features">
+                    {{#each beAwares}}
+                        <li>
+                            <i class="m-icon m-icon--no"></i>
+                            {{.}}
+                        </li>
+                    {{/each}}
+                </ul>
+            {{/if}}
+        </div>
+    </div>
+
+    {{#if showMoreInfo}}
+
+    <div id="more-info-box-{{id}}" class="more-info-box more-info-box-{{id}}">
+
+        <div class="more-info--bg">
+            <ul class="nav nav-tabs more-info__tab hidden-xs" role="tablist">
+                {{#each headers}}
+                    <li name="{{name}}" {{#if default}}class="active"{{/if}}>
+                        <a>{{lang nameKey}}</a>
+                    </li>
+                {{/each}}
+            </ul>
+            <div class="swiper-container clearfix swiper-container-{{id}}">
+                <div class="swiper-wrapper clearfix tab-content">
+
+                    {{#each bodys}}
+                    <div class="tab-pane{{#if default}} active{{/if}} more-info-tab-pane swiper-slide more-info__panel more-info__panel--active" name="{{name}}">
+
+                        <h4 class="visible-xs">{{lang nameKey}}</h4>
+
+                        <table class="more-info_table">
+                            <tbody>
+
+                            {{#each blocks}}
+                                {{#unless disabled}}
+
+                                    {{#if blockHeaders}}
+                                        <tr class="hidden-xs more-info__subh">
+                                            {{#each blockHeaders}}
+                                                <td>
+                                                    <p class="more-table__header">{{lang nameKey}}</p>
+                                                </td>
+                                            {{/each}}
+                                        </tr>
+                                    {{/if}}
+                                    {{#each blockRows}}
+
+                                        {{#unless disabled}}
+
+                                        <tr>
+                                            {{#each rowValues}}
+                                                <td class="more-info_table--padding">
+                                                    {{#if valueTitle}}
+                                                        <p class="mobile-header">{{lang valueTitleKey}}</p>
+                                                    {{/if}}
+                                                    <p>{{value}}</p>
+                                                </td>
+                                            {{/each}}
+                                        </tr>
+
+                                        {{/unless}}
+                                    {{/each}}
+
+                                {{/unless}}
+
+                            {{/each}}
+
+                            </tbody>
+                        </table>
+
+                    </div>
+
+                    {{/each}}
+                </div>
+            </div>
+
+        </div>
+
+        <div class="more-info__action">
+            <div class="swipe-pagination pagi-{{id}}"></div>
+            <div class="more-info__close" data-id="{{id}}">
+                <i class="m-icon m-icon--arrow-up"></i>
+            </div>
+        </div>
+        <div class="hidden-xs dd_disclaimer">
+            {{lang "moreinfo_disclaimer"}}
+        </div>
+    </div>
+
+    {{/if}}
+</div>

@@ -1,0 +1,378 @@
+/* Pop up Panel
+   - utilizing bootstrap Modal
+   - Dependent on modal class and modal data trigger settings
+***************************************************************/
+.modal--cag { padding: 0 15px }
+.modal--cag .modal-dialog {
+  width: auto;
+  max-width: 978px;
+  z-index: 1060;
+}
+.ie8 .modal--cag .modal-dialog {
+    max-width: 1100px;
+}
+.modal--cag .modal-content { overflow: hidden }
+
+/* Modal Compare Block CSS mark up */
+.modal-compare {
+  overflow-x: auto;
+  border-top: 1px solid #eaeaea;
+}
+.modal-compare .tooltip{
+    width: 100%
+}
+.ie8 .modal-compare .tooltip {
+    left: 88px!important;
+    width: 150px;
+}
+.modal-compare__head, .modal-compare__row { min-width: 968px }
+.modal-compare__head {
+  position: relative;
+  min-width: 968px;
+  padding: 20px;
+  height: 75px;
+  border-bottom: 1px solid #eaeaea;
+}
+.modal-compare__logo {
+  width: 250px;
+  /*height: 39px;*/
+}
+.modal-compare__close {
+  position: absolute;
+  right: 0; top: 0;
+
+  display: block;
+  height: 75px; width: 70px;
+  line-height:86px;
+  padding: 0 20px;
+  border: 0 none;
+  border-left: 1px solid #eaeaea;
+
+  background: none;
+  outline: 0 none;
+}
+.modal-compare__close:active {
+  outline: 0 none;
+  background: #eaeaea;
+}
+.modal-compare__row {
+  position: relative;
+  border-top:1px dashed #bbbbbb;
+  min-width: 968px;
+}
+.modal-compare__row:first-child, .modal-compare__row--first-child { border-top: 0 none }
+.modal-compare__inner-row--end .modal-compare__cols { padding-bottom: 40px }
+.modal-compare__label {
+  float: left;
+  width: 30%;
+}
+.modal-compare__label--head { background: #eaeaea}
+.modal-compare__compare-value {
+  float: left;
+  width: 70%;
+}
+.modal-compare__compare-value .chk_row_icon {
+  padding-right: 25px;
+}
+.modal-compare__type {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: bold;
+  color: #0f4f73;
+}
+.modal-compare__type .icon-mix {
+  float: left;
+  margin-right: 5px;
+}
+.modal-compare__tooltip {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  cursor: pointer;
+}
+
+.modal-compare__cross {
+  position: absolute;
+  top: 0;
+}
+
+.modal-compare__card {
+  position: relative;
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.modal-compare__card img {
+  height: 90px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.modal-compare__card .btn {
+  bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  font-size: 16px;
+  border-radius: 0;
+}
+.modal-compare__card .btn-cta:hover { color: #fff }
+.modal-compare__select { width: 140px }
+.modal-compare__select--card { margin-bottom: 5px }
+.modal-compare__select--bank {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+.modal-compare__card .btn.btn-shortlist-add {
+  background: #156c9a;
+  border-color: #156C9A;
+  border-bottom: 2px solid #225480;
+  text-transform: uppercase;
+  font-weight: 600;
+  border-radius: 0;
+  width: 100%;
+  padding: 10px 0;
+}
+.modal-compare .modal-compare__row:before {
+  position: absolute;
+  display: block;
+  content: '';
+  top: 0; left: 0; bottom: 0;
+  width: 30%;
+  background: #f7f7f7;
+}
+.modal-compare .modal-compare__row--first-child:before { background: #eaeaea }
+.ie8 .modal-compare__row--first-child {
+    max-height: 227px;
+    overflow: hidden;
+}
+.ie8 .modal-compare__row--first-child .modal-compare__cols {
+    margin-bottom: 50px;
+}
+/* 3 column block for compare value using bootstrap grid */
+.modal-compare__compare-value .modal-compare__cols {
+    border-left: 1px solid #eaeaea;
+    min-height: 30px;
+}
+.ie8 .modal-compare__compare-value .modal-compare__cols { border: 0 none }
+.compare-parent { border-left: 1px solid #eaeaea }
+.modal-compare__compare-value .modal-compare__cols:first-child { border-left: none }
+/* Compare Card block */
+.modal-compare__card .btn, .compare-card__head, .compare-card__sub { font-size: 16px }
+.compare-card__head {
+  color: #0f4f73;
+  font-weight: bold;
+  margin-bottom: 0;
+  height: 34px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* Overrides */
+.modal-compare__close-card {
+  display: none;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-size: .9em;
+  line-height: 21px;
+  color: #fff;
+  background: #e74c3c;
+  border-radius: 20px;
+  cursor: pointer;
+  position: absolute;
+  right: 22px;
+  top: 15px;
+}
+.ie8 .modal-compare__close-card {
+  display: block !important;
+}
+.ie8 .modal-compare__card .modal-compare__close-card{
+    right: 26px;
+}
+.modal-compare__card img:hover + .modal-compare__close-card,
+.modal-compare__close-card:hover,
+.modal-compare__card img:hover .modal-compare__close-card {
+  display: block;
+}
+
+.modal-compare__cols:nth-child(3) .tooltip {
+  left: initial !important;
+  right: 0;
+}
+
+.ccrow-cta .btn-default--dk, .ccrow-cta .btn-success {
+  color: #fff;
+  text-align: left;
+  padding: 0 10px;
+  line-height: 35px;
+  text-transform: uppercase;
+
+}
+.ccrow-cta .btn-default--dk:hover{
+  color: #ffffff;
+}
+.ccrow-cta .btn-default--dk.compare-btn, .ccrow-cta .btn-success {
+  background-color: #72a748;
+
+}
+.ccrow-cta .btn-welcome {
+  background: #979899;
+  font-size: .65em;
+  cursor: help;
+}
+.compare-btn {
+    color: #444!important;
+}
+.more-keyfeatures .list__action-item,
+.compare-btn .list__action-item {
+    right: auto;
+    margin-left: 10px;
+}
+
+.cmp-ex {
+  background: url('/images/greycross.png') no-repeat;
+  padding-left: 20px;
+}
+.chk_row_icon {
+    display: block;
+    padding-left: 20px;
+    background: url("/images/check.png") no-repeat left;
+    background-position: 0 0;
+    color: #777777;
+    font-size: 1em;
+    line-height: 1em;
+    margin-bottom: 10px;
+}
+/* Shortlist Cards */
+.shortlist-cards {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 999;
+  padding-bottom: 20px;
+  background: #fff;
+  border-top: 1px solid #7a7a7a;
+  transform: translate3d(0,0,0);
+}
+.ie8 .shortlist-cards {
+    max-height: 85px;
+}
+@media (min-width: 768px) {
+  .shortlist-cards {
+    display: none;
+  }
+}
+.sc-block__info,
+.sc-block__cards,
+.sc-block__cta {
+  float: left;
+}
+.sc-block__info { width: 37% }
+.sc-block__cards { width: 40% }
+.sc-block__cta { width: 23% }
+
+.sc-block__header {
+  font: bold 18px/1em "proxima-nova", 'Helvetica Neue', Helvetica, 'Open Sans', Arial, sans-serif;
+  color: #104867;
+  margin: 20px 0 0;
+}
+.sc-block__sub {
+  font-size: 14px;
+  margin-top: 3px;
+}
+.sc-block__href {
+  color: #156b9a;
+  text-decoration: none;
+  font-weight: bold;
+}
+.sc-block__href:hover { text-decoration: none }
+.sc-block__href .icon-mix { margin-bottom: -2px }
+
+.sc-block__cards ul {
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+.sc-block__cards ul li {
+  position: relative;
+  display: table-cell;
+  width: 32%;
+}
+.ie8 .sc-block__cards ul li {
+    margin-bottom: 20px;
+}
+.sc-block__cards li:hover .modal-compare__close-card {
+  display: block;
+}
+.sc-block__cards li .modal-compare__close-card {
+  right: 1px;
+  top: -3px;
+}
+.sc-block__cards ul li:nth-child(n+4), .modal-compare__cols:nth-child(n+4) {
+  display: none;
+}
+.sc-block__cards ul li img {
+  width: 96%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+}
+.sc-block__cta .btn {
+  line-height: 40px;
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 16px;
+  margin-top: 16%;
+
+}
+
+@media screen and (max-width: 768px) {
+
+  .filter-container {
+    padding: 0px !important;
+  }
+
+ /* .dropdown-menu > li > a{
+    padding: 12px 10px !important;
+  }*/
+}
+
+
+.lang-flags {
+  background-image: url("/assets/img/flags.png");
+}
+@media screen and (min-width: 768px){
+  .product-bottom-container {
+    padding-left: 16.5%;
+  }
+  .result .col-md-offset-2 {
+    margin-left: 14.666667%;
+  }
+  .result .col-md-10 {
+  width: 85.333333%;
+  }
+}
+@media screen and (max-width: 768px){
+  .container-sort {
+    background: #f5f6f8;
+    padding-top: 0 !important;
+    min-height: 0;
+  }
+  .found {
+    font-size: 1.1em;
+    padding: 14px 0px 10px;
+  }
+}
+
+.lmfr-info-img ~ .tooltip,
+.subinfo-container ~ .tooltip,
+.shortlisted img.tooltip-this ~ .tooltip {
+  width: 300px !important;
+  left: -50% !important;
+}
+.m-icon--cross.sl-remove{
+    font-weight: 700 !important;
+    font-size: 10px;
+}

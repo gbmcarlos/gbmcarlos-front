@@ -1,0 +1,38 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-compare">
+            <!-- Start Logo and close button -->
+            <div class="modal-compare__head">
+                <img class="modal-compare__logo" src="{{logo}}" alt="{{name}}" />
+                <button class="modal-compare__close" data-dismiss="modal">
+                    <i class="icon-mix icon-mix--close-thin"></i>
+                </button>
+            </div>
+
+            <!-- Start Cards Row showing minimum 2 cards-->
+            <div class="modal-compare__row modal-compare__row--first-child clearfix">
+                <div class="modal-compare__inner-row clearfix">
+                    <div class="modal-compare__label">
+                        <div class="row-fluid">
+                            <div class="col-sm-12 modal-compare__cols">
+                                <h3>
+                                    {{lang "cart_modal_title"}}
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-compare__compare-value">
+                        <!-- Region: overviews -->
+                        <div class="row-fluid modal-compare-card">
+                            <!-- Template: cart_overview.hbs -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blocks">
+
+            </div>
+        </div>
+    </div>
+</div>

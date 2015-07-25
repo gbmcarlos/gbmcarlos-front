@@ -1,0 +1,11 @@
+<div class="modal-compare__card">
+    <img alt="{{name}}" title="{{name}}" src="{{logo}}">
+    <i data-slID="{{id}}" class="m-icon m-icon--cross sl-remove modal-compare__close-card"></i>
+    <h4 class="compare-card__head" title="{{name}}">{{name}}</h4>
+    <p class="compare-card__sub"></p>
+    {{#if applyLink}}
+        <a href="javascript:void(0);" type="button" class="goto_site btn btn-lg btn--cag-apply btn-cta apply-now btn-compare-now" data-company="{{company.name}}" data-id="{{id}}" data-name="{{name}}" data-productmobilelink="{{product_mobile_link}}" data-link="{{applyLink}}" data-hasoverlay="{{hasOverlay}}">
+            <span>{{lang "cart_modal_button_apply"}}</span>
+        </a>
+    {{/if}}
+</div>

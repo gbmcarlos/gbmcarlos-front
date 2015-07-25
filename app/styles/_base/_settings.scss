@@ -1,0 +1,49 @@
+/*  ***************************
+/*  Font paths
+*******************************/
+$icon-font-path: "../fonts";
+// $fa-font-path:   "http://staticassets.compareglobal.net/creditcard/fonts";
+$fa-font-path:   "../fonts";
+
+
+/*  ***************************
+/*  Media queries
+/*  ---------------------------
+/*  Default styling should be mobile first with
+/*  desktop and tablet specifics used to extend.
+/*
+/*  Usage:
+/*    @include <mixin> { }
+/*    eg. @include mobile { }
+*******************************/
+$media-mobile-portrait: "(max-width: 321px)";
+@mixin mobile-portrait { @media #{$media-mobile-portrait} { @content; } }
+
+$media-mobile: "(max-width: 767px)";
+@mixin mobile { @media #{$media-mobile} { @content; } }
+
+$media-desktop: "(min-width: 768px)";
+@mixin desktop { @media #{$media-desktop} { @content; } }
+
+$media-tablet: "(min-width: 768px) and (max-width: 991px)";
+@mixin tablet { @media #{$media-tablet} { @content; } }
+
+$media-tablet-landscape: "(min-width: 992px)";
+@mixin tablet-landscape { @media #{$media-tablet-landscape} { @content; } }
+
+
+/*  ***************************
+/*  Color palette
+/*  Doesn't include neutral colours such as white (#fff) or black (#000)
+*******************************/
+$color-0:  #75a94b; // Green
+$color-1:  #156c9a; // Blue
+$color-2:  #104866; // Dark blue
+$color-3:  #4f4f4f; // Darkest grey
+$color-4:  #787878; // Dark grey
+$color-5:  #d6d6d6; // Mid grey
+$color-6:  #d9d9d9; // Between light and mid grey
+$color-7:  #e8e8e8; // Light grey
+$color-8:  #f6f5f7; // Lightest grey
+$color-9:  #f7841a; // Orange
+$color-10: #f37619; // Dark orange

@@ -1,0 +1,15 @@
+<div class="modal-compare__card">
+    <img src="http://widgets.compareglobal.net/creditcard/images/blank-cc.png">
+    <select class="modal-compare__select modal-compare__select--bank">
+        <option>{{lang "cart_modal_form_select_bank"}}</option>
+        {{#each companies}}
+            <option value="{{.}}">{{.}}</option>
+        {{/each}}
+    </select>
+    <select class="modal-compare__select modal-compare__select--card">
+        <option value="">{{lang "cart_modal_form_select_card"}}</option>
+    </select>
+    <a href="javascript:void(0);" class="btn btn-lg btn-primary btn-shortlist-add">
+        {{lang "cart_modal_button_add_to_comparison"}}
+    </a>
+</div>

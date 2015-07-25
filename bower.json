@@ -1,0 +1,11 @@
+{
+  "name": "cgg-creditcard-widget",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass-official": "~3.1.1",
+    "bootstrap": "~3.3.1",
+    "swiper": "2.7.6",
+    "jQuery-ajaxTransport-XDomainRequest": "~1.0.4"
+  },
+  "devDependencies": {}
+}

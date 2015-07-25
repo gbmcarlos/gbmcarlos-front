@@ -1,0 +1,35 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>Gbmcarlos</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+        <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
+
+        <script type="text/javascript">
+            jQuery(document).ready(function() {
+                var params = {};
+
+                location.search.replace(
+                        new RegExp("([^?=&]+)(=([^&]*))?", "g"),
+                        function ($0, $1, $2, $3) {
+                            params[$1] = $3;
+                        }
+                );
+
+                Bootstrapping(params);
+
+            });
+        </script>
+    </body>
+</html>

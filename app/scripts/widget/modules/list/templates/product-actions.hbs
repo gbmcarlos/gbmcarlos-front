@@ -1,0 +1,23 @@
+<ul class="list list--action list--action--show-compare hidden-sm hidden-xs clearfix">
+    {{#if showCompare}}
+        <li>
+            <label class="list__label compare-btn" data-compareId="{{id}}" data-name="{{name}}" for="cgg-comparison-widget-product-{{id}}">
+                {{lang "compare"}}
+                <span class="list__action-item">
+                <div class="form-radcheck form-radcheck--checkbox">
+                    <input class="form-radcheck__elem" id="cgg-comparison-widget-product-{{id}}" type="checkbox">
+                    <span class="form-radcheck__elem--visible"></span>
+                </div>
+            </span>
+            </label>
+        </li>
+    {{/if}}
+    <li>
+        <label class="list__label more_info_sh more-keyfeatures" data-id="{{id}}">
+            <span class="list__action-text">{{lang "more_show"}}</span>
+            <span class="list__action-item">
+                <i class="m-icon m-icon--arrow-down"></i>
+            </span>
+        </label>
+    </li>
+</ul>

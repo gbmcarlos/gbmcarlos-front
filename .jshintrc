@@ -1,0 +1,38 @@
+{
+    // == Enforcing Options ===============================================
+
+    "bitwise"       : true,     // Prohibit bitwise operators (&, |, ^, etc.).
+    "camelcase"     : false,     // Allow you to force all variable names to use either camelCase style or UPPER_CASE with underscores.
+    "curly"         : true,     // Require {} for every new block or scope.
+    "eqeqeq"        : true,     // Require triple equals i.e. `===`.
+    "forin"         : true,     // Tolerate `for in` loops without `hasOwnPrototype`.
+    "immed"         : true,     // Require immediate invocations to be wrapped in parens e.g. `( function(){}() );`
+    "latedef"       : "nofunc", // Prohibit variable use before definition.
+    "newcap"        : false,    // Require capitalization of all constructor functions e.g. `new F()`.
+    "noarg"         : true,     // Prohibit use of `arguments.caller` and `arguments.callee`.
+    "nonbsp"        : true,     // Prohibit use of non-breaking whitespace.
+    "quotmark"      : "single", // Define the consistency of quotation marks used throughout your code
+    "strict"        : true,     // Require `use strict` pragma in every file.
+    "undef"         : true,     // Prohibit the use of explicitly undeclared variables
+    "unused"        : true,     // Prohibit define and never use your variables
+
+    // == Relaxing Options ================================================
+
+    "asi"           : false,    // Tolerate Automatic Semicolon Insertion (no semicolons).
+    "eqnull"        : true,     // Tolerate use of `== null`.
+    "esnext"        : true,     // Allow ES.next specific features such as `const` and `let`.
+    "evil"          : false,    // Tolerate use of `eval`.
+    "smarttabs"     : true,     // Tolerate mixed tabs and spaces when the latter are used for alignmnent only.
+    "sub"           : false,     // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
+    "validthis"     : true,     // Tolerate strict violations when the code is running in strict mode and you use this in a non-constructor function.
+
+    // == Environments ====================================================
+
+    "browser"       : false,    // Standard browser globals e.g. `window`, `document`.
+    "mocha"         : true,     // Enable globals exposed by jQuery JavaScript library.
+    "node"          : true,     // Enable globals available when code is running inside of the NodeJS runtime environment.
+
+    // == Undocumented Options ============================================
+
+    "indent"        : 4         // Specify indentation spacing
+}

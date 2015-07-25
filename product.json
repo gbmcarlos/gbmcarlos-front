@@ -1,0 +1,65 @@
+{
+  "_id": "55a4cbadc82a6a32898a4e4b",
+  "info" : {
+    "productName": "PermataHero Card Platinum",
+    "productDescription": "PermataHero Card Platinum",
+    "productIcon": "Permata_Hero Card_Platinum.png",
+    "productLink": "https://www.permatabank.com/en/Retail/Kartu-Kredit/PermataHero-Card/#.VP0pqkK-3KA",
+    "status": true,
+    "language": "ID"
+  },
+  "company": {
+    "company_address": "Indonesia",
+    "companyName": "PermataBank",
+    "companyLogo": "id/companies/PermataBank.png",
+    "cardProviderVisa": "Visa"
+  },
+  "filters": {
+    "hasApplyBtn": false,
+    "hasRedirect": false,
+    "hasOverlay": false,
+    "hasCashBack": true,
+    "premium": false,
+    "hasPoints": true,
+    "hasLoungeAccess": true,
+    "hasPartlyWaived": true,
+    "bestDealsAirmilesLocal": false,
+    "bestDealsCashback": false,
+    "bestDealsPremium": false,
+    "bestDealsDining": false,
+    "bestDeals1stcard": false,
+    "featured": "{ \"\"cashback\"\":\"\"\"\",\"\"dining\"\":\"\"\"\", \"\"airmiles\"\":\"\"\"\",\"\"premium\"\":\"\"\"\", \"\"1stcard\"\":\"\"\"\", \"\"bestdeal\"\":\"\"\"\", \"\"all\"\":\"\"\"\"}",
+  },
+  "keyBenefits": [
+    "Diskon 5% pada berbagai barang dimanapun dan kapanpun",
+    "Cashback sebesar 3,5% di Hero, Guardian, dan Giant",
+    "Bebas iuran tahunan seumur hidup, bila syarat transaksi terpenuhi"
+  ],
+  "beAware": [
+    "Maksimum cashback yang dapat diterima per tahun sebesar Rp 12 juta.",
+    "Untuk mendapatkan pembebasan iuran tahunan, total akumulasi transaksi dalam setahun harus berjumlah Rp 36 juta. Bila tidak sampai, Anda harus membayar iuran tahunan Rp 600.000."
+  ],
+  "values": {
+    "cashbackRewardsBasic": "3,5",
+    "cashbackRetail": "3,5",
+    "points": 2000,
+    "interestRate": "35,4",
+    "MinCashAdvanceFee": 30000,
+    "annualFee": 600000,
+    "miniRepay": 10,
+    "minLatePayFee": "150000",
+    "minIncome": "240.000.000",
+    "minAge": 21,
+    "minAgeSup": 17,
+    "generalLocalCashback": "3,5"
+  },
+  "texts": {
+    "cashbackOnCondition": "Hanya untuk transaksi di Giant, Hero dan Guardian",
+    "pointsRewardsCondition": "untuk 1 poin reward",
+    "loungeAccessDetails": "Dapatkan akses gratis ke lounge eksekutif bandara untuk 1 orang dengan menukarkan 8.000 point reward",
+    "CashAdvanceFee": "6% dengan minimal Rp 30,000",
+    "annualFeeWaiverCondition": "Gratis iuran tahunan seumur hidup, apabila total akumulasi transaksi dalam setahun harus berjumlah Rp 36 juta. Bila tidak sampai, Anda harus membayar iuran tahunan Rp 600.000.",
+    "latePay": "3% dengan minimal Rp 150,000",
+    "generalLocalCashbackcondition": "hanya untuk transaksi di Giant, Hero dan Guardian"
+  }
+}

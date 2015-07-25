@@ -1,0 +1,2187 @@
+[
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Credit cards",
+        "reference": "",
+        "term": "websiteName",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "APPLY NOW",
+        "reference": "",
+        "term": "Apply",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Show More Information",
+        "reference": "",
+        "term": "more_show",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Visit",
+        "reference": "",
+        "term": "visit",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Compare",
+        "reference": "",
+        "term": "compare",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "or",
+        "reference": "",
+        "term": "or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Change",
+        "reference": "",
+        "term": "change_product",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "General",
+        "reference": "",
+        "term": "moreinfo_general",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Specific",
+        "reference": "",
+        "term": "moreinfo_specific",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promotion/Welcome Gifts",
+        "reference": "",
+        "term": "moreinfo_promotiontab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Reward Points",
+        "reference": "",
+        "term": "moreinfo_cashbacktab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles/Travel Benefits/Online Discount",
+        "reference": "",
+        "term": "moreinfo_airmilestab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "APR and Fees",
+        "reference": "",
+        "term": "moreinfo_aprtab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Eligibility",
+        "reference": "",
+        "term": "moreinfo_eligibilitytab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promotion",
+        "reference": "",
+        "term": "moreinfo_promotiontab_shortened",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles/Other Benefits",
+        "reference": "",
+        "term": "moreinfo_airmilestab_shortened",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Details",
+        "reference": "",
+        "term": "moreinfo_details",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Conditions",
+        "reference": "",
+        "term": "moreinfo_conditions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online Application Special Offer",
+        "reference": "",
+        "term": "moreinfo_onlineapplicationspecialoffer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "moreinfo_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome Gift - Airmiles",
+        "reference": "",
+        "term": "moreinfo_welcomegiftairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome Gift - Points",
+        "reference": "",
+        "term": "moreinfo_welcomegiftpoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome Gifts",
+        "reference": "",
+        "term": "moreinfo_otherwelcomegifts",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promotions Period",
+        "reference": "",
+        "term": "moreinfo_promotionsperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reward Points",
+        "reference": "",
+        "term": "moreinfo_rewardpoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Earning Cashback - Details and Conditions",
+        "reference": "",
+        "term": "moreinfo_cashbackearningdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Using Cashback - Details and Conditions",
+        "reference": "",
+        "term": "moreinfo_cashbackusingdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback Limit Detail",
+        "reference": "",
+        "term": "moreinfo_cashbacklimitdetail",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Places to get Cashback Conditions",
+        "reference": "",
+        "term": "moreinfo_placestogetcashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Discounts - List of Merchants",
+        "reference": "",
+        "term": "moreinfo_cashbacklistofmerchants",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "List of Merchants",
+        "reference": "",
+        "term": "moreinfo_listofmerchants",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Link to Bank Page",
+        "reference": "",
+        "term": "moreinfo_linktobankpage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Discounts - Link to Bank Page",
+        "reference": "",
+        "term": "moreinfo_cashbacklinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Discounts - Shopping",
+        "reference": "",
+        "term": "moreinfo_cashbackshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Discounts - Entertainment",
+        "reference": "",
+        "term": "moreinfo_cashbackentertainment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Discounts - Dining",
+        "reference": "",
+        "term": "moreinfo_cashbackdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reward Points Details",
+        "reference": "",
+        "term": "moreinfo_rewardpointsdetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reward Points - Link to Bank Page",
+        "reference": "",
+        "term": "moreinfo_rewardpointslinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards Points - Details and Conditions",
+        "reference": "",
+        "term": "moreinfo_rewardpointscondition",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards Points - Shopping",
+        "reference": "",
+        "term": "moreinfo_rewardpointsshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards Points - Entertainment",
+        "reference": "",
+        "term": "moreinfo_rewardpointsentertainment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards Points - Dining",
+        "reference": "",
+        "term": "moreinfo_rewardpointsdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles",
+        "reference": "",
+        "term": "moreinfo_airmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback/Airmiles",
+        "reference": "",
+        "term": "moreinfo_cashbackairmiletab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "APR/Fees",
+        "reference": "",
+        "term": "moreinfo_aprfeestab",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles - Condition",
+        "reference": "",
+        "term": "moreinfo_airmilescondition",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles - Details and Conditions",
+        "reference": "",
+        "term": "moreinfo_airmilesdetailsandconditions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles Transaction Fee",
+        "reference": "",
+        "term": "moreinfo_milestxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles transaction fee waived",
+        "reference": "",
+        "term": "moreinfo_milestxnfeewaived",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Travel Benefits",
+        "reference": "",
+        "term": "moreinfo_travelbenefits",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Travel Discount",
+        "reference": "",
+        "term": "moreinfo_traveldiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Travel Benefits - Link to Bank Page",
+        "reference": "",
+        "term": "moreinfo_travelbenefitslinkback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Global Travel Assistance",
+        "reference": "",
+        "term": "moreinfo_globaltravelassistance",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Lounge Access",
+        "reference": "",
+        "term": "moreinfo_loungeaccess",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Travel Insurance",
+        "reference": "",
+        "term": "moreinfo_travelinsurance",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online Shopping",
+        "reference": "",
+        "term": "moreinfo_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online Shopping Discount - Link to Bank Page",
+        "reference": "",
+        "term": "moreinfo_onlineshoppingdiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Max SGD",
+        "reference": "",
+        "term": "moreinfo_maxhkd",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Full online shopping discount list",
+        "reference": "",
+        "term": "moreinfo_fullshoppinglisdiscount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promo Expiry Date: ",
+        "reference": "",
+        "term": "moreinfo_promoexpiry",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "APR",
+        "reference": "",
+        "term": "moreinfo_apr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Retail Purchase APR ",
+        "reference": "",
+        "term": "moreinfo_retailpurchaseapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Delinquency Retail Purchase APR",
+        "reference": "",
+        "term": "moreinfo_delinquencyretail",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cash Advance APR",
+        "reference": "",
+        "term": "moreinfo_caapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Delinquency Cash Advance APR",
+        "reference": "",
+        "term": "moreinfo_delinquencycaapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Interest Free Period",
+        "reference": "",
+        "term": "moreinfo_interestfreeperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual Fees",
+        "reference": "",
+        "term": "moreinfo_annualfees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual Fee",
+        "reference": "",
+        "term": "moreinfo_annualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual Fees Waiver",
+        "reference": "",
+        "term": "moreinfo_annualfeeswaiver1",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual fee is not waived",
+        "reference": "",
+        "term": "moreinfo_annualfeenotwaived",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Perpetual",
+        "reference": "",
+        "term": "moreinfo_annualfeewaiverperpetual",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual Fees Waiver - Condition",
+        "reference": "",
+        "term": "moreinfo_annualfeeswaiver",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Additional Card Annual Fee",
+        "reference": "",
+        "term": "moreinfo_addtlcardannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum Repayment",
+        "reference": "",
+        "term": "moreinfo_minrepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Late Payment Charge",
+        "reference": "",
+        "term": "moreinfo_latepaymentchange",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Other Fees",
+        "reference": "",
+        "term": "moreinfo_otherfees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Foreign Currency Transaction Fee",
+        "reference": "",
+        "term": "moreinfo_foreigncurtxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cross-border Transaction Fee",
+        "reference": "",
+        "term": "moreinfo_xbordertxnfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Over-the-Limit Fee",
+        "reference": "",
+        "term": "moreinfo_otlfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Eligibility",
+        "reference": "",
+        "term": "moreinfo_eligibility",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum Income Citizen/PR",
+        "reference": "",
+        "term": "moreinfo_minincome",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum income Foreigners",
+        "reference": "",
+        "term": "moreinfo_minincomeforeigner",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum Age",
+        "reference": "",
+        "term": "moreinfo_minage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Supplementrary Card Minimum Age",
+        "reference": "",
+        "term": "moreinfo_supcardminage",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Open to non-permanent resident?",
+        "reference": "",
+        "term": "moreinfo_openToNonResident",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "% of total transaction",
+        "reference": "",
+        "term": "moreinfo_percentoftotaltxn",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "%",
+        "reference": "",
+        "term": "moreinfo_percent",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Total fees and charges with",
+        "reference": "",
+        "term": "moreinfo_totalfeescharges",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "% of total outstanding balance",
+        "reference": "",
+        "term": "moreinfo_totaloutstandingbal",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "(which ever is higher)",
+        "reference": "",
+        "term": "moreinfo_whichever",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "years old",
+        "reference": "",
+        "term": "moreinfo_yearsold",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "days",
+        "reference": "",
+        "term": "moreinfo_days",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "and Maximum payment is SGD",
+        "reference": "",
+        "term": "moreinfo_maxlatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum payment is SGD",
+        "reference": "",
+        "term": "moreinfo_minlatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "The above information is provided by SingSaver.com.sg for information purposes only. In case of any discrepancy between the information provided by SingSaver.com.sg and relevant information provided by banks, card issuers or card providers (*partner institutions), the information provided by the partner institutions shall prevail. For more information, please refer to our Terms & Conditons and Privacy Policy page.",
+        "reference": "",
+        "term": "moreinfo_disclaimer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "N/A",
+        "reference": "",
+        "term": "moreinfo_na",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "or",
+        "reference": "",
+        "term": "moreinfo_or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Promotions/Welcome Gift",
+        "reference": "",
+        "term": "moreinfo_nopromotions",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Reward Points",
+        "reference": "",
+        "term": "moreinfo_norewards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Cashback",
+        "reference": "",
+        "term": "moreinfo_nocashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Airmiles",
+        "reference": "",
+        "term": "moreinfo_noairmile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "= 1 mile",
+        "reference": "",
+        "term": "moreinfo_1mile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Online Shopping",
+        "reference": "",
+        "term": "moreinfo_noonlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Travel Benefits",
+        "reference": "",
+        "term": "moreinfo_notravelbenefit",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Coverage up to SGD ",
+        "reference": "",
+        "term": "moreinfo_coverageupto",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Local Spending",
+        "reference": "",
+        "term": "moreinfo_localspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Overseas Spending",
+        "reference": "",
+        "term": "moreinfo_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No details",
+        "reference": "",
+        "term": "moreinfo_nodetails",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Auto Payment",
+        "reference": "",
+        "term": "moreinfo_autopayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online Payment",
+        "reference": "",
+        "term": "moreinfo_onlinepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Octopus Auto Top Up",
+        "reference": "",
+        "term": "moreinfo_octopus",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Groceries",
+        "reference": "",
+        "term": "moreinfo_groceries",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Dining",
+        "reference": "",
+        "term": "moreinfo_dining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shopping",
+        "reference": "",
+        "term": "moreinfo_shopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Reward Points Expiry",
+        "reference": "",
+        "term": "moreinfo_rewardexpiry",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Fees",
+        "reference": "",
+        "term": "moreinfo_fees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Additional Card Annual Fee",
+        "reference": "",
+        "term": "moreinfo_additionalcardannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Foreign Currency Transaction Fee",
+        "reference": "",
+        "term": "moreinfo_foreigncurrencytransactionfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Air Miles Conversion Fee",
+        "reference": "",
+        "term": "moreinfo_feesairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "APR/Repayment Fee",
+        "reference": "",
+        "term": "moreinfo_aprrepaymentfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Retail Purchase/Delinquency APR",
+        "reference": "",
+        "term": "moreinfo_feesretailpurchase",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cash Advance/Delinquency APR",
+        "reference": "",
+        "term": "moreinfo_feescashadvancedelinquencyapr",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Interest Free Period",
+        "reference": "",
+        "term": "moreinfo_feesinterestfreeperiod",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum Repayment",
+        "reference": "",
+        "term": "moreinfo_feesminimumrepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Late Payment Charge",
+        "reference": "",
+        "term": "moreinfo_feeslatepayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Great for:",
+        "reference": "",
+        "term": "moreinfo_features_pros",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "What's the small print?",
+        "reference": "",
+        "term": "moreinfo_features_cons",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback:",
+        "reference": "",
+        "term": "moreinfo_features_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Featured Product",
+        "reference": "",
+        "term": "featured_product_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Exclusive Offer",
+        "reference": "",
+        "term": "exclusive_product_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "col_hdr_maximumcashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Air Miles",
+        "reference": "",
+        "term": "col_hdr_maximummiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Max. Points",
+        "reference": "",
+        "term": "col_hdr_maximumrewardspoints",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Annual Income Requirement",
+        "reference": "",
+        "term": "col_hdr_salary_requirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "How much do you want to spend with the card in a month?",
+        "reference": "",
+        "term": "filter_how_much_do_you_want_to_spend",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Perpetual Annual Fee waiver",
+        "reference": "",
+        "term": "annualFee_text_1",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Waived in first %s year(s)",
+        "reference": "",
+        "term": "annualFee_text_2",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "0",
+        "reference": "",
+        "term": "no_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Cashback",
+        "reference": "",
+        "term": "no_cashback_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome Gift: ",
+        "reference": "",
+        "term": "welcome_offer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Not Available",
+        "reference": "",
+        "term": "not_available",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "miles",
+        "reference": "",
+        "term": "miles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Airmiles",
+        "reference": "",
+        "term": "no_miles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No rewards",
+        "reference": "",
+        "term": "no_rewards_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Reward Points",
+        "reference": "",
+        "term": "no_rewards_points_text",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Select Amount",
+        "reference": "",
+        "term": "select_amount",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "in Singapore",
+        "reference": "",
+        "term": "in_hongkong",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "On Overseas",
+        "reference": "",
+        "term": "on_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "and/or",
+        "reference": "",
+        "term": "and_or",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Which Banks/Card Issuers?",
+        "reference": "",
+        "term": "which_banks",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Which Card Providers?",
+        "reference": "",
+        "term": "card_provider",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "I am interested in the credit card of:",
+        "reference": "",
+        "term": "i_am_interested_in",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "SGD",
+        "reference": "",
+        "term": "hkd",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "This card can double as your Octopus Card",
+        "reference": "",
+        "term": "tooltip_octopus",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Payments can also be made through contactless technology",
+        "reference": "",
+        "term": "tooltip_paypass",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "You can use this card on Taobao",
+        "reference": "",
+        "term": "tooltip_taobao",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "click to rank",
+        "reference": "",
+        "term": "click_to_rank",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that provide cash rebate directly, without using cash coupons.",
+        "reference": "",
+        "term": "tooltip_tab_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that has rewards points programme",
+        "reference": "",
+        "term": "tooltip_tab_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have air miles programme",
+        "reference": "",
+        "term": "tooltip_tab_travel",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have waived annual fees for at least one year",
+        "reference": "",
+        "term": "tooltip_tab_noannualfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have premium benefits such as airport lounge access.",
+        "reference": "",
+        "term": "tooltip_tab_premium",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that can use  both Singapore dollars and RMB for transaction",
+        "reference": "",
+        "term": "tooltip_tab_dualcurrency",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have special discounts on affliated merchants",
+        "reference": "",
+        "term": "tooltip_tab_cobranded",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have special discounts on online purchase",
+        "reference": "",
+        "term": "tooltip_tab_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cards that have cashback or air miles programme when spending overseas",
+        "reference": "",
+        "term": "tooltip_tab_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on local spending",
+        "reference": "",
+        "term": "col_localspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on overseas spending",
+        "reference": "",
+        "term": "col_overseasspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on local and overseas spending",
+        "reference": "",
+        "term": "col_localoverseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on shopping",
+        "reference": "",
+        "term": "col_onlineshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on dining spending",
+        "reference": "",
+        "term": "col_diningspending",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "on contactless payment",
+        "reference": "",
+        "term": "col_contactlesspayment",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "conversion fee",
+        "reference": "",
+        "term": "col_conversionfee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": " / SGD",
+        "reference": "",
+        "term": "col_permile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome Gift:",
+        "reference": "",
+        "term": "col_welcomeoffer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Air Miles",
+        "reference": "",
+        "term": "col_noairmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No AirMiles conversion fee",
+        "reference": "",
+        "term": "col_noairmileconversion",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Cashback",
+        "reference": "",
+        "term": "col_nocashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Salary Requirements",
+        "reference": "",
+        "term": "col_nosalaryrequirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Reward Points",
+        "reference": "",
+        "term": "col_norewardpts",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Perpetual Annual Fee Waiver",
+        "reference": "",
+        "term": "col_perpetual",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Waived in first year",
+        "reference": "",
+        "term": "col_waivedfirst",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Waived in first",
+        "reference": "",
+        "term": "col_waivedinfirst",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "years",
+        "reference": "",
+        "term": "col_year",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "years old",
+        "reference": "",
+        "term": "col_year_old",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "All",
+        "reference": "",
+        "term": "tabs_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "AirMiles",
+        "reference": "",
+        "term": "tabs_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "tabs_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards",
+        "reference": "",
+        "term": "tabs_REWARDS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Dining",
+        "reference": "",
+        "term": "tabs_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shopping",
+        "reference": "",
+        "term": "tabs_SHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Premium",
+        "reference": "",
+        "term": "tabs_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Best Deals",
+        "reference": "",
+        "term": "tabs_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Apply for a Credit Card in Singapore",
+        "reference": "",
+        "term": "masterhead-heading_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Enjoy exclusive offers from Singapore's top providers. Find the credit card with affordable interest rates, exciting perks, and great features using SingSaver's credit card comparison tool.",
+        "reference": "",
+        "term": "masterhead-subheading_ALL",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Earn More Air Miles As You Spend!",
+        "reference": "",
+        "term": "masterhead-heading_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Air miles are rewards that you can redeem for airline tickets, airport lounge privileges, and many other travel perks. Earn miles and rewards points faster every time you spend on your credit card.",
+        "reference": "",
+        "term": "masterhead-subheading_AIRMILES",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Earn back SGD for every SGD you spend!",
+        "reference": "",
+        "term": "masterhead-heading_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Get rewarded with amazing gifts and discounts every time you shop! SingSaver helps you find a rewards credit card from Singapore’s top banks.",
+        "reference": "",
+        "term": "masterhead-subheading_REWARDS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Singapore Rewards Credit Cards",
+        "reference": "",
+        "term": "masterhead-heading_REWARDS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "A cash back credit card lets you earn back a percentage of your credit card spending. Collect cash or credit every time you use your card for travel, petrol, shopping, or dining purposes.",
+        "reference": "",
+        "term": "masterhead-subheading_CASHBACK",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Tap and Pay Using Contactless Cards",
+        "reference": "",
+        "term": "masterhead-heading_CONTACTLESS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Stop swiping and say goodbye to long cashier queues! Compare and find the best contactless credit cards and get optimum convenience whenever you shop and dine.",
+        "reference": "",
+        "term": "masterhead-subheading_CONTACTLESS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Enjoy Dining Offers With Your Credit Card",
+        "reference": "",
+        "term": "masterhead-heading_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Some credit cards offer privileges and discounts when used for dining at affiliated restaurants. Earn cashback rewards and bonus points and get access to exclusive promos every time you eat out.",
+        "reference": "",
+        "term": "masterhead-subheading_DINING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Credit Cards for Shopping",
+        "reference": "",
+        "term": "masterhead-heading_SHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shop the smarter way with a shopping credit card that gives you discounts and lets you earn cashback, reward points and air miles!",
+        "reference": "",
+        "term": "masterhead-subheading_SHOPPING",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Get the prestigious rewards you deserve!",
+        "reference": "",
+        "term": "masterhead-heading_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Get concierge services, prestigious air lounge access and VIP treatment, exclusive hotels deals, and more with a premium credit card. Compare rewards programs, cashback, and airmiles now.",
+        "reference": "",
+        "term": "masterhead-subheading_PREMIUM",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "The Best Credit Card Deals in Singapore",
+        "reference": "",
+        "term": "masterhead-heading_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Find out which credit cards are most popular among our users. Compare the best credit card deals in terms of interest rate, rewards, and other features.",
+        "reference": "",
+        "term": "masterhead-subheading_BESTDEALS",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "<span>We've found</span> the best",
+        "reference": "",
+        "term": "tabs_first",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "deals <span>for you</span>",
+        "reference": "",
+        "term": "tabs_last",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles",
+        "reference": "",
+        "term": "sort_airmiles",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles",
+        "reference": "",
+        "term": "sort_airmiles_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles",
+        "reference": "",
+        "term": "sort_airmiles_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_max_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_total_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_shopping_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_dining_cashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "sort_highest_rewards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Income",
+        "reference": "",
+        "term": "sort_annual_salary",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "There are",
+        "reference": "",
+        "term": "paging_first",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "more offers for you",
+        "reference": "",
+        "term": "paging_last",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "See less about this offer",
+        "reference": "",
+        "term": "more_hide",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Show more info",
+        "reference": "",
+        "term": "mobile_show",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shortlisted Cards",
+        "reference": "",
+        "term": "cart_count_header",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Select up to 3 cards for detailed comparison",
+        "reference": "",
+        "term": "cart_select_up_to_3_cards_for_comparison",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Clear shortlist",
+        "reference": "",
+        "term": "cart_clear_shortlist",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Compare Cards",
+        "reference": "",
+        "term": "cart_compare_cards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Apply Now",
+        "reference": "",
+        "term": "cart_modal_button_apply",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Credit Cards Comparison",
+        "reference": "",
+        "term": "cart_modal_title",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Select Bank",
+        "reference": "",
+        "term": "cart_modal_form_select_bank",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Select Card",
+        "reference": "",
+        "term": "cart_modal_form_select_card",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Add to Comparison",
+        "reference": "",
+        "term": "cart_modal_button_add_to_comparison",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Promos",
+        "reference": "",
+        "term": "cart_modal_heading_promos",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Welcome gift",
+        "reference": "",
+        "term": "cart_modal_label_welcome_gift",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online application offer",
+        "reference": "",
+        "term": "cart_modal_label_online_app_offer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Benefits",
+        "reference": "",
+        "term": "cart_modal_heading_benefits",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (local spending)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (overseas spending)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_overseas",
+        "term_plural": ""
+    },
+
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (Total)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_total",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback (Highest)",
+        "reference": "",
+        "term": "cart_modal_label_cashback_highest",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Air Miles (local spending)",
+        "reference": "",
+        "term": "cart_modal_label_air_miles_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "per mile",
+        "reference": "",
+        "term": "cart_modal_label_col_permile",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Air Miles (overseas spending)",
+        "reference": "",
+        "term": "cart_modal_label_air_miles_overseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Maximum points",
+        "reference": "",
+        "term": "cart_modal_label_max_points",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Automatic transfer reward point",
+        "reference": "",
+        "term": "cart_modal_label_auto_transfer",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online payment reward point",
+        "reference": "",
+        "term": "cart_modal_label_online_pay_reward",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Online shopping reward point",
+        "reference": "",
+        "term": "cart_modal_label_online_shop_reward",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Octopus automatic add value reward point",
+        "reference": "",
+        "term": "cart_modal_label_oct_auto_add",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Eligibility and fees",
+        "reference": "",
+        "term": "cart_modal_heading_eligibility_and_fees",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum income requirement",
+        "reference": "",
+        "term": "cart_modal_label_min_income_req",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum income requirement<br/>Citizen/PR",
+        "reference": "",
+        "term": "cart_modal_label_min_income_req_local",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Minimum income requirement<br/>Foreigner",
+        "reference": "",
+        "term": "cart_modal_label_min_income_req_foreigner",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Foreign currency transaction fee",
+        "reference": "",
+        "term": "cart_modal_label_foreign_cur",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": " of total transaction",
+        "reference": "",
+        "term": "cart_modal_label_col_percentoftotaltxn",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": null,
+        "reference": "",
+        "term": "cart_modal_label_foreignFee",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "SGD",
+        "reference": "",
+        "term": "currency",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Loading",
+        "reference": "",
+        "term": "loading",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "No Minimum Income Requirement",
+        "reference": "",
+        "term": "col_nominincome",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles (Local Spending)",
+        "reference": "",
+        "term": "bestdealsairmileslocal",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Airmiles (Overseas Spending)",
+        "reference": "",
+        "term": "bestdealsairmilesoverseas",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Cashback",
+        "reference": "",
+        "term": "bestdealscashback",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Dining",
+        "reference": "",
+        "term": "bestdealsdining",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Premium",
+        "reference": "",
+        "term": "bestdealspremium",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Shopping",
+        "reference": "",
+        "term": "bestdealsshopping",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Rewards",
+        "reference": "",
+        "term": "bestdealsrewards",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Low Application Requirement",
+        "reference": "",
+        "term": "bestdealslowrequirement",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "Most Popular",
+        "reference": "",
+        "term": "sort_popular",
+        "term_plural": ""
+    },
+	{
+        "comment": "",
+        "context": "",
+        "definition": "No results were found",
+        "reference": "",
+        "term": "no_results",
+        "term_plural": ""
+    },
+    {
+        "comment": "",
+        "context": "",
+        "definition": "SingSaver.com.sg (“we”) is a free and impartial price comparison site. We are not responsible or liable for any inaccuracies on this website. In the event that there are discrepancies in the information provided by SingSaver.com.sg and information provided by the banks, card issuers or card providers (“partner institutions”), the information provided by partner institutions shall prevail. Please read more about our Terms and Conditions and Privacy Policy for more information.",
+        "reference": "",
+        "term": "results_disclaimer",
+        "term_plural": ""
+    }
+]

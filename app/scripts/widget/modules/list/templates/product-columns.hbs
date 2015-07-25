@@ -1,0 +1,35 @@
+<div class="clearfix js-row__clickable {{checkApply}}" data-company="{{company.name}}" data-id="{{id}}" data-name="{{name}}" data-productmobilelink="{{product_mobile_link}}" data-link="{{applyLink}}">
+    <!-- add "result-info--active" class on the sorted category/column -->
+    {{#each columns}}
+
+        <div class="col-xs-4 result-info row_{{index}} {{#if sortered}} result-info--active{{/if}}">
+
+            {{#if tooltip}}
+                <div class="tooltip-this" data-toggle="tooltip" data-placement="bottom" title="{{tooltip}}">
+            {{/if}}
+
+                <h3 class="result-info__header">
+                    <span class="result-info__cur">
+
+                        {{#if currency}}
+                            {{currency}}
+                        {{else}}
+                            &nbsp;
+                        {{/if}}
+
+                    </span>
+
+                    <p class='result-info__text'>{{value}}</p>
+                </h3>
+
+                {{#if label}}
+                    <p class="result-info__text">{{label}}</p>
+                {{/if}}
+
+            {{#if tooltip}}
+                </div>
+            {{/if}}
+
+        </div>
+    {{/each}}
+</div>

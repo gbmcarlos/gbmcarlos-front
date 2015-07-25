@@ -1,0 +1,57 @@
+<div class="col-md-4 col-sm-4 col-xs-12 {{#if isFeatured}}js-details {{else}}{{#if isExclusive}}js-details{{/if}}{{/if}} clearfix padding-0">
+    <div class="result-item__tag--wrap">
+        {{#if isFeatured}}
+            <span class="result-item__tag result-item__tag--feat">
+                    <span class="result-item__tag-star">
+                        <i class="m-icon m-icon--bullet"></i>
+                    </span>
+                {{lang 'feature_product_text'}}
+                </span>
+
+        {{/if}}
+        {{#if isExclusive}}
+            <span class="result-item__tag result-item__tag--exc">
+                <span class="result-item__tag-star">
+                    <i class="m-icon m-icon--star"></i>
+                </span>
+                {{lang 'exclusive_product_text'}}
+            </span>
+            {{#if exclusiveDescription}}
+                <span class="result-item__offer hidden-xs hidden-sm">{{lang 'exclusive_description'}}</span>
+            {{/if}}
+        {{/if}}
+    </div>
+    <div class="col-md-2 hidden-sm hidden-xs padding-0 js-icons">
+        <!-- Icon notification -->
+        <ul class="list--info">
+
+            {{#if welcomeGiftFlag}}
+                <li>
+                    <label class="list--info__label  tooltip-this" data-toggle="tooltip" data-placement="bottom" data-title="{{welcomeGift.description}}">
+                        <i class="m-icon m-icon--cag-gift"></i>
+                    </label>
+                </li>
+            {{/if}}
+            {{#if contactlessFlag}}
+                <li>
+                    <label class="list--info__label tooltip-this" data-toggle="tooltip" data-placement="bottom" data-title="{{lang 'tooltip_paypass'}}">
+                        <i class="m-icon m-icon--contact-less"></i>
+                    </label>
+                </li>
+            {{/if}}
+        </ul>
+    </div>
+    <div class="col-md-10 col-sm-11 {{checkApply}} company-info">
+        <!-- Product Name -->
+        <div class="result-item__head">
+            <div class="result-item__head--wrap">
+                <span>
+                    {{name}}
+                </span>
+            </div>
+        </div>
+        <!-- Bank logo -->
+        <img class="more-result__img--row" alt="{{name}}" data-legacy-src="{{logo}}" src="{{logo}}" />
+    </div>
+</div>
+
