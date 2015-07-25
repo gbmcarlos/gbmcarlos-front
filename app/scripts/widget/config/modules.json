@@ -1,3 +1,48 @@
 {
-    
+    "layouts": [
+        {
+            "enabled": true,
+            "name": "layout1",
+            "expand": true,
+            "structure": {
+                "rows": [
+                    {
+                        "name": "row1",
+                        "columns": [
+                            {
+                                "name": "column1",
+                                "width": {
+                                    "type": "percentatge",
+                                    "value": "50"
+                                }
+                            },
+                            {
+                                "name": "column2",
+                                "width": {
+                                    "type": "cell",
+                                    "value": "5"
+                                }
+                            },
+                            {
+                                "name": "column3",
+                                "width": {
+                                    "type": "cell",
+                                    "value": "3"
+                                },
+                                "align": "center"
+                            },
+                            {
+                                "name": "column4",
+                                "width": {
+                                    "type": "cell",
+                                    "value": "3"
+                                },
+                                "align": "right"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
 }
