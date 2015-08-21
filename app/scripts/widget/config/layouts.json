@@ -1,9 +1,8 @@
 {
-    "layouts": [
-        {
+    "layouts": {
+        "rootLayout": {
             "enabled": true,
             "expand": true,
-            "name": "layout1",
             "class": "layout",
             "structure": {
                 "rows": [
@@ -56,5 +55,5 @@
                 ]
             }
         }
-    ]
+    }
 }

@@ -2,13 +2,9 @@
 
 var p = {
 
-    config: require('./../config/modules.json'),
+    setLayoutDefinition: function (layoutDefinition) {
 
-    generateConfig: function () {
-
-        this.layout = this.generateLayout();
-
-        console.log(this.layout);
+        this.definition = layoutDefinition;
 
     },
 
@@ -16,34 +12,33 @@ var p = {
 
         if (this.layout) {
             return this.layout;
+        } else {
+            return this.generateLayout();
         }
 
     },
 
     generateLayout: function () {
 
-        var layoutDefinition = _.findWhere(this.config.layouts, {enabled: true});
-
-        var layout = this.parseLayout(layoutDefinition);
+        var layout = this.parseLayout();
 
         return layout;
 
     },
 
-    parseLayout: function (layoutDefinition) {
+    parseLayout: function () {
 
         var layout = {
-            name: layoutDefinition.name,
-            layoutClass: layoutDefinition.class,
+            layoutClass: this.definition.class,
             rows: [],
             regions: {}
         };
 
-        layout.containerClass = (!!layoutDefinition.expand) ? 'container-fluid' : 'container';
+        layout.containerClass = (!!this.definition.expand) ? 'container-fluid' : 'container';
 
         layout.class = this.concatClasses(layout.layoutClass, layout.containerClass);
 
-        _.each(layoutDefinition.structure.rows, function (rowDefinition) {
+        _.each(this.definition.structure.rows, function (rowDefinition) {
 
             var row = this.generateRow(rowDefinition, layout);
 
@@ -79,25 +74,6 @@ var p = {
 
     },
 
-    addRowColumn: function (layout, row, column) {
-
-        var currentSubRow = row.subRows ? row.subRows.length - 1 : 0;
-
-        if ((row.cellsUsed + column.offset + column.width) <= 12) {
-            row.subRows[currentSubRow].push(column);
-        } else {
-            row.subRows.push([column]);
-            row.cellsUsed = 0;
-        }
-
-        row.columns.push(column);
-
-        row.cellsUsed += column.offset + column.width;
-
-        layout.regions[column.name] = '#' + column.name;
-
-    },
-
     generateColumn: function (columnDefinition, row) {
 
         var column = {
@@ -116,6 +92,25 @@ var p = {
         column.class = this.concatClasses(column.columnClass, column.widthClass, column.offsetClass);
         return column;
 
+
+    },
+
+    addRowColumn: function (layout, row, column) {
+
+        var currentSubRow = row.subRows ? row.subRows.length - 1 : 0;
+
+        if ((row.cellsUsed + column.offset + column.width) <= 12) {
+            row.subRows[currentSubRow].push(column);
+        } else {
+            row.subRows.push([column]);
+            row.cellsUsed = 0;
+        }
+
+        row.columns.push(column);
+
+        row.cellsUsed += column.offset + column.width;
+
+        layout.regions[column.name] = '#' + column.name;
 
     },
 
@@ -236,19 +231,16 @@ var p = {
 
 };
 
-function ModulesService() {
+function LayoutParser() {
 }
 
-ModulesService.prototype = {
+LayoutParser.prototype = {
 
-    generateConfig: function () {
-        return p.generateConfig();
-    },
-
-    getLayout: function() {
+    getLayout: function(layoutDefinition) {
+        p.setLayoutDefinition(layoutDefinition);
         return p.getLayout();
     }
 
 };
 
-module.exports = ModulesService;
+module.exports = LayoutParser;

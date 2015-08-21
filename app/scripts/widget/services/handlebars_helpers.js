@@ -2,6 +2,18 @@
 
 var p = {
 
+    _isEmpty: function (v, param) {
+        var param = param || null;
+        var v = $.trim(v);
+        switch (param) {
+            case 'zero':
+                return v == null || v == "N/A" || v == "" || v == "No" || v == "undefined" || v == "NaN" || v == "NA" || v == " " || v == "n/a" || v == "false" || v == "FALSE" || v == "NULL" || v == "null";
+                break;
+            default:
+                return v == null || v == "N/A" || v == "" || v == "No" || v == 0 || v == "0" || v == "undefined" || v == "NaN" || v == "NA" || v == " " || v == "n/a" || v == "false" || v == "FALSE" || v == "NULL" || v == "null";
+        }
+    },
+
     comp: function (self, v1, v2, options) {
         if (v1 == v2) {
             return self.fn();
@@ -11,7 +23,7 @@ var p = {
     },
 
     isNotEmpty: function (self, val, options) {
-        if (this.cagService.isNotEmpty(val)) {
+        if (!this.cagService.isEmpty(val)) {
             return options.fn(self);
         } else {
             return options.inverse(self);
@@ -22,15 +34,13 @@ var p = {
         return this.translationsService.lang(key);
     },
 
-    init: function (cagService, TranslationsService) {
-        this.cagService = cagService;
+    init: function (TranslationsService) {
         this.translationsService = TranslationsService;
     }
 
 };
 
-function HandlebarsHelpers(CagService, TranslationsService) {
-    this.cagService = CagService;
+function HandlebarsHelpers(TranslationsService) {
     this.translationsService = TranslationsService;
     this.init();
 }

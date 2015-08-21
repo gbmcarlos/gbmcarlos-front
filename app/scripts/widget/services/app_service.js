@@ -2,111 +2,64 @@
 
 var p = {
 
-    init: function (modulesService) {
-        this.layout = modulesService.getLayout();
+    init: function(widget, dataService, layoutParser) {
+        this.widget = widget;
+        this.dataService = dataService;
+        this.layoutParser = layoutParser;
     },
 
-    setRegions: function (App) {
+    setConfig: function() {
 
-        App.addRegions(this.layout.regions);
-    },
+        this.rootDefinition = require('./../config/root.json').root;
 
-    includeModules: function (App) {
-
-        App = require('./../modules/base/base_module.js')(App);
-
-        //App = require('./../modules/list/list_module.js')(App);
-        //
-        //App = this.includeFeatureModules(App);
-
-        return App;
+        this.layoutsDefinitions = require('./../config/layouts.json');
 
     },
 
-    includeFeatureModules: function (App) {
+    start: function() {
 
-        if (!!App.container.get('ConfigService').getPrefs().showTabs) {
-            App = require('./../modules/tab/tab_module.js')(App);
-        }
+        var rootLayoutName = this.rootDefinition.layout.name;
 
-        if (!!App.container.get('ConfigService').getPrefs().showSorts) {
-            App = require('./../modules/sort/sort_module.js')(App);
-        }
+        var rootLayout = this.getLayout(rootLayoutName);
 
-        if (!!App.container.get('ConfigService').getConfig().features.compareCart) {
-            App = require('./../modules/cart/cart_module.js')(App);
-        }
-
-        return App;
-    },
-
-    includeEntities: function (App) {
-
-        App = require('./../entities/tab.js')(App);
-        App = require('./../entities/product.js')(App);
-        App = require('./../entities/cart.js')(App);
-        App = require('./../entities/sort.js')(App);
-
-        return App;
-    },
-
-    initModules: function (App) {
-
-        App.Base.init();
-        App.List.init();
-
-        this.initFeatureModules(App);
+        this.setLayout(rootLayout, this.widget);
 
     },
 
-    initFeatureModules: function (App) {
+    getLayout: function(layoutName) {
 
-        if (!!App.container.get('ConfigService').getPrefs().showTabs) {
-            App.Tab.init(App.container.get('ConfigService').getConfig().siteConfig.categories);
-        }
+        var layoutDefinition = this.dataService.getDatumFromObject('layouts.' + layoutName, this.layoutsDefinitions);
 
-        if (!!App.container.get('ConfigService').getPrefs().showSorts) {
-            App.Sort.init(App.container.get('ConfigService').getConfig().siteConfig.categories);
-        }
+        var layout = this.layoutParser.getLayout(layoutDefinition);
 
-        if (!!App.container.get('ConfigService').getConfig().features.compareCart) {
-            App.Cart.init();
-        }
+        return layout;
 
+    },
+
+    setLayout: function(layout, base) {
+
+        base.addRegions(layout.regions);
 
     }
 
 };
 
-function AppService(ModulesService) {
+function AppService(widget, dataService, layoutParser) {
 
-    this.modulesService = ModulesService;
-    this.init();
+    this.widget = widget;
+    this.dataService = dataService;
+    this.layoutParser = layoutParser;
 
 }
 
 AppService.prototype = {
 
-    init: function () {
-        p.init(this.modulesService);
-    },
-
-    setRegions: function (App) {
-        p.setRegions(App);
-    },
-
-    includeModules: function (App) {
-        return p.includeModules(App);
-    },
-
-    includeEntities: function (App) {
-        return p.includeEntities(App);
-
-    },
-
-    initModules: function (App) {
-        p.initModules(App);
+    start: function() {
+        p.init(this.widget, this.dataService, this.layoutParser);
+        p.setConfig();
+        p.start();
     }
+
 };
 
 module.exports = AppService;

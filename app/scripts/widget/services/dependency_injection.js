@@ -10,6 +10,8 @@ module.exports = function (App) {
 
         registeredServices: [],
 
+        globalVars: {App: App},
+
         registerService: function (name, service, dependencies) {
             this.registeredServices.push(
                 {
@@ -54,7 +56,11 @@ module.exports = function (App) {
             if (!!serviceConfig.dependencies && !!serviceConfig.dependencies.length) {
                 for (var i in serviceConfig.dependencies) {
 
-                    args.push(this.getService(serviceConfig.dependencies[i]));
+                    if (this.globalVars.hasOwnProperty(serviceConfig.dependencies[i])) {
+                        args.push(this.globalVars[serviceConfig.dependencies[i]]);
+                    } else {
+                        args.push(this.getService(serviceConfig.dependencies[i]));
+                    }
 
                 }
             }

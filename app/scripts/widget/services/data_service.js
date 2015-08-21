@@ -2,9 +2,8 @@
 
 var p = {
 
-    init: function(numeral, cagService, translationsService) {
+    init: function(numeral, translationsService) {
         this.numeral = numeral;
-        this.cagService = cagService;
         this.translationsService = translationsService;
     },
 
@@ -36,7 +35,7 @@ var p = {
             datum = this.getSymbolDatum(datum, definition.symbol);
         }
 
-        if (this.cagService.isEmpty(datum) && !!definition.empty) {
+        if (this.isEmpty(datum) && !!definition.empty) {
             datum = this.getEmptyDatum(definition.empty);
         }
 
@@ -113,7 +112,7 @@ var p = {
 
             otherProperty = this.getDatumFromObject(conditionDefinition.otherProperty, this.currentObject);
 
-            if (conditionDefinition.expectedEmpty == this.cagService.isEmpty(otherProperty)) {
+            if (conditionDefinition.expectedEmpty == this.isEmpty(otherProperty)) {
 
                 datum = this.getDatumFromObject(conditionDefinition.thenProperty, this.currentObject);
 
@@ -194,13 +193,26 @@ var p = {
         }
 
         return emptyDatum;
+    },
+
+    isEmpty: function (v, param) {
+        var param = param || null;
+        var v = $.trim(v);
+        switch (param) {
+            case 'zero':
+                return v == null || v == "N/A" || v == "" || v == "No" || v == "undefined" || v == "NaN" || v == "NA" || v == " " || v == "n/a" || v == "false" || v == "FALSE" || v == "NULL" || v == "null";
+                break;
+            default:
+                return v == null || v == "N/A" || v == "" || v == "No" || v == 0 || v == "0" || v == "undefined" || v == "NaN" || v == "NA" || v == " " || v == "n/a" || v == "false" || v == "FALSE" || v == "NULL" || v == "null";
+        }
+
     }
+
 
 };
 
-function DataService(widget, cagService, translationsService){
+function DataService(widget, translationsService){
     this.widget = widget;
-    this.cagService = cagService;
     this.translationsService = translationsService;
 
     this.init();
@@ -209,12 +221,16 @@ function DataService(widget, cagService, translationsService){
 DataService.prototype = {
 
     init: function() {
-        p.init(widget.numeral, this.cagService, this.translationsService);
+        p.init(this.widget.numeral, this.translationsService);
     },
 
     getDatum: function(definition, object) {
         p.setObject(object);
         return p.getDatum(definition);
+    },
+
+    getDatumFromObject: function(datum, object) {
+        return p.getDatumFromObject(datum, object)
     }
 
 }

@@ -25,24 +25,14 @@ global.Bootstrapping = function (params) {
         },
 
         initServices: function() {
-            App.container.get('ModulesService').generateConfig(params);
             App.container.get('TranslationsService').setLang(params);
             App.container.get('HandlebarsHelpers').registerHelpers();
         },
 
         initApplication: function() {
-            App.container.get('AppService').setRegions(App);
-            //App.container.get('AppService').includeModules(App);
-            //App.container.get('AppService').includeEntities(App);
-            //App.container.get('AppService').initModules(App);
-        },
-
-        start: function() {
-            App.Base.showLoader();
-            //App.container.get('RequestService').setLocale(options.conf.locale);
-            App.container.get('RequestService').setLocale('en-ID');
-            App.container.get('RequestService').getProducts();
+            App.container.get('AppService').start();
         }
+
     };
 
     App.bootstrapping.initContainer();
@@ -50,7 +40,5 @@ global.Bootstrapping = function (params) {
     App.bootstrapping.initServices();
 
     App.bootstrapping.initApplication();
-    //
-    //App.bootstrapping.start();
 
 };
