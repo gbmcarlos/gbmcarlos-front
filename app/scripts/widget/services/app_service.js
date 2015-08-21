@@ -2,8 +2,9 @@
 
 var p = {
 
-    init: function(widget, dataService, layoutParser) {
+    init: function(widget, debugService, dataService, layoutParser) {
         this.widget = widget;
+        this.debugService = debugService;
         this.dataService = dataService;
         this.layoutParser = layoutParser;
     },
@@ -22,13 +23,19 @@ var p = {
 
         var rootLayout = this.getLayout(rootLayoutName);
 
-        this.setLayout(rootLayout, this.widget);
+        if (rootLayout) {
+            this.setLayout(rootLayout, this.widget);
+        }
 
     },
 
     getLayout: function(layoutName) {
 
         var layoutDefinition = this.dataService.getDatumFromObject('layouts.' + layoutName, this.layoutsDefinitions);
+
+        if (!layoutDefinition) {
+            this.debugService.error();
+        }
 
         var layout = this.layoutParser.getLayout(layoutDefinition);
 
@@ -44,9 +51,10 @@ var p = {
 
 };
 
-function AppService(widget, dataService, layoutParser) {
+function AppService(widget, debugService, dataService, layoutParser) {
 
     this.widget = widget;
+    this.debugService = debugService;
     this.dataService = dataService;
     this.layoutParser = layoutParser;
 
@@ -55,7 +63,7 @@ function AppService(widget, dataService, layoutParser) {
 AppService.prototype = {
 
     start: function() {
-        p.init(this.widget, this.dataService, this.layoutParser);
+        p.init(this.widget, this.debugService, this.dataService, this.layoutParser);
         p.setConfig();
         p.start();
     }

@@ -14,7 +14,7 @@ module.exports = function (widget) {
     widget.container.register('TranslationsService', TranslationsService);
     widget.container.register('HandlebarsHelpers', HandlebarsHelpers, ['TranslationsService']);
     widget.container.register('RequestService', RequestService);
-    widget.container.register('AppService', AppService, ['App', 'DataService', 'LayoutParser']);
+    widget.container.register('AppService', AppService, ['App', 'DebugService', 'DataService', 'LayoutParser']);
     widget.container.register('DebugService', DebugService);
     widget.container.register('DataService', DataService, ['TranslationsService']);
 

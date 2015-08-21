@@ -20,9 +20,13 @@ var p = {
 
     generateLayout: function () {
 
-        var layout = this.parseLayout();
+        if (this.definition) {
 
-        return layout;
+            var layout = this.parseLayout();
+
+            return layout;
+
+        }
 
     },
 
