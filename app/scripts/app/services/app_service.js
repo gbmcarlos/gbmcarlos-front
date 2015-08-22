@@ -150,7 +150,41 @@ var p = {
 
     fillLayout: function(layoutLocate, layoutView) {
 
-        
+        _.each(layoutLocate, function(locateDefinition) {
+
+            if (!!locateDefinition.region && !!layoutView.getRegion(locateDefinition.region)) {
+
+                this.setLocateContent(locateDefinition, layoutView);
+
+            }
+
+        }, this);
+
+    },
+
+    setLocateContent: function(locateDefinition, layoutView) {
+
+        if (!!locateDefinition.type && locateDefinition.type == 'module') {
+            this.setLocateContentModule(locateDefinition, layoutView);
+        } else if (!!locateDefinition.type && locateDefinition.type == 'layout') {
+            this.setLocateContentLayout(locateDefinition, layoutView);
+        }
+
+    },
+
+    setLocateContentModule: function(locateModuleDefinition, layoutView) {
+
+        return {
+            name: locateModuleDefinition.name,
+            view: locateModuleDefinition.view,
+            controller: locateModuleDefinition
+        };
+
+    },
+
+    setLocateContentLayout: function(locateLayoutDefinition, layoutView) {
+
+        this.setLayout(locateLayoutDefinition.layout, layoutView.getRegion(locateLayoutDefinition.region));
 
     }
 

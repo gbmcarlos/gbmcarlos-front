@@ -2,23 +2,22 @@
     "root": {
         "layout": {
             "definition": "rootLayout",
-            "locate": {
-                "titleRegion": {
+            "locate": [
+                {
+                    "region": "region1",
                     "type": "module",
                     "module": {
                         "name": "titleModule"
                     }
                 },
-                "contentRegion": {
+                {
+                    "region": "region1",
                     "type": "layout",
                     "layout": {
-                        "definition": "contentLayout",
-                        "locate": {
-                            "module1": "s"
-                        }
+                        "definition": "rootLayout"
                     }
                 }
-            }
+            ]
         }
     }
 }
