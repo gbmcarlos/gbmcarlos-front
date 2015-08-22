@@ -1,0 +1,27 @@
+//BOOTSTRAP
+// Core variables and mixins
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/variables.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins.scss";
+
+// Core CSS
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/scaffolding.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/type.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/grid.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/forms.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/buttons.scss";
+
+// Components
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/component-animations.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/navs.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/navbar.scss";
+
+// Components w/ JavaScript
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/modals.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/tooltip.scss";
+
+// Utility classes
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/utilities.scss";
+@import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/responsive-utilities.scss";
+
+//APP
+@import "app/_app.scss";

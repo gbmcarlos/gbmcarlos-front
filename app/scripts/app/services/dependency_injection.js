@@ -27,7 +27,6 @@ module.exports = function (App) {
             var service = this.getServiceBuilt(name);
 
             if (typeof service == 'undefined') {
-                this.builtServices.push(name);
                 service = this.buildService(name);
             }
             return service;

@@ -90,7 +90,7 @@ module.exports = function (widget) {
 
             fillGroups: function(_groups, _products) {
 
-                var dataService = widget.container.get('DataService');
+                //var dataService = widget.container.get('DataService');
 
                 var groups = new widget.Entities.GroupCollection();
 

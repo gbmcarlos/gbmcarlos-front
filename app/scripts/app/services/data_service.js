@@ -211,8 +211,8 @@ var p = {
 
 };
 
-function DataService(widget, translationsService){
-    this.widget = widget;
+function DataService(app, translationsService){
+    this.app = app;
     this.translationsService = translationsService;
 
     this.init();
@@ -221,7 +221,7 @@ function DataService(widget, translationsService){
 DataService.prototype = {
 
     init: function() {
-        p.init(this.widget.numeral, this.translationsService);
+        p.init(this.app.numeral, this.translationsService);
     },
 
     getDatum: function(definition, object) {

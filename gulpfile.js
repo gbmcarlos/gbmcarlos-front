@@ -54,13 +54,13 @@ bundle = function (config) {
     var prod = (!!config.minify && config.minify);
 
     return getBundler(prod).bundle()
-    .on('error', onError)
-    .pipe(source('main.js'))
-    .pipe(buffer())
-    .pipe($.if(prod, $.stripDebug()))
-    .pipe($.if(prod, $.uglify()))
-    .pipe(gulp.dest('./dist/scripts'))
-    .pipe(browserSync.reload({ stream: true }));
+        .on('error', onError)
+        .pipe(source('main.js'))
+        .pipe(buffer())
+        .pipe($.if(prod, $.stripDebug()))
+        .pipe($.if(prod, $.uglify()))
+        .pipe(gulp.dest('./dist/scripts'))
+        .pipe(browserSync.reload({ stream: true }));
 };
 
 getBundler = function (prod) {
@@ -69,7 +69,7 @@ getBundler = function (prod) {
     var b;
 
     if (!bundler) {
-        b = browserify('./app/scripts/widget/widget.js', _.extend({
+        b = browserify('./app/scripts/app/app.js', _.extend({
             debug: prod
         }, watchify.args));
 
@@ -121,7 +121,7 @@ gulp.task('scripts', function() {
 });
 
 gulp.task('jshint', function() {
-    return gulp.src(['./app/widget/**/*.js', './test/**/*.js'])
+    return gulp.src(['./app/app/**/*.js', './test/**/*.js'])
         .pipe($.plumber())
         .pipe($.jshint())
         .pipe($.jshint.reporter(stylish));
@@ -129,7 +129,7 @@ gulp.task('jshint', function() {
 
 gulp.task('embed', function () {
     return gulp.src('app/scripts/frame.js')
-        .pipe(gulp.dest('dist/scripts/widget'));
+        .pipe(gulp.dest('dist/scripts/app'));
 });
 
 gulp.task('images', images);
@@ -145,6 +145,7 @@ reporter = 'spec';
 
 gulp.task('compile', [
     'clean',
+    'styles',
     'html',
     'fonts'
 ], function () {
@@ -156,6 +157,7 @@ gulp.task('compile', [
 
 gulp.task('build', [
     'clean',
+    'styles',
     'html',
     'fonts'
 ], function () {
@@ -188,7 +190,7 @@ gulp.task('watch', ['compile'], function() {
     gulp.watch('./app/**/*.html', ['html']);
     gulp.watch('./app/**/*.hbs', ['scripts']);
     gulp.watch(['./app/**/*.json', './app/**/*.js'], ['scripts']);
-    gulp.watch(['./app/styles/main.scss', './app/styles/**/*.scss'], ['styles']);
+    gulp.watch(['./app/styles/main.scss', './app/styles/**/*.scss', './app/styles/**/**/*.scss'], ['styles']);
 });
 
 gulp.task('default', ['watch']);

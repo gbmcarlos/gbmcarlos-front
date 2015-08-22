@@ -1,0 +1,24 @@
+{
+    "root": {
+        "layout": {
+            "definition": "rootLayout",
+            "locate": {
+                "titleRegion": {
+                    "type": "module",
+                    "module": {
+                        "name": "titleModule"
+                    }
+                },
+                "contentRegion": {
+                    "type": "layout",
+                    "layout": {
+                        "definition": "contentLayout",
+                        "locate": {
+                            "module1": "s"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

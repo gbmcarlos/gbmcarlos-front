@@ -8,29 +8,21 @@ var p = {
 
     },
 
-    getLayout: function() {
+    parseLayout: function() {
 
         if (this.layout) {
+
             return this.layout;
-        } else {
+
+        } else if(this.definition){
+
             return this.generateLayout();
+
         }
 
     },
 
     generateLayout: function () {
-
-        if (this.definition) {
-
-            var layout = this.parseLayout();
-
-            return layout;
-
-        }
-
-    },
-
-    parseLayout: function () {
 
         var layout = {
             layoutClass: this.definition.class,
@@ -235,16 +227,16 @@ var p = {
 
 };
 
-function LayoutParser() {
+function LayoutService() {
 }
 
-LayoutParser.prototype = {
+LayoutService.prototype = {
 
-    getLayout: function(layoutDefinition) {
+    parseLayout: function(layoutDefinition) {
         p.setLayoutDefinition(layoutDefinition);
-        return p.getLayout();
+        return p.parseLayout();
     }
 
 };
 
-module.exports = LayoutParser;
+module.exports = LayoutService;
