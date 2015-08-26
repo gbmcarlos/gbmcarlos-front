@@ -1,6 +1,6 @@
 'use strict';
 
-function AppTemplates() {
+function Templates() {
     this.templates = {
         baseLayoutTemplate: require('./../resources/app/templates/layout.hbs')
 
@@ -8,4 +8,4 @@ function AppTemplates() {
 }
 
 
-module.exports = AppTemplates;
+module.exports = Templates;

@@ -1,21 +1,25 @@
 'use strict';
 
+var root = require('./../config/root.json').root,
+    layouts = require('./../config/layouts.json').layouts;
+
 var p = {
 
-    init: function(app, appTemplates, appViews, debugService, dataService, layoutService) {
+    init: function(app, appTemplates, appViews, debugService, dataService, layoutService, moduleService) {
         this.app = app;
         this.appTemplates = appTemplates.templates;
         this.appViews = appViews;
         this.debugService = debugService;
         this.dataService = dataService;
         this.layoutService = layoutService;
+        this.moduleService = moduleService;
     },
 
     setConfig: function() {
 
-        this.rootDefinition = require('./../config/root.json').root;
+        this.rootDefinition = root;
 
-        this.layoutsDefinitions = require('./../config/layouts.json').layouts;
+        this.layoutsDefinitions = layouts;
 
     },
 
@@ -70,7 +74,7 @@ var p = {
 
         if (!definitionName) {
 
-            this.debugService.error('Must especify a template definition');
+            this.debugService.error('Must especify a layout definition');
 
             return;
         }
@@ -172,25 +176,21 @@ var p = {
 
     },
 
-    setLocateContentModule: function(locateModuleDefinition, layoutView) {
-
-        return {
-            name: locateModuleDefinition.name,
-            view: locateModuleDefinition.view,
-            controller: locateModuleDefinition
-        };
-
-    },
-
     setLocateContentLayout: function(locateLayoutDefinition, layoutView) {
 
         this.setLayout(locateLayoutDefinition.layout, layoutView.getRegion(locateLayoutDefinition.region));
+
+    },
+
+    setLocateContentModule: function(locateModuleDefinition, layoutView) {
+
+        this.moduleService.setModule(locateModuleDefinition.module.name, layoutView.getRegion(locateModuleDefinition.region));
 
     }
 
 };
 
-function AppService(app, appTemplates, appViews, debugService, dataService, layoutService) {
+function AppService(app, appTemplates, appViews, debugService, dataService, layoutService, moduleService) {
 
     this.app = app;
     this.appTemplates = appTemplates;
@@ -198,16 +198,23 @@ function AppService(app, appTemplates, appViews, debugService, dataService, layo
     this.debugService = debugService;
     this.dataService = dataService;
     this.layoutService = layoutService;
+    this.moduleService = moduleService;
+
+    this.init();
 
 }
 
 AppService.prototype = {
 
-    start: function() {
-        p.init(this.app, this.appTemplates, this.appViews, this.debugService, this.dataService, this.layoutService);
+    init: function() {
+
+        p.init(this.app, this.appTemplates, this.appViews, this.debugService, this.dataService, this.layoutService, this.moduleService);
         p.setConfig();
         p.setBases();
         p.setRootRegion();
+    },
+
+    start: function() {
         p.start();
     }
 
