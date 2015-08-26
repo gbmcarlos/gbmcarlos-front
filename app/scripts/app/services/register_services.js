@@ -10,6 +10,10 @@ var SiteDependencies = require('./site_dependencies.js'),
     AppTemplates = require('./../config/templates.js'),
     AppViews = require('./../resources/app/views/app_views.js');
 
+
+var BaseModule = require('./../modules/base/base_module.js'),
+    BaseView = require('./../modules/base/base_view.js');
+
 module.exports = function (widget) {
 
     widget.container.register('SiteDependencies', SiteDependencies);
@@ -21,7 +25,10 @@ module.exports = function (widget) {
     widget.container.register('AppTemplates', AppTemplates);
     widget.container.register('AppViews', AppViews, ['App']);
     widget.container.register('LayoutService', LayoutService);
-    widget.container.register('ModuleService', ModuleService);
+    widget.container.register('ModuleService', ModuleService, ['App', 'AppTemplates', 'AppViews']);
     widget.container.register('AppService', AppService, ['App', 'AppTemplates', 'AppViews', 'DebugService', 'DataService', 'LayoutService', 'ModuleService']);
+
+    widget.container.register('BaseModule', BaseModule, ['App']);
+    //widget.container.register('BaseView', BaseView, ['App']);
 
 };

@@ -1,48 +1,102 @@
 'use strict';
 
-var BaseController = require('./base_controller.js');
+var p = {
 
-module.exports = function (widget) {
+    init: function(app) {
+        this.app = app;
+    },
 
-    widget.module('Base', function (Base, widget) {
+    setConfig: function(config) {
+        this.config = config;
+    },
 
-        widget.on('products:error', function() {
-            Base.error();
-        });
+    setView: function(baseView) {
+        this.baseView = baseView;
+    },
 
-        Base.init = function (config) {
-            this.setConfig(config);
-            this.setController();
-            this.start();
-        };
+    start: function() {
 
-        Base.setController = function () {
-            BaseController(widget);
-            this.Controller.init();
-        };
+        //this.layout = new this.baseView.appLayout();
+        //this.loader = new this.baseView.loaderView();
+        //
+        //this.widget.content.show(this.layout);
+        //
+        //this.layout.getRegion('loaderRegion').show(this.loader);
+        //
+        //this.loader.show();
 
-        Base.setConfig = function (config) {
-            this.config = config;
-        };
+    },
 
-        Base.start = function () {
-            this.Controller.start();
-        };
+    hideLoader: function() {
+        this.loader.hide();
+    },
 
-        Base.hideLoader = function() {
-            this.Controller.hideLoader();
-        };
+    showLoader: function() {
+        this.loader.show();
+    },
 
-        Base.showLoader = function() {
-            this.Controller.showLoader();
-        };
+    error: function() {
 
-        Base.error = function() {
-            this.Controller.error();
-        };
+        this.hideLoader();
+        widget.resultsRegion.show(new this.baseView.error());
 
-    });
-
-    return widget;
+    }
 
 };
+
+BaseModule.prototype = {
+
+    init: function () {
+
+        p.init(this.app);
+
+        this.app.on('products:error', function() {
+            this.error();
+        }, this);
+
+    },
+
+    setController: function () {
+        p.init();
+    },
+
+    start: function () {
+        p.start();
+    },
+
+    hideLoader: function() {
+        p.hideLoader();
+    },
+
+    showLoader: function() {
+        p.showLoader();
+    },
+
+    triggerLibrisDependencies: function() {
+        p.triggerLibrisDependencies();
+    },
+
+    error: function() {
+        p.error();
+    },
+
+    getLayout: function() {
+        return p.layout;
+    },
+
+    setView: function(view) {
+        this.view = view;
+        p.setView(view);
+    }
+
+};
+
+function BaseModule(app) {
+
+    this.app = app;
+
+    this.init();
+
+}
+
+module.exports = BaseModule;

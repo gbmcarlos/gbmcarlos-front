@@ -7,14 +7,14 @@
                     "region": "region1",
                     "type": "module",
                     "module": {
-                        "name": "titleModule"
+                        "name": "module1"
                     }
                 },
                 {
-                    "region": "region1",
-                    "type": "layout",
-                    "layout": {
-                        "definition": "rootLayout"
+                    "region": "region2",
+                    "type": "module",
+                    "module": {
+                        "name": "module1"
                     }
                 }
             ]

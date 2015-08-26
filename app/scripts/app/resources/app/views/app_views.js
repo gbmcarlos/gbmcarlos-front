@@ -11,7 +11,11 @@ AppViews.prototype = {
 
     setAppLayoutView: function() {
 
-        this.baseLayoutView = this.app.Marionette.LayoutView.extend();
+        this.baseLayoutView = this.app.Marionette.LayoutView.extend({
+            setController: function(controller) {
+                this.controller = controller;
+            }
+        });
     }
 
 };

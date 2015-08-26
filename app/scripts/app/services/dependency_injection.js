@@ -22,24 +22,25 @@ module.exports = function (App) {
             );
         },
 
-        getService: function (name) {
+        getService: function (name, copy) {
 
             var service = this.getServiceBuilt(name);
 
-            if (typeof service == 'undefined') {
-                service = this.buildService(name);
+            if (typeof service == 'undefined' || !!copy) {
+                service = this.buildService(name, copy);
             }
             return service;
 
         },
 
-        getServiceBuilt: function (name) {
+        getServiceBuilt: function (name, copy) {
 
             var service = _.find(this.builtServices, {name: name});
 
             if (_.isObject(service) && service.hasOwnProperty('service')) {
                 service = service.service;
             }
+
             return service;
         },
 
@@ -83,7 +84,6 @@ module.exports = function (App) {
 
 
             delete this.buildingServices[_.indexOf(this.buildingServices, name)];
-            //add to the list services builded (cache)
             this.builtServices.push({service: service, name: name});
 
             return service;
@@ -102,8 +102,8 @@ module.exports = function (App) {
     };
 
     var container = {
-        get: function (name) {
-            return p.getService(name);
+        get: function (name, copy) {
+            return p.getService(name, copy);
         },
 
         register: function (name, service, dependencies) {

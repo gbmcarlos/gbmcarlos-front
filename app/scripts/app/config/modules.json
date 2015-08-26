@@ -1,13 +1,12 @@
 {
     "modules": {
         "module1": {
-            "controller": "controller1",
-            "views": [
-                {
-                    "view": "view1",
-                    "template": "template1"
-                }
-            ]
+            "controller": "BaseModule",
+            "view": {
+                "collection": "AppViews",
+                "view": "baseLayoutView"
+            },
+            "template": "baseLayoutTemplate"
         }
     }
 }

@@ -231,6 +231,10 @@ DataService.prototype = {
 
     getDatumFromObject: function(datum, object) {
         return p.getDatumFromObject(datum, object)
+    },
+
+    abc: function(abc) {
+        this.def = abc;
     }
 
 }

@@ -1,16 +1,16 @@
 'use strict';
 
-var modules = require('./../config/modules.js').modules;
+var modules = require('./../config/modules.json').modules;
 
 var p = {
 
     builtModules: {},
 
-    init: function(widget, appControllers, appViews, appTemplates) {
+    init: function(app, appTemplates, appViews) {
 
-        this.widget = widget;
+        this.app = app;
+        this.appTemplates = appTemplates.templates;
         this.appViews = appViews;
-        this.appTemplates = appTemplates;
         this.modulesDefinitions = modules;
 
     },
@@ -19,21 +19,11 @@ var p = {
 
         var module = this.getModule(moduleName);
 
-        this.setModuleToRegion(region);
+        this.setModuleToRegion(module, region);
 
     },
 
-    getModule: function(moduleName) {
-
-        var module = (!!this.builtModules[moduleName]) ?
-            this.builtModules[moduleName] :
-            this.generateModule(moduleName);
-
-        return module;
-
-    },
-
-    generateModule: function (moduleName) {
+    getModule: function (moduleName) {
 
         var moduleDefinition = this.getModuleDefinition(moduleName);
 
@@ -55,55 +45,47 @@ var p = {
 
     buildModule: function(moduleDefinition) {
 
-        var views = this.getModuleViews(moduleDefinition);
+        var view = this.getModuleView(moduleDefinition);
 
         var controller = this.getModuleController(moduleDefinition);
 
-        var module = this.prepareModule(controller, views);
+        var module = this.prepareModule(controller, view);
 
-        return module;
-
-    },
-
-    getModuleViews: function(moduleDefinition) {
-
-        var views = [];
-
-        _.each(moduleDefinition.views, function(viewName) {
-
-            var view = this.getView(viewName);
-
-            views.push(view);
-
-        }, this);
-
-        return views;
+        return {
+            view: view
+        };
 
     },
 
-    getView: function(viewName) {
+    getModuleView: function(moduleDefinition) {
 
-        var viewDefinition = this.getViewDefinition(viewName);
+        var viewCollection = this.app.container.get(moduleDefinition.view.collection);
 
-        var builtView = this.buildView(viewDefinition);
+        var self = this;
 
-        return builtView;
+        var view = viewCollection[moduleDefinition.view.view].extend({
+            template: self.appTemplates[moduleDefinition.template]
+        });
 
-    },
+        var viewInstance = new view();
 
-    getViewDefinition: function(viewName) {
-
-    },
-
-    buildView: function(viewDefinition) {
+        return viewInstance;
 
     },
 
     getModuleController: function(moduleDefinition) {
 
+        var controller = this.app.container.get(moduleDefinition.controller, true);
+
+        return controller;
+
     },
 
-    prepareModule: function(moduleController, moduleViews) {
+    prepareModule: function(controller, view) {
+
+        controller.setView(view);
+
+        view.setController(view);
 
     },
 
@@ -111,16 +93,21 @@ var p = {
 
         this.builtModules[moduleName] = builtModule;
 
+    },
+
+    setModuleToRegion: function(module, region) {
+
+        region.show(module.view);
+
     }
 
 };
 
-function ModuleService(widget, appControllers, appViews, appTemplates) {
+function ModuleService(app, appTemplates, appViews) {
 
-    this.widget = widget;
-    this.appControllers = appControllers;
-    this.appViews = appViews;
+    this.app = app;
     this.appTemplates = appTemplates;
+    this.appViews = appViews;
     this.init();
 
 }
@@ -128,11 +115,11 @@ function ModuleService(widget, appControllers, appViews, appTemplates) {
 ModuleService.prototype = {
 
     init: function() {
-        p.init(this.widget, this.appControllers, this.appViews, this.appTemplates);
+        p.init(this.app, this.appTemplates, this.appViews);
     },
 
     setModule: function(moduleName, region) {
-        //return p.setModule(moduleName);
+        p.setModule(moduleName, region);
     }
 
 };
