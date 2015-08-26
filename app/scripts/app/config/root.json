@@ -5,16 +5,16 @@
             "locate": [
                 {
                     "region": "region1",
-                    "type": "module",
+                    "content": "module",
                     "module": {
                         "name": "module1"
                     }
                 },
                 {
                     "region": "region2",
-                    "type": "module",
+                    "content": "module",
                     "module": {
-                        "name": "module1"
+                        "name": "module2"
                     }
                 }
             ]

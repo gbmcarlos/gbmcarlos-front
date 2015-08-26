@@ -3,10 +3,47 @@
         "module1": {
             "controller": "BaseModule",
             "view": {
-                "collection": "AppViews",
-                "view": "baseLayoutView"
-            },
-            "template": "baseLayoutTemplate"
+                "type": "view",
+                "view": [
+                    {
+                        "name": "singleView",
+                        "collection": "AppViews",
+                        "view": "baseLayoutView",
+                        "template": "baseLayoutTemplate"
+                    },
+                    {
+                        "name": "singleView2",
+                        "collection": "AppViews",
+                        "view": "baseLayoutView",
+                        "template": "baseLayoutTemplate"
+                    }
+                ]
+            }
+        },
+        "module2": {
+            "controller": "BaseModule",
+            "view": {
+                "type": "layout",
+                "layout": {
+                    "definition": "rootLayout",
+                    "locate": [
+                        {
+                            "region": "region1",
+                            "content": "module",
+                            "module": {
+                                "name": "module1"
+                            }
+                        },
+                        {
+                            "region": "region2",
+                            "content": "module",
+                            "module": {
+                                "name": "module1"
+                            }
+                        }
+                    ]
+                }
+            }
         }
     }
 }

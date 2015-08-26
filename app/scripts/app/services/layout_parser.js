@@ -56,7 +56,7 @@ var p = {
             subRows: [[]]
         };
 
-        row.class = row.rowClass;
+        row.class = this.concatClasses('row', row.rowClass);
 
         _.each(rowDefinition.columns, function (columnDefinition) {
 
@@ -204,8 +204,10 @@ var p = {
         var offsetAlignCenter = 0;
 
         if (row.cellsUsed < 6) {
-            offsetAlignCenter = 6 - row.cellsUsed;
+            offsetAlignCenter = Math.round((12 - columnWidth) / 2) - row.cellsUsed;
         }
+
+        offsetAlignCenter = (offsetAlignCenter < 0 ) ? 0 : offsetAlignCenter;
 
         return offsetAlignCenter;
 
@@ -227,10 +229,10 @@ var p = {
 
 };
 
-function LayoutService() {
+function LayoutParser() {
 }
 
-LayoutService.prototype = {
+LayoutParser.prototype = {
 
     parseLayout: function(layoutDefinition) {
         p.setLayoutDefinition(layoutDefinition);
@@ -239,4 +241,4 @@ LayoutService.prototype = {
 
 };
 
-module.exports = LayoutService;
+module.exports = LayoutParser;
