@@ -50,13 +50,15 @@ var p = {
 
     },
 
-    setLayout: function(layoutImplementation, region) {
+    setLayout: function(layoutImplementation, region, controller, controllerToLayout) {
 
         var layoutDefinition = this.getLayoutDefinition(layoutImplementation.definition);
 
         var layoutParsed = this.getLayoutParsed(layoutDefinition);
 
-        var layoutView = this.getLayoutView(layoutParsed, layoutImplementation.config || {});
+        var layoutView = this.getLayoutView(
+            layoutParsed, layoutImplementation,
+            (!!controllerToLayout ? controller : null));
 
         if (!!layoutView) {
 
@@ -64,7 +66,7 @@ var p = {
 
             layoutView.addRegions(layoutParsed.regions);
 
-            this.fillLayout(layoutImplementation.locate, layoutView);
+            this.fillLayout(layoutImplementation.locate, layoutView, controller);
 
         }
 
@@ -127,32 +129,35 @@ var p = {
 
     },
 
-    getLayoutView: function(layoutParsed, layoutConfig) {
+    getLayoutView: function(layoutParsed, layoutImplementation, controller) {
 
         if (!!layoutParsed) {
 
-            layoutConfig.template = layoutConfig.template || this.baseLayoutTemplate;
+            layoutImplementation.config = layoutImplementation.config || {};
 
-            layoutConfig.view = layoutConfig.view || this.baseLayoutView;
+            layoutImplementation.config.template = layoutImplementation.config.template || this.baseLayoutTemplate;
 
-            if (!this.appTemplates[layoutConfig.template]) {
+            layoutImplementation.config.view = layoutImplementation.config.view || this.baseLayoutView;
 
-                this.debugService.error('There is no \'' + layoutConfig.template + '\' layout template');
+            if (!this.appTemplates[layoutImplementation.config.template]) {
+
+                this.debugService.error('There is no \'' + layoutImplementation.config.template + '\' layout template');
 
                 return;
             }
 
-            if (!this.appViews[layoutConfig.view]) {
+            if (!this.appViews[layoutImplementation.config.view]) {
 
-                this.debugService.error('There is no \'' + layoutConfig.view + '\' layout view');
+                this.debugService.error('There is no \'' + layoutImplementation.config.view + '\' layout view');
 
                 return;
             }
 
             var self = this;
 
-            var View = this.appViews[layoutConfig.view].extend({
-                template: self.appTemplates[layoutConfig.template],
+            var view = this.appViews[layoutImplementation.config.view].extend({
+                template: self.appTemplates[layoutImplementation.config.template],
+                controller: controller,
 
                 serializeData: function () {
                     return layoutParsed;
@@ -160,18 +165,26 @@ var p = {
 
             });
 
-            return new View();
+            var viewInstance = new view();
+
+            if (!!controller) {
+
+                controller[layoutImplementation.definition] = viewInstance;
+
+            }
+
+            return viewInstance;
         }
 
     },
 
-    fillLayout: function(layoutLocate, layoutView) {
+    fillLayout: function(layoutLocate, layoutView, controller) {
 
         _.each(layoutLocate, function(locateDefinition) {
 
             if (!!locateDefinition.region && !!layoutView.getRegion(locateDefinition.region)) {
 
-                this.setLocateContent(locateDefinition, layoutView);
+                this.setLocateContent(locateDefinition, layoutView, controller);
 
             }
 
@@ -179,7 +192,7 @@ var p = {
 
     },
 
-    setLocateContent: function(locateDefinition, layoutView) {
+    setLocateContent: function(locateDefinition, layoutView, controller) {
 
         if (!!locateDefinition.content && locateDefinition.content == 'module') {
 
@@ -191,23 +204,30 @@ var p = {
 
         } else if (!!locateDefinition.content && locateDefinition.content == 'view') {
 
-            this.setView(locateDefinition.view, layoutView.getRegion(locateDefinition.region));
+            this.setView(locateDefinition.view, layoutView.getRegion(locateDefinition.region, controller));
 
         }
 
     },
 
-    setView: function(viewDefinition, region) {
+    setView: function(viewDefinition, region, controller) {
 
         var viewCollection = this.app.container.get(viewDefinition.collection);
 
         var self = this;
 
         var view = viewCollection[viewDefinition.view].extend({
-            template: self.appTemplates[viewDefinition.template]
+            template: self.appTemplates[viewDefinition.template],
+            controller: controller
         });
 
         var viewInstance = new view();
+
+        if (!!controller) {
+
+            controller[viewDefinition.view] = viewInstance;
+
+        }
 
         region.show(viewInstance);
 
@@ -232,15 +252,21 @@ var p = {
 
     buildModule: function(moduleDefinition, region) {
 
-        var view = this.getModuleView(moduleDefinition.view, region);
-
         var controller = this.getModuleController(moduleDefinition);
 
-        this.prepareModule(controller, view);
+        var view = this.getModuleView(moduleDefinition.view, region, controller);
 
     },
 
-    getModuleView: function(viewDefinition, region) {
+    getModuleController: function(moduleDefinition) {
+
+        var controller = this.app.container.get(moduleDefinition.controller, true);
+
+        return controller;
+
+    },
+
+    getModuleView: function(viewDefinition, region, controller) {
 
         var view;
 
@@ -248,11 +274,11 @@ var p = {
 
             var temporaryLayout = this.buildTemporaryLayout(viewDefinition.view);
 
-            view = this.setLayout(temporaryLayout, region);
+            view = this.setLayout(temporaryLayout, region, controller);
 
         } else if (viewDefinition.type == 'layout') {
 
-            view = this.setLayout(viewDefinition.layout, region);
+            view = this.setLayout(viewDefinition.layout, region, controller);
 
         }
 
@@ -297,26 +323,6 @@ var p = {
             definition: temporaryLayoutDefinition,
             locate: temporaryLayoutLocate
         };
-
-    },
-
-    getModuleController: function(moduleDefinition) {
-
-        var controller = this.app.container.get(moduleDefinition.controller, true);
-
-        return controller;
-
-    },
-
-    prepareModule: function(controller, views) {
-
-        _.each(views, function(view) {
-
-            //view.view.setController(controller);
-            //
-            //controller[view.name] = view.view;
-
-        });
 
     },
 
