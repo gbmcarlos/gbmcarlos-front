@@ -10,20 +10,23 @@ var SiteDependencies = require('./site_dependencies.js'),
     AppViews = require('./../resources/app/views/app_views.js');
 
 
-var BaseModule = require('./../modules/base/base_module.js');
+var BoxModule = require('./../modules/box/box_module.js'),
+    BoxView = require('./../modules/box/box_view.js');
 
-module.exports = function (widget) {
+module.exports = function (App) {
 
-    widget.container.register('SiteDependencies', SiteDependencies);
-    widget.container.register('TranslationsService', TranslationsService);
-    widget.container.register('HandlebarsHelpers', HandlebarsHelpers, ['TranslationsService']);
-    widget.container.register('RequestService', RequestService);
-    widget.container.register('DebugService', DebugService);
-    widget.container.register('DataService', DataService, ['App',  'TranslationsService']);
-    widget.container.register('AppTemplates', AppTemplates);
-    widget.container.register('AppViews', AppViews, ['App']);
-    widget.container.register('LayoutParser', LayoutParser);
-    widget.container.register('AppService', AppService, ['App', 'AppTemplates', 'AppViews', 'DebugService', 'DataService', 'LayoutParser']);
-    widget.container.register('BaseModule', BaseModule, ['App']);
+    App.container.register('SiteDependencies', SiteDependencies);
+    App.container.register('TranslationsService', TranslationsService);
+    App.container.register('HandlebarsHelpers', HandlebarsHelpers, ['TranslationsService']);
+    App.container.register('RequestService', RequestService);
+    App.container.register('DebugService', DebugService);
+    App.container.register('DataService', DataService, ['App',  'TranslationsService']);
+    App.container.register('AppTemplates', AppTemplates);
+    App.container.register('AppViews', AppViews, ['App']);
+    App.container.register('LayoutParser', LayoutParser);
+    App.container.register('AppService', AppService, ['App', 'AppTemplates', 'AppViews', 'DebugService', 'DataService', 'LayoutParser']);
+
+    App.container.register('BoxModule', BoxModule, ['App']);
+    App.container.register('BoxView', BoxView, ['App']);
 
 };

@@ -70,8 +70,6 @@ var p = {
 
         }
 
-        return layoutView;
-
     },
 
     getLayoutDefinition: function(definitionName) {
@@ -125,8 +123,6 @@ var p = {
 
         }
 
-        return;
-
     },
 
     getLayoutView: function(layoutParsed, layoutImplementation, controller) {
@@ -134,9 +130,7 @@ var p = {
         if (!!layoutParsed) {
 
             layoutImplementation.config = layoutImplementation.config || {};
-
             layoutImplementation.config.template = layoutImplementation.config.template || this.baseLayoutTemplate;
-
             layoutImplementation.config.view = layoutImplementation.config.view || this.baseLayoutView;
 
             if (!this.appTemplates[layoutImplementation.config.template]) {
@@ -231,7 +225,6 @@ var p = {
 
         region.show(viewInstance);
 
-        return viewInstance;
     },
 
     setModule: function(moduleName, region) {
@@ -254,7 +247,7 @@ var p = {
 
         var controller = this.getModuleController(moduleDefinition);
 
-        var view = this.getModuleView(moduleDefinition.view, region, controller);
+        this.setModuleView(moduleDefinition.view, region, controller);
 
     },
 
@@ -266,23 +259,19 @@ var p = {
 
     },
 
-    getModuleView: function(viewDefinition, region, controller) {
-
-        var view;
+    setModuleView: function(viewDefinition, region, controller) {
 
         if (viewDefinition.type == 'view') {
 
             var temporaryLayout = this.buildTemporaryLayout(viewDefinition.view);
 
-            view = this.setLayout(temporaryLayout, region, controller);
+            this.setLayout(temporaryLayout, region, controller);
 
         } else if (viewDefinition.type == 'layout') {
 
-            view = this.setLayout(viewDefinition.layout, region, controller);
+            this.setLayout(viewDefinition.layout, region, controller);
 
         }
-
-        return view;
 
     },
 
@@ -323,12 +312,6 @@ var p = {
             definition: temporaryLayoutDefinition,
             locate: temporaryLayoutLocate
         };
-
-    },
-
-    saveModule: function(moduleName, builtModule) {
-
-        this.builtModules[moduleName] = builtModule;
 
     },
 

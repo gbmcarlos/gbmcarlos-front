@@ -4,17 +4,17 @@
             "definition": "rootLayout",
             "locate": [
                 {
-                    "region": "region1",
+                    "region": "box_region_1",
                     "content": "module",
                     "module": {
-                        "name": "module1"
+                        "name": "boxModule"
                     }
                 },
                 {
-                    "region": "region2",
+                    "region": "box_region_2",
                     "content": "module",
                     "module": {
-                        "name": "module2"
+                        "name": "boxModule"
                     }
                 }
             ]

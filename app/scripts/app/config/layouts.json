@@ -7,34 +7,12 @@
             "structure": {
                 "rows": [
                     {
-                        "name": "row1",
+                        "name": "boxes_row",
                         "class": "row1",
                         "columns": [
                             {
-                                "name": "region1",
-                                "class": "column1",
-                                "width": {
-                                    "type": "percentatge",
-                                    "value": "50"
-                                }
-                            },
-                            {
-                                "name": "region2",
-                                "class": "column1",
-                                "width": {
-                                    "type": "cell",
-                                    "value": "5"
-                                }
-                            }
-                        ]
-                    },
-                    {
-                        "name": "row2",
-                        "class": "row1",
-                        "columns": [
-                            {
-                                "name": "region3",
-                                "class": "column1",
+                                "name": "box_region_1",
+                                "class": "boxes_region",
                                 "width": {
                                     "type": "cell",
                                     "value": "3"
@@ -42,13 +20,12 @@
                                 "align": "center"
                             },
                             {
-                                "name": "region4",
-                                "class": "column1",
+                                "name": "box_region_2",
+                                "class": "boxes_region",
                                 "width": {
-                                    "type": "cell",
-                                    "value": "3"
-                                },
-                                "align": "right"
+                                    "type": "percentatge",
+                                    "value": "50"
+                                }
                             }
                         ]
                     }

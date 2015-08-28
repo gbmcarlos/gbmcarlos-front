@@ -1,48 +1,23 @@
 {
     "modules": {
-        "module1": {
-            "controller": "BaseModule",
+        "boxModule": {
+            "controller": "BoxModule",
             "view": {
                 "type": "view",
                 "view": [
                     {
-                        "name": "singleView",
-                        "collection": "AppViews",
-                        "view": "baseLayoutView",
-                        "template": "baseLayoutTemplate"
+                        "name": "BoxHeaderView",
+                        "collection": "BoxView",
+                        "view": "headerView",
+                        "template": "boxHeaderTemplate"
                     },
                     {
-                        "name": "singleView2",
-                        "collection": "AppViews",
-                        "view": "baseLayoutView",
-                        "template": "baseLayoutTemplate"
-                    }
+                        "name": "BoxBodyView",
+                        "collection": "BoxView",
+                        "view": "bodyView",
+                        "template": "boxBodyTemplate"
+                    },
                 ]
-            }
-        },
-        "module2": {
-            "controller": "BaseModule",
-            "view": {
-                "type": "layout",
-                "layout": {
-                    "definition": "rootLayout",
-                    "locate": [
-                        {
-                            "region": "region1",
-                            "content": "module",
-                            "module": {
-                                "name": "module1"
-                            }
-                        },
-                        {
-                            "region": "region2",
-                            "content": "module",
-                            "module": {
-                                "name": "module1"
-                            }
-                        }
-                    ]
-                }
             }
         }
     }
