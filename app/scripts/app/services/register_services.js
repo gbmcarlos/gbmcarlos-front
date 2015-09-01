@@ -7,11 +7,16 @@ var SiteDependencies = require('./site_dependencies.js'),
     AppService = require('./app_service.js'),
     LayoutParser = require('./layout_parser.js'),
     AppTemplates = require('./../config/templates.js'),
-    AppViews = require('./../resources/app/views/app_views.js');
+    AppViews = require('./../resources/app/views/app_views.js'),
+    SvgModels = require('./svg_models'),
+    SvgService = require('./svg_service');
 
 
 var BoxModule = require('./../modules/box/box_module.js'),
     BoxView = require('./../modules/box/box_view.js');
+
+var SvgModule = require('./../modules/svg/svg_module.js'),
+    SvgView = require('./../modules/svg/svg_view.js');
 
 module.exports = function (App) {
 
@@ -25,8 +30,13 @@ module.exports = function (App) {
     App.container.register('AppViews', AppViews, ['App']);
     App.container.register('LayoutParser', LayoutParser);
     App.container.register('AppService', AppService, ['App', 'AppTemplates', 'AppViews', 'DebugService', 'DataService', 'LayoutParser']);
+    App.container.register('SvgModels', SvgModels);
+    App.container.register('SvgService', SvgService, ['SvgModels']);
 
     App.container.register('BoxModule', BoxModule, ['App']);
     App.container.register('BoxView', BoxView, ['App']);
+
+    App.container.register('SvgModule', SvgModule, ['App', 'SvgService']);
+    App.container.register('SvgView', SvgView, ['App']);
 
 };

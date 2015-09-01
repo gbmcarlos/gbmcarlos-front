@@ -163,7 +163,7 @@ var p = {
 
             if (!!controller) {
 
-                controller[layoutImplementation.definition] = viewInstance;
+                controller.setView(layoutImplementation.view, viewInstance);
 
             }
 
@@ -198,7 +198,7 @@ var p = {
 
         } else if (!!locateDefinition.content && locateDefinition.content == 'view') {
 
-            this.setView(locateDefinition.view, layoutView.getRegion(locateDefinition.region, controller));
+            this.setView(locateDefinition.view, layoutView.getRegion(locateDefinition.region), controller);
 
         }
 
@@ -219,7 +219,7 @@ var p = {
 
         if (!!controller) {
 
-            controller[viewDefinition.view] = viewInstance;
+            controller.setView(viewDefinition.view, viewInstance);
 
         }
 
@@ -269,7 +269,7 @@ var p = {
 
         } else if (viewDefinition.type == 'layout') {
 
-            this.setLayout(viewDefinition.layout, region, controller);
+            this.setLayout(viewDefinition.layout, region, controller, true);
 
         }
 

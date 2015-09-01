@@ -31,6 +31,7 @@ global.Bootstrapping = function (params) {
 
         initApplication: function() {
             App.container.get('AppService').start();
+            App.container.get('SvgModule').start();
         }
 
     };
