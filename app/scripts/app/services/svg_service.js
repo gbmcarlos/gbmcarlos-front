@@ -2,134 +2,125 @@
 
 var p = {
 
-    omega: {},
+    info: {
+        rootSvg: {},
 
-    rootSvg: {},
-
-    interaction: {
-        click: {
-            start: {
-
+        interaction: {
+            origin: {},
+            click: {
+                start: {},
+                end: {}
             },
-            end: {
-
-            }
-        }
-    },
-
-    state: {
-        origin: {
-        }
-    },
-
-    styles: {
-        axisStyle: {
-            stroke: 'black',
-            strokeWidth: 2
+            move: {},
         },
-        gridAuxiliaryStyle: {
-            stroke: 'black',
-            strokeWidth: 1
+
+        state: {
+            origin: {},
+            activeTool: 'move'
+        },
+
+        styles: {
+            axisStyle: {
+                stroke: 'black',
+                strokeWidth: 2
+            },
+            gridAuxiliaryStyle: {
+                stroke: 'black',
+                strokeWidth: 0.5
+            }
+        },
+
+        config: {
+            gridSize: 50
         }
     },
 
-    config: {
-        gridSize: 62
-    },
-
-    init: function(svgModels, prefs) {
+    init: function(svgModels, svgTools) {
         this.svgModels = svgModels;
-        this.prefs = prefs;
+        this.svgTools = svgTools;
     },
 
     start: function(svgContainer) {
 
-        this.setSvgStruct(svgContainer);
+        this.setRootSvg(svgContainer);
         this.setRootSvgDimensions();
+        this.setGridLayer();
         this.startRootSvg();
+        this.startTools();
     },
 
-    setSvgStruct: function(svgContainer) {
+    setRootSvg: function(svgContainer) {
 
         var rootSvg = this.createElement('svg');
         rootSvg.setAttribute('id', 'root_svg');
-
-        var gridSvg = this.createElement('svg');
-        gridSvg.setAttribute('id', 'grid_svg');
-        var gridG = this.createElement('g');
-        gridG.setAttribute('id', 'grid_g');
-        gridSvg.appendChild(gridG);
-
-        rootSvg.appendChild(gridSvg);
-
+        rootSvg.setAttribute('width', '1500px');
         this.showElement(svgContainer.attr('id'), rootSvg);
 
-        return rootSvg;
+    },
+
+    setGridLayer: function() {
+        this.setLayer('grid',
+            'root_svg',
+            this.info.rootSvg.width * 3,
+            this.info.rootSvg.height * 3,
+            -this.info.rootSvg.width,
+            -this.info.rootSvg.height
+        );
+
+    },
+
+    setLayer: function(name, base, width, height, top, left) {
+
+        var svg = this.createElement('svg');
+        svg.setAttribute('id', name + '_svg');
+        var g = this.createElement('g');
+        g.setAttribute('id', name + '_g');
+
+        if (!!width){
+            svg.setAttribute('width', width);
+        }
+
+        if (!!height){
+            svg.setAttribute('height', height);
+        }
+
+        if (!!top){
+            svg.setAttribute('x', top);
+        }
+
+        if (!!left){
+            svg.setAttribute('y', left);
+        }
+
+        svg.appendChild(g);
+
+        this.showElement(base, svg);
 
     },
 
     setRootSvgDimensions: function() {
-        this.rootSvg.element = $('#root_svg');
-        this.rootSvg.top = this.rootSvg.element.offset().top;
-        this.rootSvg.left = this.rootSvg.element.offset().left;
-        this.rootSvg.height = this.rootSvg.element.outerHeight();
-        this.rootSvg.width = this.rootSvg.element.outerWidth();
-        this.rootSvg.bottom = this.rootSvg.top + this.rootSvg.height;
-        this.rootSvg.right = this.rootSvg.left + this.rootSvg.width;
-        this.state.origin.x = this.rootSvg.width / 2;
-        this.state.origin.y = this.rootSvg.height / 2;
+        this.info.rootSvg.element = $('#root_svg');
+        this.info.rootSvg.top = this.info.rootSvg.element.offset().top;
+        this.info.rootSvg.left = this.info.rootSvg.element.offset().left;
+        this.info.rootSvg.height = this.info.rootSvg.element.outerHeight();
+        this.info.rootSvg.width = this.info.rootSvg.element.outerWidth();
+        this.info.rootSvg.bottom = this.info.rootSvg.top + this.info.rootSvg.height;
+        this.info.rootSvg.right = this.info.rootSvg.left + this.info.rootSvg.width;
+        this.info.interaction.origin.x = this.info.rootSvg.width / 2;
+        this.info.interaction.origin.y = this.info.rootSvg.height / 2;
+
     },
 
     startRootSvg: function() {
+        this.setGrid();
         this.setSvgElementListeners();
-        this.startGrid();
     },
 
-    setSvgElementListeners: function() {
-        this.rootSvg.element.mousemove(_.bind(this.setMouseOverCoordinates, this));
-        this.rootSvg.element.mousedown(_.bind(this.setMouseDownCoordinates, this));
-        this.rootSvg.element.mouseup(_.bind(this.setMouseUpCoordinates, this));
-    },
+    setGrid: function() {
 
-    getEventCoordinates: function(event) {
-        return {
-            x: event.pageX - this.rootSvg.left,
-            y: event.pageY - this.rootSvg.top
-        };
-    },
-
-    setMouseOverCoordinates: function(event) {
-
-        var mouseOverCoordinates = this.getEventCoordinates(event);
-
-        this.interaction.x = mouseOverCoordinates.x;
-        this.interaction.y = mouseOverCoordinates.y;
-        this.display();
-    },
-
-    setMouseDownCoordinates: function(event) {
-
-        var mouseDownCoordinates = this.getEventCoordinates(event);
-
-        this.interaction.click.start.x = mouseDownCoordinates.x;
-        this.interaction.click.start.y = mouseDownCoordinates.y;
-        this.display();
-    },
-
-    setMouseUpCoordinates: function(event) {
-
-        var mouseUpCoordinates = this.getEventCoordinates(event);
-
-        this.interaction.click.end.x = mouseUpCoordinates.x;
-        this.interaction.click.end.y = mouseUpCoordinates.y;
-        this.display();
-    },
-
-    startGrid: function() {
-        this.startGridContent();
-    },
-
-    startGridContent: function() {
+        while (document.getElementById('grid_g').hasChildNodes()) {
+            document.getElementById('grid_g').removeChild(document.getElementById('grid_g').lastChild);
+        }
 
         var xAxis = this.getXAxis();
         var yAxis = this.getYAxis();
@@ -137,21 +128,21 @@ var p = {
         this.showElement('grid_g', xAxis);
         this.showElement('grid_g', yAxis);
 
-        this.setGridVerticalAuxiliaries();
         this.setGridHorizontalAuxiliaries();
+        this.setGridVerticalAuxiliaries();
 
     },
 
     getXAxis: function() {
 
         var axisCoordinates = {
-            x1: this.rootSvg.width / 2,
-            y1: 0,
-            x2: this.rootSvg.width / 2,
-            y2: this.rootSvg.height
+            x1: 0,
+            y1: this.info.rootSvg.height + this.info.interaction.origin.y,
+            x2: this.info.rootSvg.width * 3,
+            y2: this.info.rootSvg.height + this.info.interaction.origin.y
         };
 
-        var axis = this.svgModels.getLine(axisCoordinates, this.styles.axisStyle, 'xAxis');
+        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'xAxis');
 
         return axis;
 
@@ -160,35 +151,35 @@ var p = {
     getYAxis: function() {
 
         var axisCoordinates = {
-            x1: 0,
-            y1: this.rootSvg.height / 2,
-            x2: this.rootSvg.width,
-            y2: this.rootSvg.height / 2
+            x1: this.info.rootSvg.width + this.info.interaction.origin.x,
+            y1: 0,
+            x2: this.info.rootSvg.width + this.info.interaction.origin.x,
+            y2: this.info.rootSvg.height * 3
         };
 
-        var axis = this.svgModels.getLine(axisCoordinates, this.styles.axisStyle, 'yAxis');
+        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'yAxis');
 
         return axis;
 
 
     },
 
-    setGridVerticalAuxiliaries: function() {
+    setGridHorizontalAuxiliaries: function() {
 
-        var auxiliariesNumber = Math.ceil(this.rootSvg.width / this.config.gridSize);
+        var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = this.state.origin.x % this.config.gridSize;
+        var auxiliariesStart = (this.info.interaction.origin.y % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
             var auxiliaryCoordinates = {
-                x1: auxiliariesStart + (this.config.gridSize * i),
-                y1: 0,
-                x2: auxiliariesStart + (this.config.gridSize * i),
-                y2: this.rootSvg.height
+                x1: 0 - this.info.rootSvg.width,
+                y1: auxiliariesStart + (this.info.config.gridSize * i),
+                x2: this.info.rootSvg.width * 3,
+                y2: auxiliariesStart + (this.info.config.gridSize * i)
             };
 
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
+            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
 
             this.showElement('grid_g', auxiliary);
 
@@ -196,22 +187,22 @@ var p = {
 
     },
 
-    setGridHorizontalAuxiliaries: function() {
+    setGridVerticalAuxiliaries: function() {
 
-        var auxiliariesNumber = Math.ceil(this.rootSvg.height / this.config.gridSize);
+        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = this.state.origin.y % this.config.gridSize;
+        var auxiliariesStart = (this.info.interaction.origin.x % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
             var auxiliaryCoordinates = {
-                x1: 0,
-                y1: auxiliariesStart + (this.config.gridSize * i),
-                x2: this.rootSvg.width,
-                y2: auxiliariesStart + (this.config.gridSize * i)
+                x1: auxiliariesStart + (this.info.config.gridSize * i),
+                y1: - this.info.rootSvg.height,
+                x2: auxiliariesStart + (this.info.config.gridSize * i),
+                y2: this.info.rootSvg.height * 3
             };
 
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
+            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
 
             this.showElement('grid_g', auxiliary);
 
@@ -236,24 +227,84 @@ var p = {
         return document.getElementById(id);
     },
 
+    setSvgElementListeners: function() {
+        this.info.rootSvg.element.mousedown(_.bind(this.captureMouseDown, this));
+        this.info.rootSvg.element.mouseup(_.bind(this.captureMouseUp, this));
+        this.info.rootSvg.element.mousemove(_.bind(this.captureMouseMove, this));
+        this.info.rootSvg.element.mouseout(_.bind(this.captureMouseOut, this));
+    },
+
+    getEventCoordinates: function(event) {
+        return {
+            x: event.pageX - this.info.rootSvg.left,
+            y: event.pageY - this.info.rootSvg.top
+        };
+    },
+
+    captureMouseDown: function(event) {
+
+        var mouseDownCoordinates = this.getEventCoordinates(event);
+
+        this.info.interaction.click.start.x = mouseDownCoordinates.x;
+        this.info.interaction.click.start.y = mouseDownCoordinates.y;
+        this.display();
+
+        this.mover.mouseDown();
+    },
+
+    captureMouseUp: function(event) {
+
+        var mouseUpCoordinates = this.getEventCoordinates(event);
+
+        this.info.interaction.click.end.x = mouseUpCoordinates.x;
+        this.info.interaction.click.end.y = mouseUpCoordinates.y;
+        this.display();
+        this.mover.mouseUp();
+    },
+
+    captureMouseMove: function(event) {
+
+        var mouseOverCoordinates = this.getEventCoordinates(event);
+
+        this.info.interaction.move.x = mouseOverCoordinates.x;
+        this.info.interaction.move.y = mouseOverCoordinates.y;
+        this.display();
+
+        this.mover.mouseMove();
+    },
+
+    captureMouseOut: function(event) {
+
+        this.display();
+
+        //this.mover.mouseOut();
+    },
+
+    startTools: function() {
+        this.mover = this.svgTools.getTool('mover', this);
+    },
+
     display: function() {
-        $('#svg_top').html('top: ' + this.rootSvg.top);
-        $('#svg_left').html('left: ' + this.rootSvg.left);
-        $('#svg_bottom').html('bottom: ' + this.rootSvg.bottom);
-        $('#svg_right').html('right: ' + this.rootSvg.right);
-        $('#svg_move_x').html('x: ' + this.interaction.x);
-        $('#svg_move_y').html('y: ' + this.interaction.y);
-        $('#svg_click_start_x').html('x: ' + this.interaction.click.start.x);
-        $('#svg_click_start_y').html('y: ' + this.interaction.click.start.y);
-        $('#svg_click_end_x').html('x: ' + this.interaction.click.end.x);
-        $('#svg_click_end_y').html('y: ' + this.interaction.click.end.y);
+        $('#svg_top').html('top: ' + this.info.rootSvg.top);
+        $('#svg_left').html('left: ' + this.info.rootSvg.left);
+        $('#svg_bottom').html('bottom: ' + this.info.rootSvg.bottom);
+        $('#svg_right').html('right: ' + this.info.rootSvg.right);
+        $('#svg_move_x').html('x: ' + this.info.interaction.move.x);
+        $('#svg_move_y').html('y: ' + this.info.interaction.move.y);
+        $('#svg_click_start_x').html('x: ' + this.info.interaction.click.start.x);
+        $('#svg_click_start_y').html('y: ' + this.info.interaction.click.start.y);
+        $('#svg_click_end_x').html('x: ' + this.info.interaction.click.end.x);
+        $('#svg_click_end_y').html('y: ' + this.info.interaction.click.end.y);
+        $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
+        $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
     }
 
 };
 
-function SvgService(svgModels) {
+function SvgService(svgModels, svgTools) {
 
     this.svgModels = svgModels;
+    this.svgTools = svgTools;
 
     this.init();
 
@@ -262,7 +313,7 @@ function SvgService(svgModels) {
 SvgService.prototype = {
 
     init: function () {
-        p.init(this.svgModels);
+        p.init(this.svgModels, this.svgTools);
     },
 
     start: function(svgContainer, prefs) {
