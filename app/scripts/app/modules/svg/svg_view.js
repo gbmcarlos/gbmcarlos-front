@@ -14,8 +14,8 @@ SvgView.prototype = {
     setBaseView: function() {
 
         this.baseView = this.app.Marionette.ItemView.extend({
-            getSvgElement: function() {
-                return this.$el.find('#root_svg');
+            getSvgContainer: function() {
+                return this.$el.find('#svg_container');
             }
         });
 

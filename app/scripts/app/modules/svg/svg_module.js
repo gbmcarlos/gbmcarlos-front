@@ -17,12 +17,12 @@ var p = {
     },
 
     start: function() {
-        var svgElement = this.getSvgElement();
-        this.svgService.start(svgElement, this.prefs);
+        var svgContainer = this.getSvgContainer();
+        this.svgService.start(svgContainer, this.prefs);
     },
 
-    getSvgElement: function() {
-        return this.baseView.getSvgElement();
+    getSvgContainer: function() {
+        return this.baseView.getSvgContainer();
     }
 
 };

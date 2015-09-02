@@ -4,7 +4,7 @@ var p = {
 
     omega: {},
 
-    svgElement: {},
+    rootSvg: {},
 
     interaction: {
         click: {
@@ -29,41 +29,57 @@ var p = {
         this.prefs = prefs;
     },
 
-    start: function(svgElement) {
+    start: function(svgContainer) {
 
-        this.setSvgElement(svgElement);
-        this.startSvg();
+        this.setSvgStruct(svgContainer);
+        this.setRootSvgDimensions();
+        this.startRootSvg();
     },
 
-    setSvgElement: function(svgElement) {
-        this.svgElement.element = svgElement;
-        this.svgElement.top = svgElement.offset().top;
-        this.svgElement.left = svgElement.offset().left;
-        this.svgElement.height = svgElement.outerHeight();
-        this.svgElement.width = svgElement.outerWidth();
-        this.svgElement.bottom = this.svgElement.top + this.svgElement.height;
-        this.svgElement.right = this.svgElement.left + this.svgElement.width;
+    setSvgStruct: function(svgContainer) {
+
+        var rootSvg = document.createElement('svg');
+        rootSvg.setAttribute('id', 'root_svg');
+
+        var gridSvg = document.createElement('svg');
+        gridSvg.setAttribute('id', 'grid_svg');
+        var gridG = document.createElement('g');
+        gridG.setAttribute('id', 'grid_g');
+        gridSvg.appendChild(gridG);
+
+        rootSvg.appendChild(gridSvg);
+
+        this.showElement(svgContainer.attr('id'), rootSvg);
+
+        return rootSvg;
+
     },
 
-    startSvg: function() {
-        this.startSvgElement();
+    setRootSvgDimensions: function() {
+        this.rootSvg.element = $('#root_svg');
+        this.rootSvg.top = this.rootSvg.element.offset().top;
+        this.rootSvg.left = this.rootSvg.element.offset().left;
+        this.rootSvg.height = this.rootSvg.element.outerHeight();
+        this.rootSvg.width = this.rootSvg.element.outerWidth();
+        this.rootSvg.bottom = this.rootSvg.top + this.rootSvg.height;
+        this.rootSvg.right = this.rootSvg.left + this.rootSvg.width;
+    },
+
+    startRootSvg: function() {
+        this.setSvgElementListeners();
         this.startGrid();
     },
 
-    startSvgElement: function() {
-        this.setSvgElementListeners();
-    },
-
     setSvgElementListeners: function() {
-        this.svgElement.element.mousemove(_.bind(this.setMouseOverCoordinates, this));
-        this.svgElement.element.mousedown(_.bind(this.setMouseDownCoordinates, this));
-        this.svgElement.element.mouseup(_.bind(this.setMouseUpCoordinates, this));
+        this.rootSvg.element.mousemove(_.bind(this.setMouseOverCoordinates, this));
+        this.rootSvg.element.mousedown(_.bind(this.setMouseDownCoordinates, this));
+        this.rootSvg.element.mouseup(_.bind(this.setMouseUpCoordinates, this));
     },
 
     getEventCoordinates: function(event) {
         return {
-            x: event.pageX - this.svgElement.left,
-            y: event.pageY - this.svgElement.top
+            x: event.pageX - this.rootSvg.left,
+            y: event.pageY - this.rootSvg.top
         };
     },
 
@@ -95,22 +111,9 @@ var p = {
     },
 
     startGrid: function() {
-        this.startGridContainer();
         this.startGridContent();
     },
-
-    startGridContainer: function() {
-
-        var gridSvg = document.createElement('svg');
-        var gridG = document.createElement('g');
-        gridG.setAttribute('id', 'grid_g');
-        gridSvg.setAttribute('id', 'grid_svg');
-        gridSvg.appendChild(gridG);
-
-        this.showElement('root_svg', gridSvg);
-
-    },
-
+    
     startGridContent: function() {
 
         var xAxis = this.getXAxis();
@@ -124,10 +127,10 @@ var p = {
     getXAxis: function() {
 
         var axisCoordinates = {
-            x1: this.svgElement.width / 2,
+            x1: this.rootSvg.width / 2,
             y1: 0,
-            x2: this.svgElement.width / 2,
-            y2: this.svgElement.height
+            x2: this.rootSvg.width / 2,
+            y2: this.rootSvg.height
         };
 
         var axis = this.svgModels.getLine(axisCoordinates, this.styles.axisStyle);
@@ -140,9 +143,9 @@ var p = {
 
         var axisCoordinates = {
             x1: 0,
-            y1: this.svgElement.height / 2,
-            x2: this.svgElement.width,
-            y2: this.svgElement.height / 2
+            y1: this.rootSvg.height / 2,
+            x2: this.rootSvg.width,
+            y2: this.rootSvg.height / 2
         };
 
         var axis = this.svgModels.getLine(axisCoordinates, this.styles.axisStyle);
@@ -159,10 +162,10 @@ var p = {
     },
 
     display: function() {
-        $('#svg_top').html('top: ' + this.svgElement.top);
-        $('#svg_left').html('left: ' + this.svgElement.left);
-        $('#svg_bottom').html('bottom: ' + this.svgElement.bottom);
-        $('#svg_right').html('right: ' + this.svgElement.right);
+        $('#svg_top').html('top: ' + this.rootSvg.top);
+        $('#svg_left').html('left: ' + this.rootSvg.left);
+        $('#svg_bottom').html('bottom: ' + this.rootSvg.bottom);
+        $('#svg_right').html('right: ' + this.rootSvg.right);
         $('#svg_move_x').html('x: ' + this.interaction.x);
         $('#svg_move_y').html('y: ' + this.interaction.y);
         $('#svg_click_start_x').html('x: ' + this.interaction.click.start.x);
@@ -187,8 +190,8 @@ SvgService.prototype = {
         p.init(this.svgModels);
     },
 
-    start: function(svgElement, prefs) {
-        p.start(svgElement, prefs);
+    start: function(svgContainer, prefs) {
+        p.start(svgContainer, prefs);
     }
 
 };
