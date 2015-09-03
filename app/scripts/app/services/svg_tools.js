@@ -13,6 +13,7 @@ var p = {
 
     setTools: function() {
         this.setMover();
+        this.setZoomer();
     },
 
     setMover: function() {
@@ -86,6 +87,95 @@ var p = {
 
             }
         }
+    },
+
+    setZoomer: function() {
+
+        this.tools.zoomer = {
+
+            setRoot: function(root) {
+
+                this.root = root;
+                this.info = root.info;
+
+                this.matrix = [
+                    this.info.config.zoom.factor,
+                    0,
+                    0,
+                    this.info.config.zoom.factor,
+                    - ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
+                    - ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
+                ];
+
+                return this;
+            },
+
+            wheelDown: function() {
+
+                var newZoom = this.info.interaction.zoom.level + 1;
+
+                var zoomAllowed = this.zoomAllowed(newZoom);
+
+                if (zoomAllowed) {
+
+                    this.info.interaction.zoom.factor /= this.info.config.zoom.factor;
+                    this.info.interaction.zoom.level += 1;
+
+                    this.zoomGrid();
+
+                }
+
+
+            },
+
+            wheelUp: function() {
+
+                var newZoom = this.info.interaction.zoom.level - 1;
+
+                var zoomAllowed = this.zoomAllowed(newZoom);
+
+                if (zoomAllowed) {
+
+                    this.info.interaction.zoom.factor *= this.info.config.zoom.factor;
+                    this.info.interaction.zoom.level -= 1;
+
+                    this.zoomGrid();
+
+                }
+
+
+            },
+
+            zoomGrid: function(matrix) {
+
+                document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
+
+                var newOrigin = this.calculateNewOrigin(this.matrix);
+
+                this.info.interaction.origin = newOrigin;
+
+                this.root.setGrid();
+
+            },
+
+            zoomAllowed: function(newZoom) {
+
+                return (
+                    newZoom >= 0 &&
+                    newZoom <= this.info.config.zoom.levels
+                );
+
+            },
+
+            calculateNewOrigin: function() {
+                return {
+                    x: Math.round(this.info.interaction.origin.x * this.info.interaction.zoom.factor) - this.info.interaction.move.x,
+                    y: Math.round(this.info.interaction.origin.y * this.info.interaction.zoom.factor) - this.info.interaction.move.y
+                };
+            }
+
+        };
+
     }
 
 };

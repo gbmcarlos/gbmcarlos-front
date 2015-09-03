@@ -12,6 +12,10 @@ var p = {
                 end: {}
             },
             move: {},
+            zoom: {
+                factor: 0.04,
+                level: 4
+            }
         },
 
         state: {
@@ -31,7 +35,11 @@ var p = {
         },
 
         config: {
-            gridSize: 50
+            gridSize: 50,
+            zoom: {
+                factor: 0.2,
+                levels: 8
+            }
         }
     },
 
@@ -59,38 +67,21 @@ var p = {
     },
 
     setGridLayer: function() {
-        this.setLayer('grid',
-            'root_svg',
-            this.info.rootSvg.width * 3,
-            this.info.rootSvg.height * 3,
-            -this.info.rootSvg.width,
-            -this.info.rootSvg.height
-        );
+        this.setLayer('grid', 'root_svg');
 
     },
 
-    setLayer: function(name, base, width, height, top, left) {
+    setLayer: function(name, base) {
 
         var svg = this.createElement('svg');
         svg.setAttribute('id', name + '_svg');
         var g = this.createElement('g');
         g.setAttribute('id', name + '_g');
 
-        if (!!width){
-            svg.setAttribute('width', width);
-        }
-
-        if (!!height){
-            svg.setAttribute('height', height);
-        }
-
-        if (!!top){
-            svg.setAttribute('x', top);
-        }
-
-        if (!!left){
-            svg.setAttribute('y', left);
-        }
+        svg.setAttribute('width', this.info.rootSvg.width * 3);
+        svg.setAttribute('height', this.info.rootSvg.height * 3);
+        svg.setAttribute('x', - this.info.rootSvg.width);
+        svg.setAttribute('y', - this.info.rootSvg.height);
 
         svg.appendChild(g);
 
@@ -121,6 +112,8 @@ var p = {
         while (document.getElementById('grid_g').hasChildNodes()) {
             document.getElementById('grid_g').removeChild(document.getElementById('grid_g').lastChild);
         }
+
+        document.getElementById('grid_g').setAttribute('transform', '');
 
         var xAxis = this.getXAxis();
         var yAxis = this.getYAxis();
@@ -168,12 +161,12 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = (this.info.interaction.origin.y % this.info.config.gridSize);
+        var auxiliariesStart = ((this.info.interaction.origin.y + this.info.rootSvg.height) % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
             var auxiliaryCoordinates = {
-                x1: 0 - this.info.rootSvg.width,
+                x1: 0,
                 y1: auxiliariesStart + (this.info.config.gridSize * i),
                 x2: this.info.rootSvg.width * 3,
                 y2: auxiliariesStart + (this.info.config.gridSize * i)
@@ -191,13 +184,13 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = (this.info.interaction.origin.x % this.info.config.gridSize);
+        var auxiliariesStart = ((this.info.interaction.origin.x + this.info.rootSvg.width) % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
             var auxiliaryCoordinates = {
                 x1: auxiliariesStart + (this.info.config.gridSize * i),
-                y1: - this.info.rootSvg.height,
+                y1: 0,
                 x2: auxiliariesStart + (this.info.config.gridSize * i),
                 y2: this.info.rootSvg.height * 3
             };
@@ -231,7 +224,7 @@ var p = {
         this.info.rootSvg.element.mousedown(_.bind(this.captureMouseDown, this));
         this.info.rootSvg.element.mouseup(_.bind(this.captureMouseUp, this));
         this.info.rootSvg.element.mousemove(_.bind(this.captureMouseMove, this));
-        this.info.rootSvg.element.mouseout(_.bind(this.captureMouseOut, this));
+        this.info.rootSvg.element.bind('mousewheel', _.bind(this.captureMouseWheel, this));
     },
 
     getEventCoordinates: function(event) {
@@ -273,15 +266,32 @@ var p = {
         this.mover.mouseMove();
     },
 
-    captureMouseOut: function(event) {
+    captureMouseWheel: function(event) {
 
+        if (event.originalEvent.wheelDeltaY > 0) {
+            this.captureMouseWheelDown();
+        } else {
+            this.captureMouseWheelUp();
+        }
         this.display();
 
-        //this.mover.mouseOut();
+    },
+
+    captureMouseWheelDown: function() {
+
+        this.zoomer.wheelDown();
+
+    },
+
+    captureMouseWheelUp: function() {
+
+        this.zoomer.wheelUp();
+
     },
 
     startTools: function() {
         this.mover = this.svgTools.getTool('mover', this);
+        this.zoomer = this.svgTools.getTool('zoomer', this);
     },
 
     display: function() {
@@ -297,6 +307,8 @@ var p = {
         $('#svg_click_end_y').html('y: ' + this.info.interaction.click.end.y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
+        $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);
+        $('#svg_zoom_factor').html('factor: ' + this.info.interaction.zoom.factor);
     }
 
 };
