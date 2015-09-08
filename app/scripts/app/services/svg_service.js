@@ -245,7 +245,7 @@ var p = {
         this.info.interaction.click.start.y = mouseDownCoordinates.y;
         this.display();
 
-        this.mover.mouseDown();
+        this.activeTool.mouseDown();
     },
 
     captureMouseUp: function(event) {
@@ -255,7 +255,7 @@ var p = {
         this.info.interaction.click.end.x = mouseUpCoordinates.x;
         this.info.interaction.click.end.y = mouseUpCoordinates.y;
         this.display();
-        this.mover.mouseUp();
+        this.activeTool.mouseUp();
     },
 
     captureMouseMove: function(event) {
@@ -266,12 +266,12 @@ var p = {
         this.info.interaction.move.y = mouseOverCoordinates.y;
         this.display();
 
-        this.mover.mouseMove();
+        this.activeTool.mouseMove();
     },
 
     captureMouseWheel: function(event) {
 
-        if (event.originalEvent.wheelDeltaY > 0) {
+        if (event.originalEvent.wheelDeltaY < 0) {
             this.captureMouseWheelDown();
         } else {
             this.captureMouseWheelUp();
@@ -282,19 +282,30 @@ var p = {
 
     captureMouseWheelDown: function() {
 
-        this.zoomer.wheelDown();
+        this.explorer.wheelDown();
 
     },
 
     captureMouseWheelUp: function() {
 
-        this.zoomer.wheelUp();
+        this.explorer.wheelUp();
 
     },
 
     startTools: function() {
-        this.mover = this.svgTools.getTool('mover', this);
-        this.zoomer = this.svgTools.getTool('zoomer', this);
+
+        this.explorer = this.svgTools.getTool('explorer', this);
+
+        this.pointCreator = this.svgTools.getTool('pointCreator', this);
+
+        this.activeTool = this.explorer;
+
+    },
+
+    setTool: function(tool) {
+
+        this.activeTool = this[tool];
+
     },
 
     toOrigin: function() {
@@ -349,6 +360,10 @@ SvgService.prototype = {
 
     toOrigin: function() {
         p.toOrigin();
+    },
+
+    setTool: function(tool) {
+        p.setTool(tool);
     }
 
 };

@@ -12,12 +12,38 @@ var p = {
     },
 
     setTools: function() {
-        this.setMover();
-        this.setZoomer();
+
+        this.setToolInterface();
+        this.setExplorer();
+        this.setPointCreator();
+
     },
 
-    setMover: function() {
-        this.tools.mover = {
+    setToolInterface: function() {
+
+        this.toolInterface = {
+
+            setRoot: function(root) {
+
+                this.root = root;
+                this.info = root.info;
+
+                return this;
+
+            },
+
+            mouseDown: function() {},
+            mouseUp: function() {},
+            mouseMove: function() {},
+            wheelDown: function() {},
+            wheelUp: function() {}
+
+        };
+
+    },
+
+    setExplorer: function() {
+        this.tools.explorer = _.extend(this.toolInterface, {
 
             state: 'none',
 
@@ -56,6 +82,40 @@ var p = {
                 }
             },
 
+            wheelDown: function() {
+
+                var newZoom = this.info.interaction.zoom.level + 1;
+
+                var zoomAllowed = this.zoomAllowed(newZoom);
+
+                if (zoomAllowed) {
+
+                    this.info.interaction.zoom.factor /= this.info.config.zoom.factor;
+                    this.info.interaction.zoom.level += 1;
+
+                    this.zoom();
+
+                }
+
+            },
+
+            wheelUp: function() {
+
+                var newZoom = this.info.interaction.zoom.level - 1;
+
+                var zoomAllowed = this.zoomAllowed(newZoom);
+
+                if (zoomAllowed) {
+
+                    this.info.interaction.zoom.factor *= this.info.config.zoom.factor;
+                    this.info.interaction.zoom.level -= 1;
+
+                    this.zoom();
+
+                }
+
+            },
+
             startMoving: function() {
 
                 this.originalOrigin = _.clone(this.info.interaction.origin);
@@ -85,70 +145,17 @@ var p = {
 
                 this.root.setGrid();
 
-            }
-        }
-    },
-
-    setZoomer: function() {
-
-        this.tools.zoomer = {
-
-            setRoot: function(root) {
-
-                this.root = root;
-                this.info = root.info;
-
-                this.matrix = [
-                    this.info.config.zoom.factor,
-                    0,
-                    0,
-                    this.info.config.zoom.factor,
-                     ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
-                     ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
-                ];
-
-                return this;
             },
 
-            wheelDown: function() {
+            zoom: function() {
 
-                var newZoom = this.info.interaction.zoom.level + 1;
-
-                var zoomAllowed = this.zoomAllowed(newZoom);
-
-                if (zoomAllowed) {
-
-                    this.info.interaction.zoom.factor /= this.info.config.zoom.factor;
-                    this.info.interaction.zoom.level += 1;
-
-                    this.zoomGrid();
-
-                }
-
-
-            },
-
-            wheelUp: function() {
-
-                var newZoom = this.info.interaction.zoom.level - 1;
-
-                var zoomAllowed = this.zoomAllowed(newZoom);
-
-                if (zoomAllowed) {
-
-                    this.info.interaction.zoom.factor *= this.info.config.zoom.factor;
-                    this.info.interaction.zoom.level -= 1;
-
-                    this.zoomGrid();
-
-                }
-
+                this.zoomGrid();
 
             },
 
             zoomGrid: function() {
 
-                this.updateMatrix()
+                this.updateMatrix();
 
                 document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
 
@@ -162,8 +169,14 @@ var p = {
 
             updateMatrix: function() {
 
-                this.matrix[4] =  ((this.info.interaction.move.x || 0) + this.info.rootSvg.width);
-                this.matrix[5] =  ((this.info.interaction.move.y || 0) + this.info.rootSvg.height);
+                this.matrix = [
+                    this.info.config.zoom.factor,
+                    0,
+                    0,
+                    this.info.config.zoom.factor,
+                    ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
+                    ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
+                ];
 
             },
 
@@ -182,9 +195,15 @@ var p = {
                     y: Math.round(this.info.interaction.origin.y * this.info.interaction.zoom.factor) + this.info.interaction.move.y
                 };
             }
+        });
+    },
 
-        };
+    setPointCreator: function() {
+        this.tools.pointCreator = _.extend(this.toolInterface, {
 
+
+            
+        });
     }
 
 };
