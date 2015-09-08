@@ -19,11 +19,6 @@ var p = {
             }
         },
 
-        state: {
-            origin: {},
-            activeTool: 'move'
-        },
-
         styles: {
             axisStyle: {
                 stroke: 'black',
@@ -62,7 +57,6 @@ var p = {
 
         var rootSvg = this.createElement('svg');
         rootSvg.setAttribute('id', 'root_svg');
-        rootSvg.setAttribute('width', '1500px');
         this.showElement(svgContainer.attr('id'), rootSvg);
 
     },
@@ -98,10 +92,10 @@ var p = {
         this.info.rootSvg.width = this.info.rootSvg.element.outerWidth();
         this.info.rootSvg.bottom = this.info.rootSvg.top + this.info.rootSvg.height;
         this.info.rootSvg.right = this.info.rootSvg.left + this.info.rootSvg.width;
-        this.info.interaction.origin.x = this.info.rootSvg.width / 2;
-        this.info.interaction.origin.y = this.info.rootSvg.height / 2;
-        this.info.interaction.move.x = this.info.rootSvg.width / 2;
-        this.info.interaction.move.y = this.info.rootSvg.height / 2;
+        this.info.interaction.origin.x = this.info.rootSvg.width * 1.5;
+        this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
+        this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
+        this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
 
     },
 
@@ -133,9 +127,9 @@ var p = {
 
         var axisCoordinates = {
             x1: 0,
-            y1: this.info.rootSvg.height + this.info.interaction.origin.y,
+            y1: this.info.interaction.origin.y,
             x2: this.info.rootSvg.width * 3,
-            y2: this.info.rootSvg.height + this.info.interaction.origin.y
+            y2: this.info.interaction.origin.y
         };
 
         var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'xAxis');
@@ -147,9 +141,9 @@ var p = {
     getYAxis: function() {
 
         var axisCoordinates = {
-            x1: this.info.rootSvg.width + this.info.interaction.origin.x,
+            x1: this.info.interaction.origin.x,
             y1: 0,
-            x2: this.info.rootSvg.width + this.info.interaction.origin.x,
+            x2: this.info.interaction.origin.x,
             y2: this.info.rootSvg.height * 3
         };
 
@@ -164,7 +158,7 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = ((this.info.interaction.origin.y + this.info.rootSvg.height) % this.info.config.gridSize);
+        var auxiliariesStart = ((this.info.interaction.origin.y) % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
@@ -187,7 +181,7 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = ((this.info.interaction.origin.x + this.info.rootSvg.width) % this.info.config.gridSize);
+        var auxiliariesStart = ((this.info.interaction.origin.x) % this.info.config.gridSize);
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
@@ -241,8 +235,8 @@ var p = {
 
         var mouseDownCoordinates = this.getEventCoordinates(event);
 
-        this.info.interaction.click.start.x = mouseDownCoordinates.x;
-        this.info.interaction.click.start.y = mouseDownCoordinates.y;
+        this.info.interaction.click.start.x = mouseDownCoordinates.x + this.info.rootSvg.width;
+        this.info.interaction.click.start.y = mouseDownCoordinates.y + this.info.rootSvg.height;
         this.display();
 
         this.activeTool.mouseDown();
@@ -252,8 +246,8 @@ var p = {
 
         var mouseUpCoordinates = this.getEventCoordinates(event);
 
-        this.info.interaction.click.end.x = mouseUpCoordinates.x;
-        this.info.interaction.click.end.y = mouseUpCoordinates.y;
+        this.info.interaction.click.end.x = mouseUpCoordinates.x + this.info.rootSvg.width;
+        this.info.interaction.click.end.y = mouseUpCoordinates.y + this.info.rootSvg.height;
         this.display();
         this.activeTool.mouseUp();
     },
@@ -262,8 +256,8 @@ var p = {
 
         var mouseOverCoordinates = this.getEventCoordinates(event);
 
-        this.info.interaction.move.x = mouseOverCoordinates.x;
-        this.info.interaction.move.y = mouseOverCoordinates.y;
+        this.info.interaction.move.x = mouseOverCoordinates.x + this.info.rootSvg.width;
+        this.info.interaction.move.y = mouseOverCoordinates.y + this.info.rootSvg.height;
         this.display();
 
         this.activeTool.mouseMove();
@@ -310,8 +304,8 @@ var p = {
 
     toOrigin: function() {
 
-        this.info.interaction.origin.x = this.info.rootSvg.width / 2;
-        this.info.interaction.origin.y = this.info.rootSvg.height / 2;
+        this.info.interaction.origin.x = this.info.rootSvg.width * 1.5;
+        this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.zoom.level = 4;
         this.info.interaction.zoom.factor = 0.0001;
 

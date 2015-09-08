@@ -14,8 +14,8 @@ var p = {
     setTools: function() {
 
         this.setToolInterface();
-        this.setExplorer();
         this.setPointCreator();
+        this.setExplorer();
 
     },
 
@@ -43,7 +43,7 @@ var p = {
     },
 
     setExplorer: function() {
-        this.tools.explorer = _.extend(this.toolInterface, {
+        this.createTool('explorer', {
 
             state: 'none',
 
@@ -134,7 +134,7 @@ var p = {
                 this.info.interaction.origin.y = this.originalOrigin.y + translateY;
 
                 document.getElementById('grid_svg').setAttribute('x', - this.info.rootSvg.width + translateX);
-                document.getElementById('grid_svg').setAttribute('y', - this.info.rootSvg.height + translateY);
+                document.getElementById('grid_svg').setAttribute('y', - this.info.rootSvg.width + translateY);
 
             },
 
@@ -157,6 +157,8 @@ var p = {
 
                 this.updateMatrix();
 
+                console.log(this.matrix);
+
                 document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
 
                 var newOrigin = this.calculateNewOrigin(this.matrix);
@@ -174,8 +176,8 @@ var p = {
                     0,
                     0,
                     this.info.config.zoom.factor,
-                    ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
-                    ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
+                    this.info.interaction.move.x,
+                    this.info.interaction.move.y
                 ];
 
             },
@@ -199,11 +201,18 @@ var p = {
     },
 
     setPointCreator: function() {
-        this.tools.pointCreator = _.extend(this.toolInterface, {
+
+        this.createTool('pointCreator', {
 
 
-            
+
         });
+    },
+
+    createTool: function(toolName, tool) {
+
+        this.tools[toolName] = _.extend(_.clone(this.toolInterface), tool);
+
     }
 
 };
