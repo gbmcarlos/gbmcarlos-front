@@ -103,8 +103,8 @@ var p = {
                     0,
                     0,
                     this.info.config.zoom.factor,
-                    - ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
-                    - ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
+                     ((this.info.interaction.move.x || 0) + this.info.rootSvg.width),
+                     ((this.info.interaction.move.y || 0) + this.info.rootSvg.height)
                 ];
 
                 return this;
@@ -146,7 +146,9 @@ var p = {
 
             },
 
-            zoomGrid: function(matrix) {
+            zoomGrid: function() {
+
+                this.updateMatrix()
 
                 document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
 
@@ -155,6 +157,13 @@ var p = {
                 this.info.interaction.origin = newOrigin;
 
                 this.root.setGrid();
+
+            },
+
+            updateMatrix: function() {
+
+                this.matrix[4] =  ((this.info.interaction.move.x || 0) + this.info.rootSvg.width);
+                this.matrix[5] =  ((this.info.interaction.move.y || 0) + this.info.rootSvg.height);
 
             },
 
@@ -169,8 +178,8 @@ var p = {
 
             calculateNewOrigin: function() {
                 return {
-                    x: Math.round(this.info.interaction.origin.x * this.info.interaction.zoom.factor) - this.info.interaction.move.x,
-                    y: Math.round(this.info.interaction.origin.y * this.info.interaction.zoom.factor) - this.info.interaction.move.y
+                    x: Math.round(this.info.interaction.origin.x * this.info.interaction.zoom.factor) + this.info.interaction.move.x,
+                    y: Math.round(this.info.interaction.origin.y * this.info.interaction.zoom.factor) + this.info.interaction.move.y
                 };
             }
 

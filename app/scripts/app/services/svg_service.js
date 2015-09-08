@@ -11,9 +11,10 @@ var p = {
                 start: {},
                 end: {}
             },
-            move: {},
+            move: {
+            },
             zoom: {
-                factor: 0.04,
+                factor: 0.0001,
                 level: 4
             }
         },
@@ -37,7 +38,7 @@ var p = {
         config: {
             gridSize: 50,
             zoom: {
-                factor: 0.2,
+                factor: 0.1,
                 levels: 8
             }
         }
@@ -99,6 +100,8 @@ var p = {
         this.info.rootSvg.right = this.info.rootSvg.left + this.info.rootSvg.width;
         this.info.interaction.origin.x = this.info.rootSvg.width / 2;
         this.info.interaction.origin.y = this.info.rootSvg.height / 2;
+        this.info.interaction.move.x = this.info.rootSvg.width / 2;
+        this.info.interaction.move.y = this.info.rootSvg.height / 2;
 
     },
 
@@ -294,6 +297,18 @@ var p = {
         this.zoomer = this.svgTools.getTool('zoomer', this);
     },
 
+    toOrigin: function() {
+
+        this.info.interaction.origin.x = this.info.rootSvg.width / 2;
+        this.info.interaction.origin.y = this.info.rootSvg.height / 2;
+        this.info.interaction.zoom.level = 4;
+        this.info.interaction.zoom.factor = 0.0001;
+
+        this.setGrid();
+        this.display();
+
+    },
+
     display: function() {
         $('#svg_top').html('top: ' + this.info.rootSvg.top);
         $('#svg_left').html('left: ' + this.info.rootSvg.left);
@@ -330,6 +345,10 @@ SvgService.prototype = {
 
     start: function(svgContainer, prefs) {
         p.start(svgContainer, prefs);
+    },
+
+    toOrigin: function() {
+        p.toOrigin();
     }
 
 };
