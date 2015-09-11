@@ -52,6 +52,15 @@ var p = {
                 this.root = root;
                 this.info = root.info;
 
+                this.matrix = [
+                    0,
+                    0,
+                    0,
+                    0,
+                    this.info.interaction.move.x,
+                    this.info.interaction.move.y
+                ];
+
                 return this;
             },
 
@@ -84,36 +93,19 @@ var p = {
 
             wheelDown: function() {
 
-                var newZoom = this.info.interaction.zoom.level + 1;
-
-                var zoomAllowed = this.zoomAllowed(newZoom);
-
-                if (zoomAllowed) {
-
-                    this.info.interaction.zoom.factor /= this.info.config.zoom.factor;
+                if ((this.info.interaction.zoom.level + 1) <= this.info.config.zoom.levels) {
                     this.info.interaction.zoom.level += 1;
-
-                    this.zoom();
-
+                    this.zoom('in');
                 }
 
             },
 
             wheelUp: function() {
 
-                var newZoom = this.info.interaction.zoom.level - 1;
-
-                var zoomAllowed = this.zoomAllowed(newZoom);
-
-                if (zoomAllowed) {
-
-                    this.info.interaction.zoom.factor *= this.info.config.zoom.factor;
+                if ((this.info.interaction.zoom.level - 1) >= 0 ) {
                     this.info.interaction.zoom.level -= 1;
-
-                    this.zoom();
-
+                    this.zoom('out');
                 }
-
             },
 
             startMoving: function() {
@@ -147,21 +139,21 @@ var p = {
 
             },
 
-            zoom: function() {
+            zoom: function(direction) {
 
-                this.zoomGrid();
+                this.zoomGrid(direction);
 
             },
 
-            zoomGrid: function() {
+            zoomGrid: function(direction) {
 
-                this.updateMatrix();
+                this.updateMatrix(direction);
 
                 console.log(this.matrix);
 
                 document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
 
-                var newOrigin = this.calculateNewOrigin(this.matrix);
+                var newOrigin = this.calculateNewOrigin(direction);
 
                 this.info.interaction.origin = newOrigin;
 
@@ -169,16 +161,9 @@ var p = {
 
             },
 
-            updateMatrix: function() {
+            updateMatrix: function(direction) {
 
-                this.matrix = [
-                    this.info.config.zoom.factor,
-                    0,
-                    0,
-                    this.info.config.zoom.factor,
-                    this.info.interaction.move.x,
-                    this.info.interaction.move.y
-                ];
+                this.matrix[0] = this.matrix[3] = this.info.config.zoom.factor[direction];
 
             },
 
@@ -191,10 +176,10 @@ var p = {
 
             },
 
-            calculateNewOrigin: function() {
+            calculateNewOrigin: function(direction) {
                 return {
-                    x: Math.round(this.info.interaction.origin.x * this.info.interaction.zoom.factor) + this.info.interaction.move.x,
-                    y: Math.round(this.info.interaction.origin.y * this.info.interaction.zoom.factor) + this.info.interaction.move.y
+                    x: Math.round(this.info.interaction.origin.x * this.info.config.zoom.factor[direction]) + this.info.interaction.move.x,
+                    y: Math.round(this.info.interaction.origin.y * this.info.config.zoom.factor[direction]) + this.info.interaction.move.y
                 };
             }
         });

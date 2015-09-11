@@ -14,7 +14,6 @@ var p = {
             move: {
             },
             zoom: {
-                factor: 0.0001,
                 level: 4
             }
         },
@@ -33,7 +32,10 @@ var p = {
         config: {
             gridSize: 50,
             zoom: {
-                factor: 0.1,
+                factor: {
+                    in: 0.2,
+                    out: 0.012
+                },
                 levels: 8
             }
         }
@@ -328,7 +330,6 @@ var p = {
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
         $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);
-        $('#svg_zoom_factor').html('factor: ' + this.info.interaction.zoom.factor);
     }
 
 };
