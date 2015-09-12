@@ -142,6 +142,15 @@ var p = {
             zoom: function(direction) {
 
                 this.zoomGrid(direction);
+                this.zoomOmega(direction);
+
+            },
+
+            zoomOmega: function(direction) {
+
+                this.updateMatrix(direction);
+
+                document.getElementById('omega_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
 
             },
 
@@ -189,7 +198,17 @@ var p = {
 
         this.createTool('pointCreator', {
 
+            mouseUp: function() {
+                this.createPoint();
+            },
 
+            createPoint: function() {
+
+                var pointTag = this.root.svgModels.getPoint(this.info.interaction.move, this.info.styles.point, 'd');
+
+                this.root.showElement('omega_g', pointTag);
+
+            }
 
         });
     },

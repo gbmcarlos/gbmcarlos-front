@@ -22,6 +22,12 @@ var p = {
             gridAuxiliaryStyle: {
                 stroke: 'black',
                 strokeWidth: 0.5
+            },
+            point: {
+                stroke: 'black',
+                strokeWidth: 0.5,
+                fill: 'black',
+                radius: 2.5
             }
         },
 
@@ -47,6 +53,7 @@ var p = {
         this.setRootSvg(svgContainer);
         this.setRootSvgDimensions();
         this.setGridLayer();
+        this.setOmegaLayer();
         this.startRootSvg();
         this.startTools();
     },
@@ -62,6 +69,10 @@ var p = {
     setGridLayer: function() {
         this.setLayer('grid', 'root_svg');
 
+    },
+
+    setOmegaLayer: function() {
+        this.setLayer('omega', 'root_svg');
     },
 
     setLayer: function(name, base) {

@@ -45,6 +45,37 @@ var p = {
 
     },
 
+    getPoint: function(coordinates, style, id) {
+
+        var point = this.createElement('circle');
+
+        point.setAttribute('cx', coordinates.x);
+        point.setAttribute('cy', coordinates.y);
+
+        if (!!id) {
+            point.setAttribute('id', id);
+        }
+
+        if (style.stroke) {
+            point.setAttribute('stroke', style.stroke);
+        }
+
+        if (style.strokeWidth) {
+            point.setAttribute('stroke-width', style.strokeWidth);
+        }
+
+        if (style.fill) {
+            point.setAttribute('fill', style.fill);
+        }
+
+        if (style.radius) {
+            point.setAttribute('r', style.radius);
+        }
+
+        return point;
+
+    },
+
     createElement: function(tag) {
 
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag)
@@ -68,6 +99,10 @@ SvgModels.prototype = {
 
     getLine: function(coordinates, style) {
         return p.getLine(coordinates, style);
+    },
+
+    getPoint: function(coordinates, style) {
+        return p.getPoint(coordinates, style);
     }
 
 };
