@@ -7,10 +7,6 @@ var p = {
 
         interaction: {
             origin: {},
-            click: {
-                start: {},
-                end: {}
-            },
             move: {
             },
             zoom: {
@@ -33,7 +29,7 @@ var p = {
             gridSize: 50,
             zoom: {
                 factor: {
-                    in: 0.2,
+                    in: 0.13,
                     out: 0.012
                 },
                 levels: 8
@@ -235,10 +231,6 @@ var p = {
 
     captureMouseDown: function(event) {
 
-        var mouseDownCoordinates = this.getEventCoordinates(event);
-
-        this.info.interaction.click.start.x = mouseDownCoordinates.x + this.info.rootSvg.width;
-        this.info.interaction.click.start.y = mouseDownCoordinates.y + this.info.rootSvg.height;
         this.display();
 
         this.activeTool.mouseDown();
@@ -246,10 +238,6 @@ var p = {
 
     captureMouseUp: function(event) {
 
-        var mouseUpCoordinates = this.getEventCoordinates(event);
-
-        this.info.interaction.click.end.x = mouseUpCoordinates.x + this.info.rootSvg.width;
-        this.info.interaction.click.end.y = mouseUpCoordinates.y + this.info.rootSvg.height;
         this.display();
         this.activeTool.mouseUp();
     },
@@ -323,10 +311,6 @@ var p = {
         $('#svg_right').html('right: ' + this.info.rootSvg.right);
         $('#svg_move_x').html('x: ' + this.info.interaction.move.x);
         $('#svg_move_y').html('y: ' + this.info.interaction.move.y);
-        $('#svg_click_start_x').html('x: ' + this.info.interaction.click.start.x);
-        $('#svg_click_start_y').html('y: ' + this.info.interaction.click.start.y);
-        $('#svg_click_end_x').html('x: ' + this.info.interaction.click.end.x);
-        $('#svg_click_end_y').html('y: ' + this.info.interaction.click.end.y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
         $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);

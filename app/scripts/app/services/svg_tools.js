@@ -111,16 +111,16 @@ var p = {
             startMoving: function() {
 
                 this.originalOrigin = _.clone(this.info.interaction.origin);
+                this.clickStart = _.clone(this.info.interaction.move);
 
             },
 
             move: function() {
 
-                var start = this.info.interaction.click.start;
                 var end = this.info.interaction.move;
 
-                var translateX = end.x - start.x;
-                var translateY = end.y - start.y;
+                var translateX = end.x - this.clickStart.x;
+                var translateY = end.y - this.clickStart.y;
 
                 this.info.interaction.origin.x = this.originalOrigin.x + translateX;
                 this.info.interaction.origin.y = this.originalOrigin.y + translateY;
