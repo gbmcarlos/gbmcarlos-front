@@ -103,8 +103,6 @@ var p = {
         this.info.rootSvg.left = this.info.rootSvg.element.offset().left;
         this.info.rootSvg.height = this.info.rootSvg.element.outerHeight();
         this.info.rootSvg.width = this.info.rootSvg.element.outerWidth();
-        this.info.rootSvg.bottom = this.info.rootSvg.top + this.info.rootSvg.height;
-        this.info.rootSvg.right = this.info.rootSvg.left + this.info.rootSvg.width;
         this.info.interaction.origin.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
@@ -157,7 +155,7 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = ((this.info.interaction.origin.y) % this.info.config.gridSize);
+        var auxiliariesStart = (this.info.interaction.origin.y) % this.info.config.gridSize;
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
@@ -180,7 +178,7 @@ var p = {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
 
-        var auxiliariesStart = ((this.info.interaction.origin.x) % this.info.config.gridSize);
+        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
@@ -221,13 +219,6 @@ var p = {
         this.info.rootSvg.element.bind('mousewheel', _.bind(this.captureMouseWheel, this));
     },
 
-    getEventCoordinates: function(event) {
-        return {
-            x: event.pageX - this.info.rootSvg.left,
-            y: event.pageY - this.info.rootSvg.top
-        };
-    },
-
     captureMouseDown: function(event) {
 
         this.display();
@@ -243,10 +234,13 @@ var p = {
 
     captureMouseMove: function(event) {
 
-        var mouseOverCoordinates = this.getEventCoordinates(event);
+        var moveCoordinates = {
+            x: event.pageX - this.info.rootSvg.left,
+            y: event.pageY - this.info.rootSvg.top
+        };
 
-        this.info.interaction.move.x = mouseOverCoordinates.x + this.info.rootSvg.width;
-        this.info.interaction.move.y = mouseOverCoordinates.y + this.info.rootSvg.height;
+        this.info.interaction.move.x = moveCoordinates.x + this.info.rootSvg.width;
+        this.info.interaction.move.y = moveCoordinates.y + this.info.rootSvg.height;
         this.display();
 
         this.activeTool.mouseMove();
@@ -299,15 +293,12 @@ var p = {
         this.info.interaction.zoom.factor = 0.0001;
 
         this.info.layers.grid.refresh();
+        this.info.layers.omega.refresh();
         this.display();
 
     },
 
     display: function() {
-        $('#svg_top').html('top: ' + this.info.rootSvg.top);
-        $('#svg_left').html('left: ' + this.info.rootSvg.left);
-        $('#svg_bottom').html('bottom: ' + this.info.rootSvg.bottom);
-        $('#svg_right').html('right: ' + this.info.rootSvg.right);
         $('#svg_move_x').html('x: ' + this.info.interaction.move.x);
         $('#svg_move_y').html('y: ' + this.info.interaction.move.y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
