@@ -127,31 +127,13 @@ var p = {
 
             zoom: function(direction) {
 
-                this.zoomGrid(direction);
-                //this.zoomOmega(direction);
-
-            },
-
-            zoomOmega: function(direction) {
-
-                this.updateMatrix(direction);
-
                 this.info.layers.grid.setMatrix(this.matrix);
-
-            },
-
-            zoomGrid: function(direction) {
-
-                this.updateMatrix(direction);
-
-                this.info.layers.grid.setMatrix(this.matrix);
+                this.info.layers.omega.setMatrix(this.matrix);
 
                 this.info.interaction.origin = this.calculateNewOrigin(direction);
 
                 this.info.layers.grid.refresh();
-                this.info.layers.grid.emptyLayer();
-
-                this.root.setGrid();
+                this.info.layers.omega.refresh();
 
             },
 
