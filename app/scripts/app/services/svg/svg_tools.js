@@ -125,10 +125,13 @@ var p = {
 
             },
 
+            // DON'T DELETE
+            // x' = f(x - o) + o
+            // x' = x * f + -fo + o
             zoom: function(direction) {
 
-                this.info.layers.grid.setMatrix(this.matrix);
-                this.info.layers.omega.setMatrix(this.matrix);
+                //this.info.layers.grid.setMatrix(this.matrix);
+                //this.info.layers.omega.setMatrix(this.matrix);
 
                 this.info.interaction.origin = this.calculateNewOrigin(direction);
 
@@ -139,13 +142,15 @@ var p = {
 
             updateMatrix: function(direction) {
 
+                var f = this.info.config.zoom.factor[direction];
+
                 this.matrix = [
-                    this.info.config.zoom.factor[direction],
+                    f,
                     0,
                     0,
-                    this.info.config.zoom.factor[direction],
-                    this.info.interaction.move.x,
-                    this.info.interaction.move.y
+                    f,
+                    -f*this.info.interaction.move.x + this.info.interaction.move.x,
+                    -f*this.info.interaction.move.y + this.info.interaction.move.y
                 ];
 
             },
@@ -160,10 +165,12 @@ var p = {
             },
 
             calculateNewOrigin: function(direction) {
+
                 return {
-                    x: Math.round(this.info.interaction.origin.x * this.info.config.zoom.factor[direction]) + this.info.interaction.move.x,
-                    y: Math.round(this.info.interaction.origin.y * this.info.config.zoom.factor[direction]) + this.info.interaction.move.y
+                    x: Math.round(this.info.config.zoom.factor[direction] * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
+                    y: Math.round(this.info.config.zoom.factor[direction] * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
                 };
+
             }
         });
     },

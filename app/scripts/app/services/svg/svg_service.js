@@ -38,8 +38,8 @@ var p = {
             gridSize: 50,
             zoom: {
                 factor: {
-                    in: 0.13,
-                    out: 0.012
+                    in: 0.5,
+                    out: 2
                 },
                 levels: 8
             }
