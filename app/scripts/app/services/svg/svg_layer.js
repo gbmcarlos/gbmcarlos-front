@@ -63,19 +63,26 @@ var p = {
 
                 this.setMatrix(null);
 
+                this.emptyLayer();
+
+                if (!!this.refreshCallback) {
+                    this.refreshCallback();
+                }
+
             }
 
         };
 
     },
 
-    newLayer: function(id) {
+    newLayer: function(id, refreshCallback) {
 
         var newLayerElement = this.getNewLayerElement(id);
 
         var newLayer = _.extend(_.clone(this.baseLayer), {
             id: id,
-            element: newLayerElement
+            element: newLayerElement,
+            refreshCallback: refreshCallback
         });
 
         this.root.showElement('root_svg', newLayer.element);
@@ -125,8 +132,8 @@ SvgLayer.prototype = {
         p.root = root;
     },
 
-    newLayer: function(id) {
-        return p.newLayer(id);
+    newLayer: function(id, refreshCallback) {
+        return p.newLayer(id, refreshCallback);
     }
 };
 

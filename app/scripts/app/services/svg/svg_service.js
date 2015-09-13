@@ -87,11 +87,11 @@ var p = {
 
     setLayers: function() {
 
-        var gridLayer = this.svgLayer.newLayer('grid');
+        var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
 
         this.info.layers[gridLayer.id] = gridLayer;
 
-        var omegaLayer = this.svgLayer.newLayer('omega');
+        var omegaLayer = this.svgLayer.newLayer('omega', _.bind(this.setOmega, this));
 
         this.info.layers[omegaLayer.id] = omegaLayer;
 
@@ -199,6 +199,21 @@ var p = {
 
     },
 
+    setOmega: function() {
+
+        var self = this;
+
+        _.each(this.info.omega.elements, function(element) {
+
+            element.element.setAttribute('cx', self.info.interaction.origin.x + element.coordinates.x);
+            element.element.setAttribute('cy', self.info.interaction.origin.y + element.coordinates.y);
+
+            self.info.layers.omega.showElement(element.element);
+
+        });
+
+    },
+
     setSvgElementListeners: function() {
         this.info.rootSvg.element.mousedown(_.bind(this.captureMouseDown, this));
         this.info.rootSvg.element.mouseup(_.bind(this.captureMouseUp, this));
@@ -283,7 +298,7 @@ var p = {
         this.info.interaction.zoom.level = 4;
         this.info.interaction.zoom.factor = 0.0001;
 
-        this.setGrid();
+        this.info.layers.grid.refresh();
         this.display();
 
     },
@@ -327,10 +342,6 @@ var p = {
             document.getElementById(id).removeChild(document.getElementById(id).lastChild);
         }
 
-    },
-
-    newLayer: function(id) {
-        return this.svgLayer.newLayer(id);
     }
 
 };
@@ -361,10 +372,6 @@ SvgService.prototype = {
 
     setTool: function(tool) {
         p.setTool(tool);
-    },
-
-    newLayer: function(id) {
-        return p.newLayer(id);
     }
 
 };

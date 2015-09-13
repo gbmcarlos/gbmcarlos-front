@@ -114,15 +114,14 @@ var p = {
                 this.info.interaction.origin.y = this.originalOrigin.y + translate.y;
 
                 this.info.layers.grid.setTranslateBy(translate);
+                this.info.layers.omega.setTranslateBy(translate);
 
             },
 
             stopMoving: function() {
 
                 this.info.layers.grid.refresh();
-                this.info.layers.grid.emptyLayer();
-
-                this.root.setGrid();
+                this.info.layers.omega.refresh();
 
             },
 
@@ -192,26 +191,38 @@ var p = {
         this.createTool('pointCreator', {
 
             mouseUp: function() {
-                this.createPoint();
+                this.newPoint();
             },
 
-            createPoint: function() {
-
-                var pointTag = this.root.svgModels.getPoint(this.info.interaction.move, this.info.styles.point, 'd');
+            newPoint: function() {
 
                 var pointElement = this.createPointElement();
+                var pointCoordinates = this.getPointCoordinates();
 
-                this.root.showElement('omega_g', pointTag);
+                var point = {
+                    element: pointElement,
+                    coordinates: pointCoordinates
+                };
+
+                this.info.layers.omega.showElement(point.element);
+                this.info.omega.elements.push(point);
+
+            },
+
+            getPointCoordinates: function() {
+
+                return {
+                    x: this.info.interaction.move.x - this.info.interaction.origin.x,
+                    y: this.info.interaction.move.y - this.info.interaction.origin.y
+                };
 
             },
 
             createPointElement: function() {
 
-                return {
-                    coordinates: {
+                var pointElement = this.root.svgModels.getPoint(this.info.interaction.move, this.info.styles.point, 'd');
 
-                    }
-                }
+                return pointElement;
 
             }
 
