@@ -3,6 +3,9 @@
 var p = {
 
     info: {
+
+        layers: {},
+
         rootSvg: {},
 
         interaction: {
@@ -40,56 +43,57 @@ var p = {
                 },
                 levels: 8
             }
+        },
+
+        omega: {
+            elements: []
         }
     },
 
-    init: function(svgModels, svgTools) {
+    init: function(svgModels, svgTools, svgLayer) {
         this.svgModels = svgModels;
         this.svgTools = svgTools;
+        this.svgLayer = svgLayer;
     },
 
     start: function(svgContainer) {
 
-        this.setRootSvg(svgContainer);
+        this.initSubServices();
+        this.prepareSvgContainer(svgContainer);
         this.setRootSvgDimensions();
-        this.setGridLayer();
-        this.setOmegaLayer();
-        this.startRootSvg();
+        this.setLayers();
+        this.setGrid();
+        this.setSvgElementListeners();
         this.startTools();
     },
 
-    setRootSvg: function(svgContainer) {
+    initSubServices: function() {
 
-        var rootSvg = this.createElement('svg');
-        rootSvg.setAttribute('id', 'root_svg');
+        this.svgTools.setRoot(this);
+        this.svgTools.setTools();
+
+        this.svgLayer.setRoot(this);
+        this.svgLayer.init();
+
+    },
+
+    prepareSvgContainer: function(svgContainer) {
+
+        var rootSvg = this.createElement('svg', 'root_svg');
+        this.emptyElement(svgContainer.attr('id'));
         this.showElement(svgContainer.attr('id'), rootSvg);
 
     },
 
-    setGridLayer: function() {
-        this.setLayer('grid', 'root_svg');
+    setLayers: function() {
 
-    },
+        var gridLayer = this.svgLayer.newLayer('grid');
 
-    setOmegaLayer: function() {
-        this.setLayer('omega', 'root_svg');
-    },
+        this.info.layers[gridLayer.id] = gridLayer;
 
-    setLayer: function(name, base) {
+        var omegaLayer = this.svgLayer.newLayer('omega');
 
-        var svg = this.createElement('svg');
-        svg.setAttribute('id', name + '_svg');
-        var g = this.createElement('g');
-        g.setAttribute('id', name + '_g');
-
-        svg.setAttribute('width', this.info.rootSvg.width * 3);
-        svg.setAttribute('height', this.info.rootSvg.height * 3);
-        svg.setAttribute('x', - this.info.rootSvg.width);
-        svg.setAttribute('y', - this.info.rootSvg.height);
-
-        svg.appendChild(g);
-
-        this.showElement(base, svg);
+        this.info.layers[omegaLayer.id] = omegaLayer;
 
     },
 
@@ -108,24 +112,10 @@ var p = {
 
     },
 
-    startRootSvg: function() {
-        this.setGrid();
-        this.setSvgElementListeners();
-    },
-
     setGrid: function() {
 
-        while (document.getElementById('grid_g').hasChildNodes()) {
-            document.getElementById('grid_g').removeChild(document.getElementById('grid_g').lastChild);
-        }
-
-        document.getElementById('grid_g').setAttribute('transform', '');
-
-        var xAxis = this.getXAxis();
-        var yAxis = this.getYAxis();
-
-        this.showElement('grid_g', xAxis);
-        this.showElement('grid_g', yAxis);
+        this.info.layers.grid.showElement(this.getXAxis());
+        this.info.layers.grid.showElement(this.getYAxis());
 
         this.setGridHorizontalAuxiliaries();
         this.setGridVerticalAuxiliaries();
@@ -180,7 +170,7 @@ var p = {
 
             var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
 
-            this.showElement('grid_g', auxiliary);
+            this.info.layers.grid.showElement(auxiliary);
 
         }
 
@@ -203,27 +193,10 @@ var p = {
 
             var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
 
-            this.showElement('grid_g', auxiliary);
+            this.info.layers.grid.showElement(auxiliary);
 
         }
 
-    },
-
-    createElement: function(tag) {
-
-        var element = document.createElementNS('http://www.w3.org/2000/svg', tag);
-
-        return element;
-    },
-
-    showElement: function(root, element) {
-
-        document.getElementById(root).appendChild(element);
-
-    },
-
-    getElement: function(id) {
-        return document.getElementById(id);
     },
 
     setSvgElementListeners: function() {
@@ -325,14 +298,48 @@ var p = {
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
         $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);
+    },
+
+    createElement: function(tag, id) {
+
+        var element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+
+        if (!!id) {
+            element.setAttribute('id', id);
+        }
+
+        return element;
+    },
+
+    showElement: function(root, element) {
+
+        document.getElementById(root).appendChild(element);
+
+    },
+
+    getElement: function(id) {
+        return document.getElementById(id);
+    },
+
+    emptyElement: function(id) {
+
+        while (document.getElementById(id).hasChildNodes()) {
+            document.getElementById(id).removeChild(document.getElementById(id).lastChild);
+        }
+
+    },
+
+    newLayer: function(id) {
+        return this.svgLayer.newLayer(id);
     }
 
 };
 
-function SvgService(svgModels, svgTools) {
+function SvgService(svgModels, svgTools, svgLayer) {
 
     this.svgModels = svgModels;
     this.svgTools = svgTools;
+    this.svgLayer = svgLayer;
 
     this.init();
 
@@ -341,7 +348,7 @@ function SvgService(svgModels, svgTools) {
 SvgService.prototype = {
 
     init: function () {
-        p.init(this.svgModels, this.svgTools);
+        p.init(this.svgModels, this.svgTools, this.svgLayer);
     },
 
     start: function(svgContainer, prefs) {
@@ -354,6 +361,10 @@ SvgService.prototype = {
 
     setTool: function(tool) {
         p.setTool(tool);
+    },
+
+    newLayer: function(id) {
+        return p.newLayer(id);
     }
 
 };

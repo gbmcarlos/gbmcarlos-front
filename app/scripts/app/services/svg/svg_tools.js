@@ -6,11 +6,6 @@ var p = {
 
     },
 
-    init: function(svgModels) {
-        this.svgModels = svgModels;
-        this.setTools();
-    },
-
     setTools: function() {
 
         this.setToolInterface();
@@ -51,15 +46,6 @@ var p = {
 
                 this.root = root;
                 this.info = root.info;
-
-                this.matrix = [
-                    0,
-                    0,
-                    0,
-                    0,
-                    this.info.interaction.move.x,
-                    this.info.interaction.move.y
-                ];
 
                 return this;
             },
@@ -119,21 +105,22 @@ var p = {
 
                 var end = this.info.interaction.move;
 
-                var translateX = end.x - this.clickStart.x;
-                var translateY = end.y - this.clickStart.y;
+                var translate = {
+                    x: end.x - this.clickStart.x,
+                    y: end.y - this.clickStart.y
+                };
 
-                this.info.interaction.origin.x = this.originalOrigin.x + translateX;
-                this.info.interaction.origin.y = this.originalOrigin.y + translateY;
+                this.info.interaction.origin.x = this.originalOrigin.x + translate.x;
+                this.info.interaction.origin.y = this.originalOrigin.y + translate.y;
 
-                document.getElementById('grid_svg').setAttribute('x', - this.info.rootSvg.width + translateX);
-                document.getElementById('grid_svg').setAttribute('y', - this.info.rootSvg.width + translateY);
+                this.info.layers.grid.setTranslateBy(translate);
 
             },
 
             stopMoving: function() {
 
-                document.getElementById('grid_svg').setAttribute('x', - this.info.rootSvg.width);
-                document.getElementById('grid_svg').setAttribute('y', - this.info.rootSvg.height);
+                this.info.layers.grid.refresh();
+                this.info.layers.grid.emptyLayer();
 
                 this.root.setGrid();
 
@@ -142,7 +129,7 @@ var p = {
             zoom: function(direction) {
 
                 this.zoomGrid(direction);
-                this.zoomOmega(direction);
+                //this.zoomOmega(direction);
 
             },
 
@@ -150,7 +137,7 @@ var p = {
 
                 this.updateMatrix(direction);
 
-                document.getElementById('omega_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
+                this.info.layers.grid.setMatrix(this.matrix);
 
             },
 
@@ -158,13 +145,12 @@ var p = {
 
                 this.updateMatrix(direction);
 
-                console.log(this.matrix);
+                this.info.layers.grid.setMatrix(this.matrix);
 
-                document.getElementById('grid_g').setAttribute('transform', 'matrix(' + this.matrix.join(' ') + ')');
+                this.info.interaction.origin = this.calculateNewOrigin(direction);
 
-                var newOrigin = this.calculateNewOrigin(direction);
-
-                this.info.interaction.origin = newOrigin;
+                this.info.layers.grid.refresh();
+                this.info.layers.grid.emptyLayer();
 
                 this.root.setGrid();
 
@@ -172,7 +158,14 @@ var p = {
 
             updateMatrix: function(direction) {
 
-                this.matrix[0] = this.matrix[3] = this.info.config.zoom.factor[direction];
+                this.matrix = [
+                    this.info.config.zoom.factor[direction],
+                    0,
+                    0,
+                    this.info.config.zoom.factor[direction],
+                    this.info.interaction.move.x,
+                    this.info.interaction.move.y
+                ];
 
             },
 
@@ -206,7 +199,19 @@ var p = {
 
                 var pointTag = this.root.svgModels.getPoint(this.info.interaction.move, this.info.styles.point, 'd');
 
+                var pointElement = this.createPointElement();
+
                 this.root.showElement('omega_g', pointTag);
+
+            },
+
+            createPointElement: function() {
+
+                return {
+                    coordinates: {
+
+                    }
+                }
 
             }
 
@@ -215,31 +220,26 @@ var p = {
 
     createTool: function(toolName, tool) {
 
-        this.tools[toolName] = _.extend(_.clone(this.toolInterface), tool);
+        this.tools[toolName] = _.extend(_.clone(this.toolInterface), tool).setRoot(this.root);
 
     }
 
 };
 
-function SvgTools(svgModels) {
-
-    this.svgModels = svgModels;
-    this.init();
-
-}
+function SvgTools() {}
 
 SvgTools.prototype = {
-
-    init: function() {
-        p.init(this.svgModels);
-    },
 
     setRoot: function(root) {
         p.root = root;
     },
 
-    getTool: function(tool, root) {
-        return p.tools[tool].setRoot(root);
+    setTools: function() {
+        p.setTools();
+    },
+
+    getTool: function(tool) {
+        return p.tools[tool];
     }
 
 };
