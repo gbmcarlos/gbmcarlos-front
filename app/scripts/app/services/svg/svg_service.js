@@ -36,6 +36,7 @@ var p = {
 
         config: {
             gridSize: 50,
+            gridUnit: 10,
             zoom: {
                 factor: {
                     in: 0.5,
@@ -201,10 +202,21 @@ var p = {
 
         var self = this;
 
+        var zoomSizeUnitFactor = Math.pow(
+                (
+                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
+                        this.info.config.zoom.factor['in'] :
+                        this.info.config.zoom.factor['out']
+                ),
+                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+            ) /
+            this.info.config.gridSize *
+            this.info.config.gridUnit;
+
         _.each(this.info.omega.elements, function(element) {
 
-            element.element.setAttribute('cx', self.info.interaction.origin.x + element.coordinates.x);
-            element.element.setAttribute('cy', self.info.interaction.origin.y + element.coordinates.y);
+            element.element.setAttribute('cx', (self.info.interaction.origin.x + element.coordinates.x) / zoomSizeUnitFactor);
+            element.element.setAttribute('cy', (self.info.interaction.origin.y + element.coordinates.y) / zoomSizeUnitFactor);
 
             self.info.layers.omega.showElement(element.element);
 

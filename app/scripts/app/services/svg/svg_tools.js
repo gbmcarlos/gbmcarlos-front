@@ -200,10 +200,25 @@ var p = {
 
             getPointCoordinates: function() {
 
-                return {
-                    x: this.info.interaction.move.x - this.info.interaction.origin.x,
-                    y: this.info.interaction.move.y - this.info.interaction.origin.y
+                var zoomSizeUnitFactor = Math.pow(
+                        (
+                            (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
+                                this.info.config.zoom.factor['in'] :
+                                this.info.config.zoom.factor['out']
+                        ),
+                        Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+                    ) /
+                    this.info.config.gridSize *
+                    this.info.config.gridUnit;
+
+                var pointCoordinates = {
+                    x: (this.info.interaction.move.x - this.info.interaction.origin.x) * zoomSizeUnitFactor,
+                    y: (this.info.interaction.move.y - this.info.interaction.origin.y) * zoomSizeUnitFactor
                 };
+
+                console.log(pointCoordinates);
+
+                return pointCoordinates;
 
             },
 
