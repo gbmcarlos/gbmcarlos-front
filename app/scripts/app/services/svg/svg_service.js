@@ -13,7 +13,7 @@ var p = {
             move: {
             },
             zoom: {
-                level: 4
+                level: 10
             }
         },
 
@@ -39,10 +39,10 @@ var p = {
             gridUnit: 10,
             zoom: {
                 factor: {
-                    in: 0.5,
-                    out: 2
+                    in: 0.8,
+                    out: 1.25
                 },
-                levels: 8
+                levels: 20
             }
         },
 
