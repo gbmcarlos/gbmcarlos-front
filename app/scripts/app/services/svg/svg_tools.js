@@ -182,7 +182,7 @@ var p = {
             newPoint: function() {
 
                 var pointElement = this.createPointElement();
-                var pointCoordinates = this.root.getOmegaCoordinates(this.info.interaction.origin);
+                var pointCoordinates = this.root.getOmegaCoordinates(this.info.interaction.move);
 
                 var point = {
                     element: pointElement,

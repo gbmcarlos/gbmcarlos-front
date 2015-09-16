@@ -12,9 +12,7 @@ var p = {
             origin: {},
             move: {
             },
-            zoom: {
-                level: 10
-            }
+            zoom: {}
         },
 
         styles: {
@@ -38,7 +36,8 @@ var p = {
             gridSize: 50,
             gridUnit: 10,
             zoom: {
-                factor: 0.8
+                factor: 0.8,
+                defaultLevel: 10
             }
         },
 
@@ -104,6 +103,7 @@ var p = {
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
+        this.info.interaction.zoom.level = this.info.config.zoom.defaultLevel;
 
     },
 
@@ -198,21 +198,10 @@ var p = {
 
         var self = this;
 
-        var zoomSizeUnitFactor = Math.pow(
-                (
-                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
-                        this.info.config.zoom.factor['in'] :
-                        this.info.config.zoom.factor['out']
-                ),
-                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
-            ) /
-            this.info.config.gridSize *
-            this.info.config.gridUnit;
-
         _.each(this.info.omega.elements, function(element) {
 
-            element.element.setAttribute('cx', (self.info.interaction.origin.x + element.coordinates.x) / zoomSizeUnitFactor);
-            element.element.setAttribute('cy', (self.info.interaction.origin.y + element.coordinates.y) / zoomSizeUnitFactor);
+            element.element.setAttribute('cx', self.getLayerCoordinates(element.coordinates).x);
+            element.element.setAttribute('cy', self.getLayerCoordinates(element.coordinates).y);
 
             self.info.layers.omega.showElement(element.element);
 
@@ -281,18 +270,18 @@ var p = {
 
         var zoomSizeUnitFactor = Math.pow(
                 (
-                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
-                        this.info.config.zoom.factor['in'] :
-                        this.info.config.zoom.factor['out']
+                    (this.info.interaction.zoom.level > this.info.config.zoom.defaultLevel) ?
+                    1 / this.info.config.zoom.factor :
+                        this.info.config.zoom.factor
                 ),
-                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.defaultLevel)
             ) /
             this.info.config.gridSize *
             this.info.config.gridUnit;
 
         return {
-            x: (this.info.interaction.move.x - layerCoordinates.x) * zoomSizeUnitFactor,
-            y: (this.info.interaction.move.y - layerCoordinates.y) * zoomSizeUnitFactor
+            x: (layerCoordinates.x - this.info.interaction.origin.x) * zoomSizeUnitFactor,
+            y: ( - layerCoordinates.y + this.info.interaction.origin.y) * zoomSizeUnitFactor
         };
 
     },
@@ -301,18 +290,18 @@ var p = {
 
         var zoomSizeUnitFactor = Math.pow(
                 (
-                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
-                        this.info.config.zoom.factor['in'] :
-                        this.info.config.zoom.factor['out']
+                    (this.info.interaction.zoom.level > this.info.config.zoom.defaultLevel) ?
+                    1 / this.info.config.zoom.factor :
+                        this.info.config.zoom.factor
                 ),
-                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.defaultLevel)
             ) /
             this.info.config.gridSize *
             this.info.config.gridUnit;
 
         return {
-            x: (omegaCoordinates.x + this.info.interaction.move.x) / zoomSizeUnitFactor,
-            y: (omegaCoordinates.y + this.info.interaction.move.y) / zoomSizeUnitFactor
+            x: this.info.interaction.origin.x + (omegaCoordinates.x / zoomSizeUnitFactor),
+            y: this.info.interaction.origin.y - (omegaCoordinates.y / zoomSizeUnitFactor)
         };
 
     },
