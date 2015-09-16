@@ -38,11 +38,7 @@ var p = {
             gridSize: 50,
             gridUnit: 10,
             zoom: {
-                factor: {
-                    in: 0.8,
-                    out: 1.25
-                },
-                levels: 20
+                factor: 0.8
             }
         },
 
@@ -278,6 +274,46 @@ var p = {
     captureMouseWheelUp: function() {
 
         this.explorer.wheelUp();
+
+    },
+
+    getOmegaCoordinates: function(layerCoordinates) {
+
+        var zoomSizeUnitFactor = Math.pow(
+                (
+                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
+                        this.info.config.zoom.factor['in'] :
+                        this.info.config.zoom.factor['out']
+                ),
+                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+            ) /
+            this.info.config.gridSize *
+            this.info.config.gridUnit;
+
+        return {
+            x: (this.info.interaction.move.x - layerCoordinates.x) * zoomSizeUnitFactor,
+            y: (this.info.interaction.move.y - layerCoordinates.y) * zoomSizeUnitFactor
+        };
+
+    },
+
+    getLayerCoordinates: function(omegaCoordinates) {
+
+        var zoomSizeUnitFactor = Math.pow(
+                (
+                    (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
+                        this.info.config.zoom.factor['in'] :
+                        this.info.config.zoom.factor['out']
+                ),
+                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
+            ) /
+            this.info.config.gridSize *
+            this.info.config.gridUnit;
+
+        return {
+            x: (omegaCoordinates.x + this.info.interaction.move.x) / zoomSizeUnitFactor,
+            y: (omegaCoordinates.y + this.info.interaction.move.y) / zoomSizeUnitFactor
+        };
 
     },
 

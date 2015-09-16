@@ -79,19 +79,13 @@ var p = {
 
             wheelDown: function() {
 
-                if ((this.info.interaction.zoom.level + 1) <= this.info.config.zoom.levels) {
-                    this.info.interaction.zoom.level += 1;
-                    this.zoom('in');
-                }
+                this.zoom(this.info.config.zoom.factor);
 
             },
 
             wheelUp: function() {
 
-                if ((this.info.interaction.zoom.level - 1) >= 0 ) {
-                    this.info.interaction.zoom.level -= 1;
-                    this.zoom('out');
-                }
+                this.zoom(1 / this.info.config.zoom.factor);
             },
 
             startMoving: function() {
@@ -128,47 +122,49 @@ var p = {
             // DON'T DELETE
             // x' = f(x - o) + o
             // x' = x * f + -fo + o
-            zoom: function(direction) {
+            zoom: function(factor) {
+
+                if (factor == this.info.config.zoom.factor) {
+                    if ((this.info.interaction.zoom.level - 1) == 0) {
+                        return false;
+                    }
+
+                    this.info.interaction.zoom.level -= 1;
+
+                } else {
+
+                    this.info.interaction.zoom.level += 1;
+
+                }
 
                 //this.info.layers.grid.setMatrix(this.matrix);
                 //this.info.layers.omega.setMatrix(this.matrix);
 
-                this.info.interaction.origin = this.calculateNewOrigin(direction);
+                this.info.interaction.origin = this.calculateNewOrigin(factor);
 
                 this.info.layers.grid.refresh();
                 this.info.layers.omega.refresh();
 
             },
 
-            updateMatrix: function(direction) {
-
-                var f = this.info.config.zoom.factor[direction];
+            updateMatrix: function(factor) {
 
                 this.matrix = [
-                    f,
+                    factor,
                     0,
                     0,
-                    f,
-                    -f*this.info.interaction.move.x + this.info.interaction.move.x,
-                    -f*this.info.interaction.move.y + this.info.interaction.move.y
+                    factor,
+                    - factor * this.info.interaction.move.x + this.info.interaction.move.x,
+                    - factor * this.info.interaction.move.y + this.info.interaction.move.y
                 ];
 
             },
 
-            zoomAllowed: function(newZoom) {
-
-                return (
-                    newZoom >= 0 &&
-                    newZoom <= this.info.config.zoom.levels
-                );
-
-            },
-
-            calculateNewOrigin: function(direction) {
+            calculateNewOrigin: function(factor) {
 
                 return {
-                    x: Math.round(this.info.config.zoom.factor[direction] * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
-                    y: Math.round(this.info.config.zoom.factor[direction] * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
+                    x: Math.round(factor * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
+                    y: Math.round(factor * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
                 };
 
             }
@@ -186,7 +182,7 @@ var p = {
             newPoint: function() {
 
                 var pointElement = this.createPointElement();
-                var pointCoordinates = this.getPointCoordinates();
+                var pointCoordinates = this.root.getOmegaCoordinates(this.info.interaction.origin);
 
                 var point = {
                     element: pointElement,
@@ -195,30 +191,6 @@ var p = {
 
                 this.info.layers.omega.showElement(point.element);
                 this.info.omega.elements.push(point);
-
-            },
-
-            getPointCoordinates: function() {
-
-                var zoomSizeUnitFactor = Math.pow(
-                        (
-                            (this.info.interaction.zoom.level > this.info.config.zoom.levels / 2) ?
-                                this.info.config.zoom.factor['in'] :
-                                this.info.config.zoom.factor['out']
-                        ),
-                        Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.levels / 2)
-                    ) /
-                    this.info.config.gridSize *
-                    this.info.config.gridUnit;
-
-                var pointCoordinates = {
-                    x: (this.info.interaction.move.x - this.info.interaction.origin.x) * zoomSizeUnitFactor,
-                    y: (this.info.interaction.move.y - this.info.interaction.origin.y) * zoomSizeUnitFactor
-                };
-
-                console.log(pointCoordinates);
-
-                return pointCoordinates;
 
             },
 
