@@ -37,6 +37,10 @@ var p = {
                 stroke: 'black',
                 strokeWidth: 0.5
             },
+            gridSubAuxiliaryStyle: {
+                stroke: 'black',
+                strokeWidth: 0.1
+            },
             point: {
                 stroke: 'black',
                 strokeWidth: 0.5,
@@ -49,6 +53,7 @@ var p = {
          Basic modelator configuration
          */
         config: {
+            gridDisplayLevel: 3,
             gridSize: 50,
             gridUnit: 10,
             zoom: {
@@ -148,18 +153,28 @@ var p = {
      */
     setGrid: function() {
 
-        this.info.layers.grid.showElement(this.getXAxis());
-        this.info.layers.grid.showElement(this.getYAxis());
+        if (this.info.config.gridDisplayLevel > 2) {
+            this.setGridHorizontalSubAuxiliaries();
+            this.setGridVerticalSubAuxiliaries();
 
-        this.setGridHorizontalAuxiliaries();
-        this.setGridVerticalAuxiliaries();
+        }
+
+        if (this.info.config.gridDisplayLevel > 1) {
+            this.setGridHorizontalAuxiliaries();
+            this.setGridVerticalAuxiliaries();
+        }
+
+        if (this.info.config.gridDisplayLevel > 0) {
+            this.setXAxis();
+            this.setYAxis();
+        }
 
     },
 
     /*
      Creates the grid x axis
      */
-    getXAxis: function() {
+    setXAxis: function() {
 
         var axisCoordinates = {
             x1: 0,
@@ -170,14 +185,14 @@ var p = {
 
         var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'xAxis');
 
-        return axis;
+        this.info.layers.grid.showElement(axis);
 
     },
 
     /*
      Creates the grid y axis
      */
-    getYAxis: function() {
+    setYAxis: function() {
 
         var axisCoordinates = {
             x1: this.info.interaction.origin.x,
@@ -188,8 +203,7 @@ var p = {
 
         var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'yAxis');
 
-        return axis;
-
+        this.info.layers.grid.showElement(axis);
 
     },
 
@@ -242,6 +256,59 @@ var p = {
             this.info.layers.grid.showElement(auxiliary);
 
         }
+
+    },
+
+
+    /*
+     Creates and sets the x auxiliaries
+     */
+    setGridHorizontalSubAuxiliaries: function() {
+        //
+        //var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
+        //
+        //var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
+        //
+        //for (var i = 0;i < auxiliariesNumber; i++) {
+        //
+        //    var auxiliaryCoordinates = {
+        //        x1: auxiliariesStart + (this.info.config.gridSize * i),
+        //        y1: 0,
+        //        x2: auxiliariesStart + (this.info.config.gridSize * i),
+        //        y2: this.info.rootSvg.height * 3
+        //    };
+        //
+        //    var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
+        //
+        //    this.info.layers.grid.showElement(auxiliary);
+        //
+        //}
+
+    },
+
+    /*
+     Creates and sets the y subauxiliaries
+     */
+    setGridVerticalSubAuxiliaries: function() {
+        //
+        //var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
+        //
+        //var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
+        //
+        //for (var i = 0;i < auxiliariesNumber; i++) {
+        //
+        //    var auxiliaryCoordinates = {
+        //        x1: auxiliariesStart + (this.info.config.gridSize * i),
+        //        y1: 0,
+        //        x2: auxiliariesStart + (this.info.config.gridSize * i),
+        //        y2: this.info.rootSvg.height * 3
+        //    };
+        //
+        //    var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
+        //
+        //    this.info.layers.grid.showElement(auxiliary);
+        //
+        //}
 
     },
 
