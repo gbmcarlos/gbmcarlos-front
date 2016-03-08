@@ -1,5 +1,19 @@
 {
     "modules": {
+        "svgModule": {
+            "controller": "SvgModule",
+            "view": {
+                "type": "view",
+                "view": [
+                    {
+                        "name": "svgView",
+                        "collection": "SvgView",
+                        "view": "baseView",
+                        "template": "svgBaseTemplate"
+                    }
+                ]
+            }
+        },
         "boxModule": {
             "controller": "BoxModule",
             "view": {

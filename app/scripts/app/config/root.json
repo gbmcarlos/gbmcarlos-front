@@ -1,20 +1,13 @@
 {
     "root": {
         "layout": {
-            "definition": "rootLayout",
+            "definition": "svgLayout",
             "locate": [
                 {
-                    "region": "box_region_1",
+                    "region": "svg_region",
                     "content": "module",
                     "module": {
-                        "name": "boxModule"
-                    }
-                },
-                {
-                    "region": "box_region_2",
-                    "content": "module",
-                    "module": {
-                        "name": "boxModule"
+                        "name": "svgModule"
                     }
                 }
             ]
