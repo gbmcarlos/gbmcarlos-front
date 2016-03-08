@@ -4,10 +4,19 @@ var p = {
 
     info: {
 
+        /*
+         For savings layers: grid, omega, annotations, etc.
+        */
         layers: {},
 
+        /*
+         Information about the root svg html element and its properties
+         */
         rootSvg: {},
 
+        /*
+         Real time information about the user interaction
+         */
         interaction: {
             origin: {},
             move: {
@@ -16,6 +25,9 @@ var p = {
             zoom: {}
         },
 
+        /*
+         Styles for the diferent svg elements: grid axis, points, curves, etc.
+         */
         styles: {
             axisStyle: {
                 stroke: 'black',
@@ -33,6 +45,9 @@ var p = {
             }
         },
 
+        /*
+         Basic modelator configuration
+         */
         config: {
             gridSize: 50,
             gridUnit: 10,
@@ -48,12 +63,19 @@ var p = {
         }
     },
 
+    /*
+     Sets the dependencies: models, tools, and layer generator
+     */
     init: function(svgModels, svgTools, svgLayer) {
         this.svgModels = svgModels;
         this.svgTools = svgTools;
         this.svgLayer = svgLayer;
     },
 
+    /*
+     Starts the app: starts services, gets the container ready, svg root html element dimension,
+     starts grid and omega layers, sets the grid ready, sets listeners, and starts the tools
+     */
     start: function(svgContainer) {
 
         this.initSubServices();
@@ -65,6 +87,9 @@ var p = {
         this.startTools();
     },
 
+    /*
+     Starts the tools and layers sub services
+     */
     initSubServices: function() {
 
         this.svgTools.setRoot(this);
@@ -75,6 +100,9 @@ var p = {
 
     },
 
+    /*
+     Creates the root svg html element and gets it ready
+     */
     prepareSvgContainer: function(svgContainer) {
 
         var rootSvg = this.createElement('svg', 'root_svg');
@@ -83,6 +111,9 @@ var p = {
 
     },
 
+    /*
+     Creates the two basic layers: grid and omega
+     */
     setLayers: function() {
 
         var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
@@ -95,6 +126,9 @@ var p = {
 
     },
 
+    /*
+     Sets the initial needed data: root svg dimension, interaction initial values, etc.
+     */
     setRootSvgDimensions: function() {
         this.info.rootSvg.element = $('#root_svg');
         this.info.rootSvg.top = this.info.rootSvg.element.offset().top;
@@ -109,6 +143,9 @@ var p = {
 
     },
 
+    /*
+     Creates the grid axis and auxiliaries and shows them
+     */
     setGrid: function() {
 
         this.info.layers.grid.showElement(this.getXAxis());
@@ -119,6 +156,9 @@ var p = {
 
     },
 
+    /*
+     Creates the grid x axis
+     */
     getXAxis: function() {
 
         var axisCoordinates = {
@@ -134,6 +174,9 @@ var p = {
 
     },
 
+    /*
+     Creates the grid y axis
+     */
     getYAxis: function() {
 
         var axisCoordinates = {
@@ -150,6 +193,9 @@ var p = {
 
     },
 
+    /*
+     Creates and sets the x auxiliaries
+     */
     setGridHorizontalAuxiliaries: function() {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
@@ -173,6 +219,9 @@ var p = {
 
     },
 
+    /*
+     Creates and sets the x auxiliaries
+     */
     setGridVerticalAuxiliaries: function() {
 
         var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
@@ -196,6 +245,9 @@ var p = {
 
     },
 
+    /*
+     Show every omega element
+     */
     setOmega: function() {
 
         var self = this;
@@ -211,6 +263,9 @@ var p = {
 
     },
 
+    /*
+     Sets listeners for user interaction
+     */
     setSvgElementListeners: function() {
         this.info.rootSvg.element.mousedown(_.bind(this.captureMouseDown, this));
         this.info.rootSvg.element.mouseup(_.bind(this.captureMouseUp, this));
@@ -218,6 +273,9 @@ var p = {
         this.info.rootSvg.element.bind('mousewheel', _.bind(this.captureMouseWheel, this));
     },
 
+    /*
+     Triggers the active tool function for mouse down action
+     */
     captureMouseDown: function(event) {
 
         this.display();
@@ -225,12 +283,18 @@ var p = {
         this.activeTool.mouseDown();
     },
 
+    /*
+     Triggers the active tool function for mouse up action
+     */
     captureMouseUp: function(event) {
 
         this.display();
         this.activeTool.mouseUp();
     },
 
+    /*
+     Triggers the active tool function for mouse move action
+     */
     captureMouseMove: function(event) {
 
         var moveCoordinates = {
@@ -245,6 +309,9 @@ var p = {
         this.activeTool.mouseMove();
     },
 
+    /*
+     Triggers the active tool function for wheel action
+     */
     captureMouseWheel: function(event) {
 
         if (event.originalEvent.wheelDeltaY < 0) {
@@ -256,18 +323,27 @@ var p = {
 
     },
 
+    /*
+     Triggers the active tool function for wheel down action
+     */
     captureMouseWheelDown: function() {
 
         this.explorer.wheelDown();
 
     },
 
+    /*
+     Triggers the active tool function for wheel down action
+     */
     captureMouseWheelUp: function() {
 
         this.explorer.wheelUp();
 
     },
 
+    /*
+     Transforms layer coordinates to omega coordinates
+     */
     getOmegaCoordinates: function(layerCoordinates) {
 
         var zoomSizeUnitFactor = Math.pow(
@@ -288,6 +364,9 @@ var p = {
 
     },
 
+    /*
+     Transforms omega coordinates to layer coordinates
+     */
     getLayerCoordinates: function(omegaCoordinates) {
 
         var zoomSizeUnitFactor = Math.pow(
@@ -308,6 +387,9 @@ var p = {
 
     },
 
+    /*
+     Starts the tools ans sets the initial one (explorer)
+     */
     startTools: function() {
 
         this.explorer = this.svgTools.getTool('explorer', this);
@@ -318,18 +400,23 @@ var p = {
 
     },
 
+    /*
+     Sets given tool
+     */
     setTool: function(tool) {
 
         this.activeTool = this[tool];
 
     },
 
+    /*
+     Moves the origin the the center of the layer
+     */
     toOrigin: function() {
 
         this.info.interaction.origin.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
-        this.info.interaction.zoom.level = 4;
-        this.info.interaction.zoom.factor = 0.0001;
+        this.info.interaction.zoom.scale = 1;
 
         this.info.layers.grid.refresh();
         this.info.layers.omega.refresh();
@@ -337,6 +424,10 @@ var p = {
 
     },
 
+    /*
+     Provisional
+     Displays basic information
+     */
     display: function() {
         $('#svg_move_x').html('x: ' + this.getOmegaCoordinates(this.info.interaction.move).x);
         $('#svg_move_y').html('y: ' + this.getOmegaCoordinates(this.info.interaction.move).y);
@@ -345,6 +436,9 @@ var p = {
         $('#svg_zoom_scale').html('level: ' + this.info.interaction.zoom.scale);
     },
 
+    /*
+     Creates an svg element with its namespace
+     */
     createElement: function(tag, id) {
 
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -356,16 +450,25 @@ var p = {
         return element;
     },
 
+    /*
+     Displays an element inside the given element
+     */
     showElement: function(root, element) {
 
         document.getElementById(root).appendChild(element);
 
     },
 
+    /*
+     Shortcut for getElementById
+     */
     getElement: function(id) {
         return document.getElementById(id);
     },
 
+    /*
+     Removes every element inside the given element (by id)
+     */
     emptyElement: function(id) {
 
         while (document.getElementById(id).hasChildNodes()) {
