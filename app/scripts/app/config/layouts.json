@@ -1,0 +1,27 @@
+{
+    "layouts": {
+        "svgLayout": {
+            "enabled": true,
+            "expand": true,
+            "class": "layout",
+            "structure": {
+                "rows": [
+                    {
+                        "name": "svg_row",
+                        "columns": [
+                            {
+                                "name": "svg_region",
+                                "class": "svg_region",
+                                "width": {
+                                    "type": "percentage",
+                                    "value": "100"
+                                },
+                                "align": "center"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

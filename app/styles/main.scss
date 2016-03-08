@@ -1,70 +1,28 @@
-@import "_base/_settings.scss";
-
-// bower:scss
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
+//BOOTSTRAP
 // Core variables and mixins
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/variables.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/mixins.scss";
 
-// Reset and dependencies
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/normalize.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/print.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/glyphicons.scss";
-
 // Core CSS
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/scaffolding.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/type.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/code.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/grid.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/tables.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/forms.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/buttons.scss";
 
 // Components
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/component-animations.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/dropdowns.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/button-groups.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/input-groups.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/navs.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/navbar.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/breadcrumbs.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/pagination.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/pager.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/labels.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/badges.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/jumbotron.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/thumbnails.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/alerts.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/progress-bars.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/media.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/list-group.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/panels.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/responsive-embed.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/wells.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/close.scss";
 
 // Components w/ JavaScript
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/modals.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/tooltip.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/popovers.scss";
-// @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/carousel.scss";
 
 // Utility classes
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/utilities.scss";
 @import "../components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap/responsive-utilities.scss";
-// endbower
 
-@import "libs/CAG-icomoon/style.scss";
-
-@import "libs/idangerous/idangerous.swiper.scss";
-@import "_base/_main.scss";
-
-// @import "_partials/_hero.scss";
-@import "_partials/_loader.scss";
-@import "_partials/_spinner.scss";
-@import "_partials/_sortmenu.scss";
-@import "_partials/_tabs.scss";
-@import "_partials/_localisation.scss";
-@import "_partials/_modal.scss";
-
-@import "app.scss";
+//APP
+@import "app/_app.scss";
+@import "app/_svg.scss";

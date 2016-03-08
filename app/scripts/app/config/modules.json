@@ -1,0 +1,38 @@
+{
+    "modules": {
+        "svgModule": {
+            "controller": "SvgModule",
+            "view": {
+                "type": "view",
+                "view": [
+                    {
+                        "name": "svgView",
+                        "collection": "SvgView",
+                        "view": "baseView",
+                        "template": "svgBaseTemplate"
+                    }
+                ]
+            }
+        },
+        "boxModule": {
+            "controller": "BoxModule",
+            "view": {
+                "type": "view",
+                "view": [
+                    {
+                        "name": "BoxHeaderView",
+                        "collection": "BoxView",
+                        "view": "headerView",
+                        "template": "boxHeaderTemplate"
+                    },
+                    {
+                        "name": "BoxBodyView",
+                        "collection": "BoxView",
+                        "view": "bodyView",
+                        "template": "boxBodyTemplate"
+                    },
+                ]
+            }
+        }
+    }
+}

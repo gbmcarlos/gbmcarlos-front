@@ -1,0 +1,16 @@
+{
+    "root": {
+        "layout": {
+            "definition": "svgLayout",
+            "locate": [
+                {
+                    "region": "svg_region",
+                    "content": "module",
+                    "module": {
+                        "name": "svgModule"
+                    }
+                }
+            ]
+        }
+    }
+}
