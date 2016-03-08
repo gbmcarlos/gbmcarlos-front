@@ -79,13 +79,13 @@ var p = {
 
             wheelDown: function() {
 
-                this.zoom(this.info.config.zoom.factor);
+                this.zoom(true); //zoom in
 
             },
 
             wheelUp: function() {
 
-                this.zoom(1 / this.info.config.zoom.factor);
+                this.zoom(false); //zoom out
             },
 
             startMoving: function() {
@@ -121,26 +121,15 @@ var p = {
 
             // DON'T DELETE
             // x' = f(x - o) + o
-            // x' = x * f + -fo + o
-            zoom: function(factor) {
+            // x' = x * f - f * o + o
+            zoom: function(out) {
 
-                if (factor == this.info.config.zoom.factor) {
-                    if ((this.info.interaction.zoom.level - 1) == 0) {
-                        return false;
-                    }
-
-                    this.info.interaction.zoom.level -= 1;
-
-                } else {
-
-                    this.info.interaction.zoom.level += 1;
-
-                }
+                var factor = (!!out) ? this.info.config.zoom.factor : -this.info.config.zoom.factor;
 
                 //this.info.layers.grid.setMatrix(this.matrix);
                 //this.info.layers.omega.setMatrix(this.matrix);
 
-                this.info.interaction.origin = this.calculateNewOrigin(factor);
+                this.info.interaction.origin = this.calculateNewOrigin(out);
 
                 this.info.layers.grid.refresh();
                 this.info.layers.omega.refresh();
@@ -161,11 +150,34 @@ var p = {
             },
 
             calculateNewOrigin: function(factor) {
+//( mousex / scale + originx - mousex / ( scale * zoom ) )
 
-                return {
-                    x: Math.round(factor * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
-                    y: Math.round(factor * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
-                };
+                console.log(factor);
+
+                if (factor) {
+
+                    return {
+                        x: this.info.interaction.origin.x + ((this.info.interaction.move.x - this.info.interaction.origin.x) * 0.05),
+                        y: this.info.interaction.origin.y + ((this.info.interaction.move.y - this.info.interaction.origin.y) * 0.05)
+                    };
+                } else {
+
+                    return {
+                        x: this.info.interaction.origin.x - ((this.info.interaction.move.x - this.info.interaction.origin.x) * 0.05),
+                        y: this.info.interaction.origin.y - ((this.info.interaction.move.y - this.info.interaction.origin.y) * 0.05)
+                    };
+                }
+
+
+                //return {
+                //    x: this.info.interaction.move.x / factor + this.info.interaction.origin.x - this.info.interaction.move.x / factor * this.info.config.zoom.factor,
+                //    y: this.info.interaction.move.y / factor + this.info.interaction.origin.y - this.info.interaction.move.y / factor * this.info.config.zoom.factor
+                //};
+
+                //return {
+                //    x: Math.round(factor * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
+                //    y: Math.round(factor * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
+                //};
 
             }
         });

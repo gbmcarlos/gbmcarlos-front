@@ -36,9 +36,10 @@ var p = {
             gridSize: 50,
             gridUnit: 10,
             zoom: {
-                factor: 0.8,
+                factor: 0.9,
                 defaultLevel: 10
-            }
+            },
+            precision: 3
         },
 
         omega: {
@@ -280,8 +281,8 @@ var p = {
             this.info.config.gridUnit;
 
         return {
-            x: (layerCoordinates.x - this.info.interaction.origin.x) * zoomSizeUnitFactor,
-            y: ( - layerCoordinates.y + this.info.interaction.origin.y) * zoomSizeUnitFactor
+            x: ((layerCoordinates.x - this.info.interaction.origin.x) * zoomSizeUnitFactor).toFixed(this.info.config.precision),
+            y: (( - layerCoordinates.y + this.info.interaction.origin.y) * zoomSizeUnitFactor).toFixed(this.info.config.precision)
         };
 
     },
@@ -336,8 +337,8 @@ var p = {
     },
 
     display: function() {
-        $('#svg_move_x').html('x: ' + this.info.interaction.move.x);
-        $('#svg_move_y').html('y: ' + this.info.interaction.move.y);
+        $('#svg_move_x').html('x: ' + this.getOmegaCoordinates(this.info.interaction.move).x);
+        $('#svg_move_y').html('y: ' + this.getOmegaCoordinates(this.info.interaction.move).y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
         $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);
