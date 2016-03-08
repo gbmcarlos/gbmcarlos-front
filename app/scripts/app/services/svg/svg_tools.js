@@ -79,13 +79,13 @@ var p = {
 
             wheelDown: function() {
 
-                this.zoom(true); //zoom in
+                this.zoom(false); //zoom in
 
             },
 
             wheelUp: function() {
 
-                this.zoom(false); //zoom out
+                this.zoom(true); //zoom out
             },
 
             startMoving: function() {
@@ -119,65 +119,32 @@ var p = {
 
             },
 
-            // DON'T DELETE
-            // x' = f(x - o) + o
-            // x' = x * f - f * o + o
             zoom: function(out) {
 
-                var factor = (!!out) ? this.info.config.zoom.factor : -this.info.config.zoom.factor;
-
-                //this.info.layers.grid.setMatrix(this.matrix);
-                //this.info.layers.omega.setMatrix(this.matrix);
-
                 this.info.interaction.origin = this.calculateNewOrigin(out);
+                (!!out) ? this.info.interaction.zoom.scale++ : this.info.interaction.zoom.scale-- ;
 
                 this.info.layers.grid.refresh();
                 this.info.layers.omega.refresh();
 
             },
 
-            updateMatrix: function(factor) {
-
-                this.matrix = [
-                    factor,
-                    0,
-                    0,
-                    factor,
-                    - factor * this.info.interaction.move.x + this.info.interaction.move.x,
-                    - factor * this.info.interaction.move.y + this.info.interaction.move.y
-                ];
-
-            },
-
             calculateNewOrigin: function(factor) {
-//( mousex / scale + originx - mousex / ( scale * zoom ) )
-
-                console.log(factor);
 
                 if (factor) {
 
-                    return {
-                        x: this.info.interaction.origin.x + ((this.info.interaction.move.x - this.info.interaction.origin.x) * 0.05),
-                        y: this.info.interaction.origin.y + ((this.info.interaction.move.y - this.info.interaction.origin.y) * 0.05)
+                    var newOrigin = {
+                        x: Math.floor(this.info.interaction.origin.x + ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
+                        y: Math.floor(this.info.interaction.origin.y + ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
                     };
                 } else {
-
-                    return {
-                        x: this.info.interaction.origin.x - ((this.info.interaction.move.x - this.info.interaction.origin.x) * 0.05),
-                        y: this.info.interaction.origin.y - ((this.info.interaction.move.y - this.info.interaction.origin.y) * 0.05)
+                    var newOrigin = {
+                        x: Math.floor(this.info.interaction.origin.x - ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
+                        y: Math.floor(this.info.interaction.origin.y - ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
                     };
                 }
 
-
-                //return {
-                //    x: this.info.interaction.move.x / factor + this.info.interaction.origin.x - this.info.interaction.move.x / factor * this.info.config.zoom.factor,
-                //    y: this.info.interaction.move.y / factor + this.info.interaction.origin.y - this.info.interaction.move.y / factor * this.info.config.zoom.factor
-                //};
-
-                //return {
-                //    x: Math.round(factor * (this.info.interaction.origin.x - this.info.interaction.move.x) + this.info.interaction.move.x),
-                //    y: Math.round(factor * (this.info.interaction.origin.y - this.info.interaction.move.y) + this.info.interaction.move.y)
-                //};
+                return newOrigin;
 
             }
         });

@@ -11,6 +11,7 @@ var p = {
         interaction: {
             origin: {},
             move: {
+
             },
             zoom: {}
         },
@@ -36,8 +37,8 @@ var p = {
             gridSize: 50,
             gridUnit: 10,
             zoom: {
-                factor: 0.9,
-                defaultLevel: 10
+                factor: 0.05,
+                defaultScale: 1
             },
             precision: 3
         },
@@ -104,7 +105,7 @@ var p = {
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
-        this.info.interaction.zoom.level = this.info.config.zoom.defaultLevel;
+        this.info.interaction.zoom.scale = this.info.config.zoom.defaultScale;
 
     },
 
@@ -271,11 +272,11 @@ var p = {
 
         var zoomSizeUnitFactor = Math.pow(
                 (
-                    (this.info.interaction.zoom.level > this.info.config.zoom.defaultLevel) ?
+                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
                     1 / this.info.config.zoom.factor :
                         this.info.config.zoom.factor
                 ),
-                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.defaultLevel)
+                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
             ) /
             this.info.config.gridSize *
             this.info.config.gridUnit;
@@ -291,11 +292,11 @@ var p = {
 
         var zoomSizeUnitFactor = Math.pow(
                 (
-                    (this.info.interaction.zoom.level > this.info.config.zoom.defaultLevel) ?
+                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
                     1 / this.info.config.zoom.factor :
                         this.info.config.zoom.factor
                 ),
-                Math.abs(this.info.interaction.zoom.level - this.info.config.zoom.defaultLevel)
+                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
             ) /
             this.info.config.gridSize *
             this.info.config.gridUnit;
@@ -341,7 +342,7 @@ var p = {
         $('#svg_move_y').html('y: ' + this.getOmegaCoordinates(this.info.interaction.move).y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
-        $('#svg_zoom_level').html('level: ' + this.info.interaction.zoom.level);
+        $('#svg_zoom_scale').html('level: ' + this.info.interaction.zoom.scale);
     },
 
     createElement: function(tag, id) {
