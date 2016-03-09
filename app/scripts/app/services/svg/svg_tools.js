@@ -42,14 +42,6 @@ var p = {
 
             state: 'none',
 
-            setRoot: function(root) {
-
-                this.root = root;
-                this.info = root.info;
-
-                return this;
-            },
-
             mouseDown: function() {
                 if (this.state == 'none') {
                     this.state = 'moving';
