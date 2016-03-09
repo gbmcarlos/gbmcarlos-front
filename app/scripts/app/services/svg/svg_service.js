@@ -228,6 +228,15 @@ var p = {
 
             var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
 
+            var auxiliaryLabel = this.svgModels.getText(
+                {
+                    x: this.info.interaction.origin.x,
+                    y: auxiliariesStart + (this.info.config.gridSize * i),
+                },
+                (this.info.interaction.origin.y - (auxiliariesStart + (this.info.config.gridSize * i))) / this.info.config.gridSize
+            );
+
+            this.info.layers.grid.showElement(auxiliaryLabel);
             this.info.layers.grid.showElement(auxiliary);
 
         }
@@ -254,6 +263,15 @@ var p = {
 
             var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
 
+            var auxiliaryLabel = this.svgModels.getText(
+                {
+                    x: auxiliariesStart + (this.info.config.gridSize * i),
+                    y: this.info.interaction.origin.y
+                },
+                (this.info.interaction.origin.x - (auxiliariesStart + (this.info.config.gridSize * i))) / this.info.config.gridSize
+            );
+
+            this.info.layers.grid.showElement(auxiliaryLabel);
             this.info.layers.grid.showElement(auxiliary);
 
         }
