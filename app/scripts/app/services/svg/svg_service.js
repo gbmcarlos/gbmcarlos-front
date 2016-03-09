@@ -56,7 +56,7 @@ var p = {
             gridDisplayLevel: 3,
             gridSize: 50,
             gridSubSize: 10,
-            gridUnit: 10,
+            gridUnit: 1,
             zoom: {
                 factor: 0.05,
                 defaultScale: 1
@@ -266,9 +266,9 @@ var p = {
      */
     setGridHorizontalSubAuxiliaries: function() {
 
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSubSize) * 3;
+        var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSubSize) * 3;
 
-        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSubSize;
+        var auxiliariesStart = (this.info.interaction.origin.y) % this.info.config.gridSubSize;
 
         for (var i = 0;i < auxiliariesNumber; i++) {
 
