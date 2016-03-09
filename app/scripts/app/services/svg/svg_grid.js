@@ -33,7 +33,7 @@ var p = {
         var interaction = this.root.info.interaction;
 
         if (out) {
-            interaction.grid.divisionsSize -= this.root.info.config.grid.gridInitialDivisionSize/20;
+            interaction.grid.divisionsSize -= this.root.info.config.grid.gridInitialDivisionSize / 20;
             interaction.grid.divisionsLevel--;
 
             if (interaction.grid.divisionsLevel == 0) {
@@ -50,7 +50,7 @@ var p = {
                 }
             }
         } else {
-            interaction.grid.divisionsSize += this.root.info.config.grid.gridInitialDivisionSize/20;
+            interaction.grid.divisionsSize += this.root.info.config.grid.gridInitialDivisionSize / 20;
             interaction.grid.divisionsLevel++;
 
             if (interaction.grid.divisionsLevel == 11) {
@@ -68,6 +68,8 @@ var p = {
             }
         }
 
+        interaction.scale.layer = interaction.grid.divisionsSize;
+        interaction.scale.omega = this.round(interaction.grid.divisionsStep * interaction.grid.zoom);
     },
 
     /*
@@ -116,11 +118,11 @@ var p = {
 
         var auxiliaryValue = auxiliaryNumber * this.root.info.interaction.grid.divisionsStep * this.root.info.interaction.grid.zoom;
 
-        return this.roundAuxiliaryLabel(auxiliaryValue);
+        return this.round(auxiliaryValue);
 
     },
 
-    roundAuxiliaryLabel: function(value) {
+    round: function(value) {
         return Math.round(value * (1/this.root.info.interaction.grid.zoom)) / (1/this.root.info.interaction.grid.zoom);
     },
 
