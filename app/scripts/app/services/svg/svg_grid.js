@@ -41,12 +41,12 @@ var p = {
                 interaction.grid.divisionsSize = 150;
 
                 if (interaction.grid.divisionsStep == 1) {
-                    interaction.grid.divisionsStep = 2;
-                } else if (interaction.grid.divisionsStep == 2) {
                     interaction.grid.divisionsStep = 5;
-                } else if (interaction.grid.divisionsStep == 5) {
-                    interaction.grid.divisionsStep = 1;
                     interaction.grid.zoom /= 10;
+                } else if (interaction.grid.divisionsStep == 2) {
+                    interaction.grid.divisionsStep = 1;
+                } else if (interaction.grid.divisionsStep == 5) {
+                    interaction.grid.divisionsStep = 2;
                 }
             }
         } else {
@@ -116,8 +116,12 @@ var p = {
 
         var auxiliaryValue = auxiliaryNumber * this.root.info.interaction.grid.divisionsStep * this.root.info.interaction.grid.zoom;
 
-        return auxiliaryValue;
+        return this.roundAuxiliaryLabel(auxiliaryValue);
 
+    },
+
+    roundAuxiliaryLabel: function(value) {
+        return Math.round(value * (1/this.root.info.interaction.grid.zoom)) / (1/this.root.info.interaction.grid.zoom);
     },
 
     /*

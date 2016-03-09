@@ -14,7 +14,7 @@
                                 "class": "svg_region",
                                 "width": {
                                     "type": "percentage",
-                                    "value": "100"
+                                    "value": "200"
                                 },
                                 "align": "center"
                             }

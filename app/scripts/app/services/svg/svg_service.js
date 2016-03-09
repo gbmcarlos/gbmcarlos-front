@@ -144,7 +144,7 @@ var p = {
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.zoom.scale = this.info.config.zoom.defaultScale;
         this.info.interaction.grid.divisionsStep = this.info.config.grid.gridInitialDivisionStep;
-        this.info.interaction.grid.divisionsLevel = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.divisionsLevel = 5;
         this.info.interaction.grid.divisionsSize = this.info.config.grid.gridInitialDivisionSize;
         this.info.interaction.grid.zoom = this.info.config.grid.gridInitialDivisionStep;
 
