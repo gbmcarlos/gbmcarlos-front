@@ -55,6 +55,7 @@ var p = {
         config: {
             gridDisplayLevel: 3,
             gridSize: 50,
+            gridSubSize: 10,
             gridUnit: 10,
             zoom: {
                 factor: 0.05,
@@ -261,54 +262,54 @@ var p = {
 
 
     /*
-     Creates and sets the x auxiliaries
+     Creates and sets the x sub auxiliaries
      */
     setGridHorizontalSubAuxiliaries: function() {
-        //
-        //var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
-        //
-        //var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
-        //
-        //for (var i = 0;i < auxiliariesNumber; i++) {
-        //
-        //    var auxiliaryCoordinates = {
-        //        x1: auxiliariesStart + (this.info.config.gridSize * i),
-        //        y1: 0,
-        //        x2: auxiliariesStart + (this.info.config.gridSize * i),
-        //        y2: this.info.rootSvg.height * 3
-        //    };
-        //
-        //    var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
-        //
-        //    this.info.layers.grid.showElement(auxiliary);
-        //
-        //}
+
+        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSubSize) * 3;
+
+        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSubSize;
+
+        for (var i = 0;i < auxiliariesNumber; i++) {
+
+            var auxiliaryCoordinates = {
+                x1: 0,
+                y1: auxiliariesStart + (this.info.config.gridSubSize * i),
+                x2: this.info.rootSvg.width * 3,
+                y2: auxiliariesStart + (this.info.config.gridSubSize * i)
+            };
+
+            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridSubAuxiliaryStyle, 'grid_h_subauxiliary_' + i);
+
+            this.info.layers.grid.showElement(auxiliary);
+
+        }
 
     },
 
     /*
-     Creates and sets the y subauxiliaries
+     Creates and sets the y sub auxiliaries
      */
     setGridVerticalSubAuxiliaries: function() {
-        //
-        //var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
-        //
-        //var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
-        //
-        //for (var i = 0;i < auxiliariesNumber; i++) {
-        //
-        //    var auxiliaryCoordinates = {
-        //        x1: auxiliariesStart + (this.info.config.gridSize * i),
-        //        y1: 0,
-        //        x2: auxiliariesStart + (this.info.config.gridSize * i),
-        //        y2: this.info.rootSvg.height * 3
-        //    };
-        //
-        //    var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
-        //
-        //    this.info.layers.grid.showElement(auxiliary);
-        //
-        //}
+
+        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSubSize) * 3;
+
+        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSubSize;
+
+        for (var i = 0;i < auxiliariesNumber; i++) {
+
+            var auxiliaryCoordinates = {
+                x1: auxiliariesStart + (this.info.config.gridSubSize * i),
+                y1: 0,
+                x2: auxiliariesStart + (this.info.config.gridSubSize * i),
+                y2: this.info.rootSvg.height * 3
+            };
+
+            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridSubAuxiliaryStyle, 'grid_v_subauxiliary_' + i);
+
+            this.info.layers.grid.showElement(auxiliary);
+
+        }
 
     },
 
