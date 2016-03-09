@@ -19,10 +19,9 @@ var p = {
          */
         interaction: {
             origin: {},
-            move: {
-
-            },
-            zoom: {}
+            move: {},
+            zoom: {},
+            grid: {}
         },
 
         /*
@@ -41,6 +40,9 @@ var p = {
                 stroke: 'black',
                 strokeWidth: 0.1
             },
+            gridAuxiliaryLabelStyle: {
+                unselectable: true
+            },
             point: {
                 stroke: 'black',
                 strokeWidth: 0.5,
@@ -54,15 +56,15 @@ var p = {
          */
         config: {
             grid: {
-                gridDisplayLevel: 3,
-                gridSize: 50,
-                gridSubSize: 10,
-                gridUnit: 1
+                gridDisplayLevel: 2,
+                gridInitialDivisionSize: 100,
+                gridInitialDivisionStep: 1,
+                gridScaleSteps: [
+                    1,
+                    2,
+                    5
+                ]
             },
-            gridDisplayLevel: 3,
-            gridSize: 50,
-            gridSubSize: 10,
-            gridUnit: 1,
             zoom: {
                 factor: 0.05,
                 defaultScale: 1
@@ -141,6 +143,10 @@ var p = {
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.zoom.scale = this.info.config.zoom.defaultScale;
+        this.info.interaction.grid.divisionsStep = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.divisionsLevel = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.divisionsSize = this.info.config.grid.gridInitialDivisionSize;
+        this.info.interaction.grid.zoom = this.info.config.grid.gridInitialDivisionStep;
 
     },
 

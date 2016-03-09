@@ -87,6 +87,11 @@ var p = {
             textLabel.setAttribute('id', id);
         }
 
+        if (!!style.unselectable) {
+            textLabel.setAttribute('unselectable', 'on');
+            textLabel.setAttribute('style', 'pointer-events: none;');
+        }
+
         return textLabel;
 
     },
@@ -96,7 +101,7 @@ var p = {
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag)
 
         return element;
-    },
+    }
 
 };
 

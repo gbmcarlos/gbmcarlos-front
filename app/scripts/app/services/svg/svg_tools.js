@@ -114,7 +114,8 @@ var p = {
             zoom: function(out) {
 
                 this.info.interaction.origin = this.calculateNewOrigin(out);
-                (!!out) ? this.info.interaction.zoom.scale++ : this.info.interaction.zoom.scale-- ;
+
+                this.root.svgGrid.zoomGrid(out);
 
                 this.info.layers.grid.refresh();
                 this.info.layers.omega.refresh();
