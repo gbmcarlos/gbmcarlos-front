@@ -145,7 +145,7 @@ var p = {
         this.info.interaction.grid.divisionsStep = this.info.config.grid.gridInitialDivisionStep;
         this.info.interaction.grid.divisionsLevel = 5;
         this.info.interaction.grid.divisionsSize = this.info.config.grid.gridInitialDivisionSize;
-        this.info.interaction.grid.zoom = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.zoom = 0;
         this.info.interaction.scale.layer = this.info.config.grid.gridInitialDivisionSize;
         this.info.interaction.scale.omega = this.info.config.grid.gridInitialDivisionStep;
 
@@ -273,14 +273,40 @@ var p = {
 
     },
 
+    fixCoordinatesDecimals: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        return Math.round(value * (1/zoom)) / (1/zoom);
+    },
+
+    formatCoordinates: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        if (value == 0) {
+            return 0;
+        } else if (zoom > 1000 || zoom < (1/10000)) {
+            return this.fixCoordinatesDecimals(value).toExponential(0);
+        } else {
+            return this.fixCoordinatesDecimals(value);
+        }
+
+    },
+
     /*
      Transforms layer coordinates to omega coordinates
      */
     getOmegaCoordinates: function(layerCoordinates) {
 
+        var x = Number(((layerCoordinates.x - this.info.interaction.origin.x) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+        var y = Number(((this.info.interaction.origin.y - layerCoordinates.y) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+
+        var zoom = this.info.interaction.grid.zoom;
+
         return {
-            x: (this.info.interaction.origin.x - layerCoordinates.x) * this.info.interaction.scale.omega / this.info.interaction.scale.layer,
-            y: (this.info.interaction.origin.y - layerCoordinates.y) * this.info.interaction.scale.omega / this.info.interaction.scale.layer
+            x: (zoom > 3 || zoom < -3) ? x.toExponential() : x,
+            y: (zoom > 3 || zoom < -3) ? y.toExponential() : y
         };
 
     },

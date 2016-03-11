@@ -33,16 +33,16 @@ var p = {
         var interaction = this.root.info.interaction;
 
         if (out) {
-            interaction.grid.divisionsSize -= this.root.info.config.grid.gridInitialDivisionSize / 20;
+            interaction.grid.divisionsSize += this.root.info.config.grid.gridInitialDivisionSize / 20;
             interaction.grid.divisionsLevel--;
 
             if (interaction.grid.divisionsLevel == 0) {
                 interaction.grid.divisionsLevel = 9;
-                interaction.grid.divisionsSize = 150;
+                interaction.grid.divisionsSize = 100;
 
                 if (interaction.grid.divisionsStep == 1) {
                     interaction.grid.divisionsStep = 5;
-                    interaction.grid.zoom /= 10;
+                    interaction.grid.zoom--;
                 } else if (interaction.grid.divisionsStep == 2) {
                     interaction.grid.divisionsStep = 1;
                 } else if (interaction.grid.divisionsStep == 5) {
@@ -50,12 +50,12 @@ var p = {
                 }
             }
         } else {
-            interaction.grid.divisionsSize += this.root.info.config.grid.gridInitialDivisionSize / 20;
+            interaction.grid.divisionsSize -= this.root.info.config.grid.gridInitialDivisionSize / 20;
             interaction.grid.divisionsLevel++;
 
             if (interaction.grid.divisionsLevel == 11) {
                 interaction.grid.divisionsLevel = 1;
-                interaction.grid.divisionsSize = 100;
+                interaction.grid.divisionsSize = 150;
 
                 if (interaction.grid.divisionsStep == 1) {
                     interaction.grid.divisionsStep = 2;
@@ -63,13 +63,13 @@ var p = {
                     interaction.grid.divisionsStep = 5;
                 } else if (interaction.grid.divisionsStep == 5) {
                     interaction.grid.divisionsStep = 1;
-                    interaction.grid.zoom *= 10;
+                    interaction.grid.zoom++;
                 }
             }
         }
 
         interaction.scale.layer = interaction.grid.divisionsSize;
-        interaction.scale.omega = this.round(interaction.grid.divisionsStep * interaction.grid.zoom);
+        interaction.scale.omega = this.root.formatCoordinates(interaction.grid.divisionsStep * Number("1E" + interaction.grid.zoom));
     },
 
     /*
@@ -110,20 +110,18 @@ var p = {
 
     getAuxiliaryLabel: function(i, axis) {
 
+        var zoom = Number("1E" + this.root.info.interaction.grid.zoom);
+
         var auxiliariesStart = (this.root.info.interaction.origin[axis]) % this.root.info.interaction.grid.divisionsSize;
 
         var originAuxiliaryNumber = (this.root.info.interaction.origin[axis] - auxiliariesStart) / this.root.info.interaction.grid.divisionsSize;
 
-        var auxiliaryNumber = originAuxiliaryNumber - i;
+        var auxiliaryNumber = (axis == 'x') ? i - originAuxiliaryNumber : originAuxiliaryNumber - i ;
 
-        var auxiliaryValue = auxiliaryNumber * this.root.info.interaction.grid.divisionsStep * this.root.info.interaction.grid.zoom;
+        var auxiliaryValue = auxiliaryNumber * this.root.info.interaction.grid.divisionsStep * zoom;
 
-        return this.round(auxiliaryValue);
+        return this.root.formatCoordinates(auxiliaryValue);
 
-    },
-
-    round: function(value) {
-        return Math.round(value * (1/this.root.info.interaction.grid.zoom)) / (1/this.root.info.interaction.grid.zoom);
     },
 
     /*
