@@ -19,10 +19,9 @@ var p = {
          */
         interaction: {
             origin: {},
-            move: {
-
-            },
-            zoom: {}
+            move: {},
+            grid: {},
+            scale: {}
         },
 
         /*
@@ -41,6 +40,9 @@ var p = {
                 stroke: 'black',
                 strokeWidth: 0.1
             },
+            gridAuxiliaryLabelStyle: {
+                unselectable: true
+            },
             point: {
                 stroke: 'black',
                 strokeWidth: 0.5,
@@ -53,10 +55,16 @@ var p = {
          Basic modelator configuration
          */
         config: {
-            gridDisplayLevel: 3,
-            gridSize: 50,
-            gridSubSize: 10,
-            gridUnit: 1,
+            grid: {
+                gridDisplayLevel: 2,
+                gridInitialDivisionSize: 100,
+                gridInitialDivisionStep: 1,
+                gridScaleSteps: [
+                    1,
+                    2,
+                    5
+                ]
+            },
             zoom: {
                 factor: 0.05,
                 defaultScale: 1
@@ -72,10 +80,11 @@ var p = {
     /*
      Sets the dependencies: models, tools, and layer generator
      */
-    init: function(svgModels, svgTools, svgLayer) {
+    init: function(svgModels, svgTools, svgLayer, svgGrid) {
         this.svgModels = svgModels;
         this.svgTools = svgTools;
         this.svgLayer = svgLayer;
+        this.svgGrid = svgGrid;
     },
 
     /*
@@ -94,7 +103,7 @@ var p = {
     },
 
     /*
-     Starts the tools and layers sub services
+     Starts the sub services: tools, layers and grid
      */
     initSubServices: function() {
 
@@ -103,6 +112,9 @@ var p = {
 
         this.svgLayer.setRoot(this);
         this.svgLayer.init();
+
+        this.svgGrid.setRoot(this);
+        this.svgGrid.init();
 
     },
 
@@ -114,21 +126,6 @@ var p = {
         var rootSvg = this.createElement('svg', 'root_svg');
         this.emptyElement(svgContainer.attr('id'));
         this.showElement(svgContainer.attr('id'), rootSvg);
-
-    },
-
-    /*
-     Creates the two basic layers: grid and omega
-     */
-    setLayers: function() {
-
-        var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
-
-        this.info.layers[gridLayer.id] = gridLayer;
-
-        var omegaLayer = this.svgLayer.newLayer('omega', _.bind(this.setOmega, this));
-
-        this.info.layers[omegaLayer.id] = omegaLayer;
 
     },
 
@@ -145,7 +142,28 @@ var p = {
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
-        this.info.interaction.zoom.scale = this.info.config.zoom.defaultScale;
+        this.info.interaction.grid.divisionsStep = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.divisionsLevel = 5;
+        this.info.interaction.grid.divisionsSize = this.info.config.grid.gridInitialDivisionSize;
+        this.info.interaction.grid.zoom = 0;
+        this.info.interaction.scale.layer = this.info.config.grid.gridInitialDivisionSize;
+        this.info.interaction.scale.omega = this.info.config.grid.gridInitialDivisionStep;
+
+    },
+
+    /*
+     Creates the two basic layers: grid and omega
+     */
+    setLayers: function() {
+
+        var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
+
+        this.info.layers[gridLayer.id] = gridLayer;
+        this.svgGrid.init(this.info.layers[gridLayer.id]);
+
+        var omegaLayer = this.svgLayer.newLayer('omega', _.bind(this.setOmega, this));
+
+        this.info.layers[omegaLayer.id] = omegaLayer;
 
     },
 
@@ -154,162 +172,8 @@ var p = {
      */
     setGrid: function() {
 
-        if (this.info.config.gridDisplayLevel > 2) {
-            this.setGridHorizontalSubAuxiliaries();
-            this.setGridVerticalSubAuxiliaries();
-
-        }
-
-        if (this.info.config.gridDisplayLevel > 1) {
-            this.setGridHorizontalAuxiliaries();
-            this.setGridVerticalAuxiliaries();
-        }
-
-        if (this.info.config.gridDisplayLevel > 0) {
-            this.setXAxis();
-            this.setYAxis();
-        }
-
-    },
-
-    /*
-     Creates the grid x axis
-     */
-    setXAxis: function() {
-
-        var axisCoordinates = {
-            x1: 0,
-            y1: this.info.interaction.origin.y,
-            x2: this.info.rootSvg.width * 3,
-            y2: this.info.interaction.origin.y
-        };
-
-        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'xAxis');
-
-        this.info.layers.grid.showElement(axis);
-
-    },
-
-    /*
-     Creates the grid y axis
-     */
-    setYAxis: function() {
-
-        var axisCoordinates = {
-            x1: this.info.interaction.origin.x,
-            y1: 0,
-            x2: this.info.interaction.origin.x,
-            y2: this.info.rootSvg.height * 3
-        };
-
-        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'yAxis');
-
-        this.info.layers.grid.showElement(axis);
-
-    },
-
-    /*
-     Creates and sets the x auxiliaries
-     */
-    setGridHorizontalAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.y) % this.info.config.gridSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: 0,
-                y1: auxiliariesStart + (this.info.config.gridSize * i),
-                x2: this.info.rootSvg.width * 3,
-                y2: auxiliariesStart + (this.info.config.gridSize * i)
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
-
-    },
-
-    /*
-     Creates and sets the x auxiliaries
-     */
-    setGridVerticalAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: auxiliariesStart + (this.info.config.gridSize * i),
-                y1: 0,
-                x2: auxiliariesStart + (this.info.config.gridSize * i),
-                y2: this.info.rootSvg.height * 3
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
-
-    },
-
-
-    /*
-     Creates and sets the x sub auxiliaries
-     */
-    setGridHorizontalSubAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSubSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.y) % this.info.config.gridSubSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: 0,
-                y1: auxiliariesStart + (this.info.config.gridSubSize * i),
-                x2: this.info.rootSvg.width * 3,
-                y2: auxiliariesStart + (this.info.config.gridSubSize * i)
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridSubAuxiliaryStyle, 'grid_h_subauxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
-
-    },
-
-    /*
-     Creates and sets the y sub auxiliaries
-     */
-    setGridVerticalSubAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSubSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSubSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: auxiliariesStart + (this.info.config.gridSubSize * i),
-                y1: 0,
-                x2: auxiliariesStart + (this.info.config.gridSubSize * i),
-                y2: this.info.rootSvg.height * 3
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridSubAuxiliaryStyle, 'grid_v_subauxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
+        this.svgGrid.emptyGrid();
+        this.svgGrid.displayGrid(this.info.config.grid);
 
     },
 
@@ -409,25 +273,40 @@ var p = {
 
     },
 
+    fixCoordinatesDecimals: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        return Math.round(value * (1/zoom)) / (1/zoom);
+    },
+
+    formatCoordinates: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        if (value == 0) {
+            return 0;
+        } else if (zoom > 1000 || zoom < (1/10000)) {
+            return this.fixCoordinatesDecimals(value).toExponential(0);
+        } else {
+            return this.fixCoordinatesDecimals(value);
+        }
+
+    },
+
     /*
      Transforms layer coordinates to omega coordinates
      */
     getOmegaCoordinates: function(layerCoordinates) {
 
-        var zoomSizeUnitFactor = Math.pow(
-                (
-                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
-                    1 / this.info.config.zoom.factor :
-                        this.info.config.zoom.factor
-                ),
-                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
-            ) /
-            this.info.config.gridSize *
-            this.info.config.gridUnit;
+        var x = Number(((layerCoordinates.x - this.info.interaction.origin.x) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+        var y = Number(((this.info.interaction.origin.y - layerCoordinates.y) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+
+        var zoom = this.info.interaction.grid.zoom;
 
         return {
-            x: ((layerCoordinates.x - this.info.interaction.origin.x) * zoomSizeUnitFactor).toFixed(this.info.config.precision),
-            y: (( - layerCoordinates.y + this.info.interaction.origin.y) * zoomSizeUnitFactor).toFixed(this.info.config.precision)
+            x: (zoom > 3 || zoom < -3) ? x.toExponential() : x,
+            y: (zoom > 3 || zoom < -3) ? y.toExponential() : y
         };
 
     },
@@ -437,20 +316,9 @@ var p = {
      */
     getLayerCoordinates: function(omegaCoordinates) {
 
-        var zoomSizeUnitFactor = Math.pow(
-                (
-                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
-                    1 / this.info.config.zoom.factor :
-                        this.info.config.zoom.factor
-                ),
-                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
-            ) /
-            this.info.config.gridSize *
-            this.info.config.gridUnit;
-
         return {
-            x: this.info.interaction.origin.x + (omegaCoordinates.x / zoomSizeUnitFactor),
-            y: this.info.interaction.origin.y - (omegaCoordinates.y / zoomSizeUnitFactor)
+            x: omegaCoordinates.x * (this.info.interaction.origin.x - this.info.interaction.scale.layer) / this.info.interaction.scale.omega,
+            y: omegaCoordinates.y * (this.info.interaction.origin.y - this.info.interaction.scale.layer) / this.info.interaction.scale.omega
         };
 
     },
@@ -501,7 +369,7 @@ var p = {
         $('#svg_move_y').html('y: ' + this.getOmegaCoordinates(this.info.interaction.move).y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
-        $('#svg_zoom_scale').html('level: ' + this.info.interaction.zoom.scale);
+        $('#svg_zoom_scale').html('scale: ' + this.info.interaction.scale.omega + ':' + this.info.interaction.scale.layer);
     },
 
     /*
@@ -547,11 +415,12 @@ var p = {
 
 };
 
-function SvgService(svgModels, svgTools, svgLayer) {
+function SvgService(svgModels, svgTools, svgLayer, svgGrid) {
 
     this.svgModels = svgModels;
     this.svgTools = svgTools;
     this.svgLayer = svgLayer;
+    this.svgGrid = svgGrid;
 
     this.init();
 
@@ -560,7 +429,7 @@ function SvgService(svgModels, svgTools, svgLayer) {
 SvgService.prototype = {
 
     init: function () {
-        p.init(this.svgModels, this.svgTools, this.svgLayer);
+        p.init(this.svgModels, this.svgTools, this.svgLayer, this.svgGrid);
     },
 
     start: function(svgContainer, prefs) {

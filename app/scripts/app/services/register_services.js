@@ -8,6 +8,7 @@ var SiteDependencies = require('./site_dependencies.js'),
     LayoutParser = require('./layout_parser.js'),
     AppTemplates = require('./../config/templates.js'),
     AppViews = require('./../resources/app/views/app_views.js'),
+    SvgGrid = require('./svg/svg_grid'),
     SvgModels = require('./svg/svg_models'),
     SvgTools = require('./svg/svg_tools'),
     SvgLayer = require('./svg/svg_layer'),
@@ -33,10 +34,11 @@ module.exports = function (App) {
     App.container.register('LayoutParser', LayoutParser);
     App.container.register('AppService', AppService, ['App', 'AppTemplates', 'AppViews', 'DebugService', 'DataService', 'LayoutParser']);
 
+    App.container.register('SvgGrid', SvgGrid);
     App.container.register('SvgModels', SvgModels);
     App.container.register('SvgTools', SvgTools);
     App.container.register('SvgLayer', SvgLayer);
-    App.container.register('SvgService', SvgService, ['SvgModels', 'SvgTools', 'SvgLayer']);
+    App.container.register('SvgService', SvgService, ['SvgModels', 'SvgTools', 'SvgLayer', 'SvgGrid']);
 
     App.container.register('BoxModule', BoxModule, ['App']);
     App.container.register('BoxView', BoxView, ['App']);

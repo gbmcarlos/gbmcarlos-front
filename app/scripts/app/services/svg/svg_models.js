@@ -76,12 +76,32 @@ var p = {
 
     },
 
+    getText: function(coordinates, text, style, id) {
+
+        var textLabel = this.createElement('text');
+        textLabel.appendChild(document.createTextNode(text));
+        textLabel.setAttribute('x', coordinates.x);
+        textLabel.setAttribute('y', coordinates.y);
+
+        if (!!id) {
+            textLabel.setAttribute('id', id);
+        }
+
+        if (!!style.unselectable) {
+            textLabel.setAttribute('unselectable', 'on');
+            textLabel.setAttribute('style', 'pointer-events: none;');
+        }
+
+        return textLabel;
+
+    },
+
     createElement: function(tag) {
 
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag)
 
         return element;
-    },
+    }
 
 };
 
@@ -103,6 +123,10 @@ SvgModels.prototype = {
 
     getPoint: function(coordinates, style) {
         return p.getPoint(coordinates, style);
+    },
+
+    getText: function(coordinates, text, style, id) {
+        return p.getText(coordinates, text, style, id);
     }
 
 };
