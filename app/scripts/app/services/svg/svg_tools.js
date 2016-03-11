@@ -127,13 +127,13 @@ var p = {
                 if (factor) {
 
                     var newOrigin = {
-                        x: Math.floor(this.info.interaction.origin.x + ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
-                        y: Math.floor(this.info.interaction.origin.y + ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
+                        x: Math.floor(this.info.interaction.origin.x - ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
+                        y: Math.floor(this.info.interaction.origin.y - ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
                     };
                 } else {
                     var newOrigin = {
-                        x: Math.floor(this.info.interaction.origin.x - ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
-                        y: Math.floor(this.info.interaction.origin.y - ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
+                        x: Math.floor(this.info.interaction.origin.x + ((this.info.interaction.move.x - this.info.interaction.origin.x) * this.info.config.zoom.factor)),
+                        y: Math.floor(this.info.interaction.origin.y + ((this.info.interaction.move.y - this.info.interaction.origin.y) * this.info.config.zoom.factor))
                     };
                 }
 
