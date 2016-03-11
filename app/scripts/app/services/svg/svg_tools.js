@@ -42,14 +42,6 @@ var p = {
 
             state: 'none',
 
-            setRoot: function(root) {
-
-                this.root = root;
-                this.info = root.info;
-
-                return this;
-            },
-
             mouseDown: function() {
                 if (this.state == 'none') {
                     this.state = 'moving';
@@ -122,7 +114,8 @@ var p = {
             zoom: function(out) {
 
                 this.info.interaction.origin = this.calculateNewOrigin(out);
-                (!!out) ? this.info.interaction.zoom.scale++ : this.info.interaction.zoom.scale-- ;
+
+                this.root.svgGrid.zoomGrid(out);
 
                 this.info.layers.grid.refresh();
                 this.info.layers.omega.refresh();

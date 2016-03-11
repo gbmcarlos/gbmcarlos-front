@@ -4,18 +4,29 @@ var p = {
 
     info: {
 
+        /*
+         For savings layers: grid, omega, annotations, etc.
+        */
         layers: {},
 
+        /*
+         Information about the root svg html element and its properties
+         */
         rootSvg: {},
 
+        /*
+         Real time information about the user interaction
+         */
         interaction: {
             origin: {},
-            move: {
-
-            },
-            zoom: {}
+            move: {},
+            grid: {},
+            scale: {}
         },
 
+        /*
+         Styles for the diferent svg elements: grid axis, points, curves, etc.
+         */
         styles: {
             axisStyle: {
                 stroke: 'black',
@@ -25,6 +36,13 @@ var p = {
                 stroke: 'black',
                 strokeWidth: 0.5
             },
+            gridSubAuxiliaryStyle: {
+                stroke: 'black',
+                strokeWidth: 0.1
+            },
+            gridAuxiliaryLabelStyle: {
+                unselectable: true
+            },
             point: {
                 stroke: 'black',
                 strokeWidth: 0.5,
@@ -33,9 +51,20 @@ var p = {
             }
         },
 
+        /*
+         Basic modelator configuration
+         */
         config: {
-            gridSize: 50,
-            gridUnit: 10,
+            grid: {
+                gridDisplayLevel: 2,
+                gridInitialDivisionSize: 100,
+                gridInitialDivisionStep: 1,
+                gridScaleSteps: [
+                    1,
+                    2,
+                    5
+                ]
+            },
             zoom: {
                 factor: 0.05,
                 defaultScale: 1
@@ -48,12 +77,20 @@ var p = {
         }
     },
 
-    init: function(svgModels, svgTools, svgLayer) {
+    /*
+     Sets the dependencies: models, tools, and layer generator
+     */
+    init: function(svgModels, svgTools, svgLayer, svgGrid) {
         this.svgModels = svgModels;
         this.svgTools = svgTools;
         this.svgLayer = svgLayer;
+        this.svgGrid = svgGrid;
     },
 
+    /*
+     Starts the app: starts services, gets the container ready, svg root html element dimension,
+     starts grid and omega layers, sets the grid ready, sets listeners, and starts the tools
+     */
     start: function(svgContainer) {
 
         this.initSubServices();
@@ -65,6 +102,9 @@ var p = {
         this.startTools();
     },
 
+    /*
+     Starts the sub services: tools, layers and grid
+     */
     initSubServices: function() {
 
         this.svgTools.setRoot(this);
@@ -73,8 +113,14 @@ var p = {
         this.svgLayer.setRoot(this);
         this.svgLayer.init();
 
+        this.svgGrid.setRoot(this);
+        this.svgGrid.init();
+
     },
 
+    /*
+     Creates the root svg html element and gets it ready
+     */
     prepareSvgContainer: function(svgContainer) {
 
         var rootSvg = this.createElement('svg', 'root_svg');
@@ -83,18 +129,9 @@ var p = {
 
     },
 
-    setLayers: function() {
-
-        var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
-
-        this.info.layers[gridLayer.id] = gridLayer;
-
-        var omegaLayer = this.svgLayer.newLayer('omega', _.bind(this.setOmega, this));
-
-        this.info.layers[omegaLayer.id] = omegaLayer;
-
-    },
-
+    /*
+     Sets the initial needed data: root svg dimension, interaction initial values, etc.
+     */
     setRootSvgDimensions: function() {
         this.info.rootSvg.element = $('#root_svg');
         this.info.rootSvg.top = this.info.rootSvg.element.offset().top;
@@ -105,97 +142,44 @@ var p = {
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
         this.info.interaction.move.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.move.y = this.info.rootSvg.height * 1.5;
-        this.info.interaction.zoom.scale = this.info.config.zoom.defaultScale;
+        this.info.interaction.grid.divisionsStep = this.info.config.grid.gridInitialDivisionStep;
+        this.info.interaction.grid.divisionsLevel = 5;
+        this.info.interaction.grid.divisionsSize = this.info.config.grid.gridInitialDivisionSize;
+        this.info.interaction.grid.zoom = 0;
+        this.info.interaction.scale.layer = this.info.config.grid.gridInitialDivisionSize;
+        this.info.interaction.scale.omega = this.info.config.grid.gridInitialDivisionStep;
 
     },
 
+    /*
+     Creates the two basic layers: grid and omega
+     */
+    setLayers: function() {
+
+        var gridLayer = this.svgLayer.newLayer('grid', _.bind(this.setGrid, this));
+
+        this.info.layers[gridLayer.id] = gridLayer;
+        this.svgGrid.init(this.info.layers[gridLayer.id]);
+
+        var omegaLayer = this.svgLayer.newLayer('omega', _.bind(this.setOmega, this));
+
+        this.info.layers[omegaLayer.id] = omegaLayer;
+
+    },
+
+    /*
+     Creates the grid axis and auxiliaries and shows them
+     */
     setGrid: function() {
 
-        this.info.layers.grid.showElement(this.getXAxis());
-        this.info.layers.grid.showElement(this.getYAxis());
-
-        this.setGridHorizontalAuxiliaries();
-        this.setGridVerticalAuxiliaries();
+        this.svgGrid.emptyGrid();
+        this.svgGrid.displayGrid(this.info.config.grid);
 
     },
 
-    getXAxis: function() {
-
-        var axisCoordinates = {
-            x1: 0,
-            y1: this.info.interaction.origin.y,
-            x2: this.info.rootSvg.width * 3,
-            y2: this.info.interaction.origin.y
-        };
-
-        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'xAxis');
-
-        return axis;
-
-    },
-
-    getYAxis: function() {
-
-        var axisCoordinates = {
-            x1: this.info.interaction.origin.x,
-            y1: 0,
-            x2: this.info.interaction.origin.x,
-            y2: this.info.rootSvg.height * 3
-        };
-
-        var axis = this.svgModels.getLine(axisCoordinates, this.info.styles.axisStyle, 'yAxis');
-
-        return axis;
-
-
-    },
-
-    setGridHorizontalAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.height / this.info.config.gridSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.y) % this.info.config.gridSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: 0,
-                y1: auxiliariesStart + (this.info.config.gridSize * i),
-                x2: this.info.rootSvg.width * 3,
-                y2: auxiliariesStart + (this.info.config.gridSize * i)
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_h_auxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
-
-    },
-
-    setGridVerticalAuxiliaries: function() {
-
-        var auxiliariesNumber = Math.ceil(this.info.rootSvg.width / this.info.config.gridSize) * 3;
-
-        var auxiliariesStart = (this.info.interaction.origin.x) % this.info.config.gridSize;
-
-        for (var i = 0;i < auxiliariesNumber; i++) {
-
-            var auxiliaryCoordinates = {
-                x1: auxiliariesStart + (this.info.config.gridSize * i),
-                y1: 0,
-                x2: auxiliariesStart + (this.info.config.gridSize * i),
-                y2: this.info.rootSvg.height * 3
-            };
-
-            var auxiliary = this.svgModels.getLine(auxiliaryCoordinates, this.info.styles.gridAuxiliaryStyle, 'grid_v_auxiliary_' + i);
-
-            this.info.layers.grid.showElement(auxiliary);
-
-        }
-
-    },
-
+    /*
+     Show every omega element
+     */
     setOmega: function() {
 
         var self = this;
@@ -211,6 +195,9 @@ var p = {
 
     },
 
+    /*
+     Sets listeners for user interaction
+     */
     setSvgElementListeners: function() {
         this.info.rootSvg.element.mousedown(_.bind(this.captureMouseDown, this));
         this.info.rootSvg.element.mouseup(_.bind(this.captureMouseUp, this));
@@ -218,6 +205,9 @@ var p = {
         this.info.rootSvg.element.bind('mousewheel', _.bind(this.captureMouseWheel, this));
     },
 
+    /*
+     Triggers the active tool function for mouse down action
+     */
     captureMouseDown: function(event) {
 
         this.display();
@@ -225,12 +215,18 @@ var p = {
         this.activeTool.mouseDown();
     },
 
+    /*
+     Triggers the active tool function for mouse up action
+     */
     captureMouseUp: function(event) {
 
         this.display();
         this.activeTool.mouseUp();
     },
 
+    /*
+     Triggers the active tool function for mouse move action
+     */
     captureMouseMove: function(event) {
 
         var moveCoordinates = {
@@ -245,6 +241,9 @@ var p = {
         this.activeTool.mouseMove();
     },
 
+    /*
+     Triggers the active tool function for wheel action
+     */
     captureMouseWheel: function(event) {
 
         if (event.originalEvent.wheelDeltaY < 0) {
@@ -256,58 +255,77 @@ var p = {
 
     },
 
+    /*
+     Triggers the active tool function for wheel down action
+     */
     captureMouseWheelDown: function() {
 
         this.explorer.wheelDown();
 
     },
 
+    /*
+     Triggers the active tool function for wheel down action
+     */
     captureMouseWheelUp: function() {
 
         this.explorer.wheelUp();
 
     },
 
+    fixCoordinatesDecimals: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        return Math.round(value * (1/zoom)) / (1/zoom);
+    },
+
+    formatCoordinates: function(value) {
+
+        var zoom = Number("1E" + this.info.interaction.grid.zoom);
+
+        if (value == 0) {
+            return 0;
+        } else if (zoom > 1000 || zoom < (1/10000)) {
+            return this.fixCoordinatesDecimals(value).toExponential(0);
+        } else {
+            return this.fixCoordinatesDecimals(value);
+        }
+
+    },
+
+    /*
+     Transforms layer coordinates to omega coordinates
+     */
     getOmegaCoordinates: function(layerCoordinates) {
 
-        var zoomSizeUnitFactor = Math.pow(
-                (
-                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
-                    1 / this.info.config.zoom.factor :
-                        this.info.config.zoom.factor
-                ),
-                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
-            ) /
-            this.info.config.gridSize *
-            this.info.config.gridUnit;
+        var x = Number(((layerCoordinates.x - this.info.interaction.origin.x) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+        var y = Number(((this.info.interaction.origin.y - layerCoordinates.y) * this.info.interaction.scale.omega / this.info.interaction.scale.layer).toExponential(3));
+
+        var zoom = this.info.interaction.grid.zoom;
 
         return {
-            x: ((layerCoordinates.x - this.info.interaction.origin.x) * zoomSizeUnitFactor).toFixed(this.info.config.precision),
-            y: (( - layerCoordinates.y + this.info.interaction.origin.y) * zoomSizeUnitFactor).toFixed(this.info.config.precision)
+            x: (zoom > 3 || zoom < -3) ? x.toExponential() : x,
+            y: (zoom > 3 || zoom < -3) ? y.toExponential() : y
         };
 
     },
 
+    /*
+     Transforms omega coordinates to layer coordinates
+     */
     getLayerCoordinates: function(omegaCoordinates) {
 
-        var zoomSizeUnitFactor = Math.pow(
-                (
-                    (this.info.interaction.zoom.scale > this.info.config.zoom.defaultScale) ?
-                    1 / this.info.config.zoom.factor :
-                        this.info.config.zoom.factor
-                ),
-                Math.abs(this.info.interaction.zoom.scale - this.info.config.zoom.defaultScale)
-            ) /
-            this.info.config.gridSize *
-            this.info.config.gridUnit;
-
         return {
-            x: this.info.interaction.origin.x + (omegaCoordinates.x / zoomSizeUnitFactor),
-            y: this.info.interaction.origin.y - (omegaCoordinates.y / zoomSizeUnitFactor)
+            x: omegaCoordinates.x * (this.info.interaction.origin.x - this.info.interaction.scale.layer) / this.info.interaction.scale.omega,
+            y: omegaCoordinates.y * (this.info.interaction.origin.y - this.info.interaction.scale.layer) / this.info.interaction.scale.omega
         };
 
     },
 
+    /*
+     Starts the tools ans sets the initial one (explorer)
+     */
     startTools: function() {
 
         this.explorer = this.svgTools.getTool('explorer', this);
@@ -318,18 +336,23 @@ var p = {
 
     },
 
+    /*
+     Sets given tool
+     */
     setTool: function(tool) {
 
         this.activeTool = this[tool];
 
     },
 
+    /*
+     Moves the origin the the center of the layer
+     */
     toOrigin: function() {
 
         this.info.interaction.origin.x = this.info.rootSvg.width * 1.5;
         this.info.interaction.origin.y = this.info.rootSvg.height * 1.5;
-        this.info.interaction.zoom.level = 4;
-        this.info.interaction.zoom.factor = 0.0001;
+        this.info.interaction.zoom.scale = 1;
 
         this.info.layers.grid.refresh();
         this.info.layers.omega.refresh();
@@ -337,14 +360,21 @@ var p = {
 
     },
 
+    /*
+     Provisional
+     Displays basic information
+     */
     display: function() {
         $('#svg_move_x').html('x: ' + this.getOmegaCoordinates(this.info.interaction.move).x);
         $('#svg_move_y').html('y: ' + this.getOmegaCoordinates(this.info.interaction.move).y);
         $('#svg_origin_x').html('x: ' + this.info.interaction.origin.x);
         $('#svg_origin_y').html('y: ' + this.info.interaction.origin.y);
-        $('#svg_zoom_scale').html('level: ' + this.info.interaction.zoom.scale);
+        $('#svg_zoom_scale').html('scale: ' + this.info.interaction.scale.omega + ':' + this.info.interaction.scale.layer);
     },
 
+    /*
+     Creates an svg element with its namespace
+     */
     createElement: function(tag, id) {
 
         var element = document.createElementNS('http://www.w3.org/2000/svg', tag);
@@ -356,16 +386,25 @@ var p = {
         return element;
     },
 
+    /*
+     Displays an element inside the given element
+     */
     showElement: function(root, element) {
 
         document.getElementById(root).appendChild(element);
 
     },
 
+    /*
+     Shortcut for getElementById
+     */
     getElement: function(id) {
         return document.getElementById(id);
     },
 
+    /*
+     Removes every element inside the given element (by id)
+     */
     emptyElement: function(id) {
 
         while (document.getElementById(id).hasChildNodes()) {
@@ -376,11 +415,12 @@ var p = {
 
 };
 
-function SvgService(svgModels, svgTools, svgLayer) {
+function SvgService(svgModels, svgTools, svgLayer, svgGrid) {
 
     this.svgModels = svgModels;
     this.svgTools = svgTools;
     this.svgLayer = svgLayer;
+    this.svgGrid = svgGrid;
 
     this.init();
 
@@ -389,7 +429,7 @@ function SvgService(svgModels, svgTools, svgLayer) {
 SvgService.prototype = {
 
     init: function () {
-        p.init(this.svgModels, this.svgTools, this.svgLayer);
+        p.init(this.svgModels, this.svgTools, this.svgLayer, this.svgGrid);
     },
 
     start: function(svgContainer, prefs) {
