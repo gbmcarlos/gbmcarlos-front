@@ -1,4 +1,3 @@
-#Credit Card Widget
 
 ##Setup
 
@@ -21,5 +20,4 @@ Then from then on in the future when working on the project you simply run `gulp
 
 ##Bookmarks
 - Local   http://localhost:3000/
-- Dev     http://widgets.dev.compareglobal.net/creditcard/
-- Live    http://www.moneyhero.com.hk/en/credit-card/
+
